@@ -1,0 +1,1443 @@
+[
+  {
+    "description": "aluminium ion ",
+    "residue_name": "AL3P",
+    "atom_names": [
+      "AL3P"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "barium ion - CHARMM",
+    "residue_name": "BAR",
+    "atom_names": [
+      "BAR"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "bromide ion",
+    "residue_name": "BR",
+    "atom_names": [
+      "BR"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "bromide ion",
+    "residue_name": "BR-",
+    "atom_names": [
+      "BR"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "calcium ion",
+    "residue_name": "CA",
+    "atom_names": [
+      "CA"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "calcium ion",
+    "residue_name": "CA2+",
+    "atom_names": [
+      "CA"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "calcium ion",
+    "residue_name": "CAL",
+    "atom_names": [
+      "CAL"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "cadmuim II cation - CHARMM",
+    "residue_name": "CD2",
+    "atom_names": [
+      "CD"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "cesium ion - CHARMM",
+    "residue_name": "CES",
+    "atom_names": [
+      "CES"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "copper ion",
+    "residue_name": "CU",
+    "atom_names": [
+      "CU"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "copper ion",
+    "residue_name": "CU1",
+    "atom_names": [
+      "CU"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "copper ion",
+    "residue_name": "CU1+",
+    "atom_names": [
+      "CU1+"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "copper ion",
+    "residue_name": "CU2+",
+    "atom_names": [
+      "CU"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "CLA",
+    "atom_names": [
+      "CLA"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "CL",
+    "atom_names": [
+      "CL"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "CL-",
+    "atom_names": [
+      "CL"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "Cl-",
+    "atom_names": [
+      "Cl-"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "CL",
+    "atom_names": [
+      "CA"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "caesium ion",
+    "residue_name": "CS",
+    "atom_names": [
+      "CS"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "caesium ion",
+    "residue_name": "Cs+",
+    "atom_names": [
+      "Cs"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "fluoride ion",
+    "residue_name": "F",
+    "atom_names": [
+      "F"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "fluoride ion",
+    "residue_name": "F-",
+    "atom_names": [
+      "F"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "H2PO4 ion - CHARMM",
+    "residue_name": "H2PO",
+    "atom_names": [
+      "P",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H1",
+      "H2"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "H3PO4 ion - CHARMM",
+    "residue_name": "H3PO",
+    "atom_names": [
+      "P",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H1",
+      "H2",
+      "H3"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "HPO4 ion - CHARMM",
+    "residue_name": "HPO4",
+    "atom_names": [
+      "P",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "H2SO4 ion - CHARMM",
+    "residue_name": "H2SO",
+    "atom_names": [
+      "S",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H1",
+      "H2"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "HSO4 ion - CHARMM",
+    "residue_name": "HSO4",
+    "atom_names": [
+      "S",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "hydrogen peroxide - CHARMM",
+    "residue_name": "H2O2",
+    "atom_names": [
+      "HP1",
+      "OP1",
+      "OP2",
+      "HP2"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "iodide ion",
+    "residue_name": "I",
+    "atom_names": [
+      "I"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "iodide ion",
+    "residue_name": "I-",
+    "atom_names": [
+      "I"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "big positive ion",
+    "residue_name": "IB+",
+    "atom_names": [
+      "IB"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "potassium ion",
+    "residue_name": "K",
+    "atom_names": [
+      "K"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "potassium ion",
+    "residue_name": "K+",
+    "atom_names": [
+      "K"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "lithium ion",
+    "residue_name": "LI",
+    "atom_names": [
+      "LI"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "lithium ion",
+    "residue_name": "LI+",
+    "atom_names": [
+      "LI"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "lithium ion",
+    "residue_name": "LIT",
+    "atom_names": [
+      "LIT"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "magnesium ion",
+    "residue_name": "MG",
+    "atom_names": [
+      "MG"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "magnesium ion",
+    "residue_name": "MG2+",
+    "atom_names": [
+      "MG"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "NA",
+    "atom_names": [
+      "NA"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "NAs",
+    "atom_names": [
+      "NA"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "NA+",
+    "atom_names": [
+      "NA"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "Na+",
+    "atom_names": [
+      "Na+"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "ammonium",
+    "residue_name": "NH4",
+    "atom_names": [
+      "HZ1",
+      "NZ",
+      "HZ2",
+      "HZ3",
+      "HZ4"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "hydroxide ion",
+    "residue_name": "OH",
+    "atom_names": [
+      "O1",
+      "H1"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "plutonium ion",
+    "residue_name": "PU3P",
+    "atom_names": [
+      "PU3P"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "potassium ion",
+    "residue_name": "POT",
+    "atom_names": [
+      "POT"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "pO4 ion - CHARMM",
+    "residue_name": "PO4",
+    "atom_names": [
+      "P",
+      "O1",
+      "O2",
+      "O3",
+      "O4"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "rubidium ion",
+    "residue_name": "RB",
+    "atom_names": [
+      "RB"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "rubidium ion - CHARMM",
+    "residue_name": "RUB",
+    "atom_names": [
+      "RUB"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "rubidium ion",
+    "residue_name": "Rb+",
+    "atom_names": [
+      "Rb"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "SOD",
+    "atom_names": [
+      "SOD"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "SO4 ion - CHARMM",
+    "residue_name": "SO4",
+    "atom_names": [
+      "S",
+      "O1",
+      "O2",
+      "O3",
+      "O4"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "zinc ion",
+    "residue_name": "ZN",
+    "atom_names": [
+      "ZN"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "zinc ion",
+    "residue_name": "ZN2",
+    "atom_names": [
+      "ZN"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "zinc ion",
+    "residue_name": "ZN2+",
+    "atom_names": [
+      "ZN"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "zinc ion - CHARMM",
+    "residue_name": "ZN2",
+    "atom_names": [
+      "ZN2"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "calcium ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "CA"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "chloride ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "CL-"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "chloride ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "CL"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "chloride ion - CG model with MARTINI",
+    "residue_name": "Cl_s",
+    "atom_names": [
+      "Cl_s"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "potassium ion - CG model with MARTINI",
+    "residue_name": "K_s",
+    "atom_names": [
+      "K_s"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "sodium ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "NA+"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "sodium ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "NA"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "choloneion ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "NC3"
+    ],
+    "family": "ion"
+  },
+  {
+    "description": "water TIP3P solvant",
+    "residue_name": "TIP3",
+    "atom_names": [
+      "OH2"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "water TIP3P solvant",
+    "residue_name": "TIP3",
+    "atom_names": [
+      "OW",
+      "HW1",
+      "HW2"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "water TIP3P solvant",
+    "residue_name": "TIP3",
+    "atom_names": [
+      "OH2",
+      "H1",
+      "H2"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "water TIP3P solvant",
+    "residue_name": "SOL",
+    "atom_names": [
+      "OH2",
+      "H1",
+      "H2"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "water TIP3P/spce solvant",
+    "residue_name": "SOL",
+    "atom_names": [
+      "OW",
+      "HW1",
+      "HW2"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "water TIP4P/tip4pew solvant",
+    "residue_name": "SOL",
+    "atom_names": [
+      "OW1",
+      "HW2",
+      "HW3",
+      "MW4"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "water TIP4P/tip4pew solvant",
+    "residue_name": "SOL",
+    "atom_names": [
+      "OW",
+      "HW1",
+      "HW2",
+      "MW"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "water TIP5P/tip5pe solvant",
+    "residue_name": "SOL",
+    "atom_names": [
+      "OW",
+      "HW1",
+      "HW2",
+      "LP1",
+      "LP2"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "urea solvant",
+    "residue_name": "URE",
+    "atom_names": [
+      "C",
+      "O",
+      "N1",
+      "H11",
+      "H12",
+      "N2",
+      "H21",
+      "H22"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant methanol/OPLS",
+    "residue_name": "MET",
+    "atom_names": [
+      "C",
+      "H",
+      "H",
+      "H",
+      "OA",
+      "HO"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant methanol",
+    "residue_name": "MET",
+    "atom_names": [
+      "C",
+      "H1",
+      "H2",
+      "H3",
+      "OH",
+      "HO"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant methanol",
+    "residue_name": "MeOH",
+    "atom_names": [
+      "Me1",
+      "O2",
+      "H3"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant methanol",
+    "residue_name": "MOH",
+    "atom_names": [
+      "C",
+      "H",
+      "H",
+      "H",
+      "OA",
+      "HO"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant ethanol/OPLS",
+    "residue_name": "ETH",
+    "atom_names": [
+      "C",
+      "H",
+      "H",
+      "H",
+      "C",
+      "H",
+      "H",
+      "OA",
+      "HO"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant ethanol",
+    "residue_name": "ETH",
+    "atom_names": [
+      "C",
+      "H1",
+      "H2",
+      "OH",
+      "HO",
+      "C1",
+      "C1",
+      "H3",
+      "H4",
+      "H5"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant propanol/OPLS",
+    "residue_name": "POL",
+    "atom_names": [
+      "C",
+      "H",
+      "H",
+      "H",
+      "C",
+      "H",
+      "H",
+      "C",
+      "H",
+      "H",
+      "OA",
+      "HO"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "acetonitrile",
+    "residue_name": "ACN",
+    "atom_names": [
+      "C1",
+      "C2",
+      "N"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "water W - in CG model with MARTINI",
+    "residue_name": "W",
+    "atom_names": [
+      "W"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "water WF - in CG model with MARTINI",
+    "residue_name": "WF",
+    "atom_names": [
+      "WF"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant ethanol - CG model with MARTINI",
+    "residue_name": "EOL",
+    "atom_names": [
+      "COH"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant ether - CG model with MARTINI",
+    "residue_name": "ETH",
+    "atom_names": [
+      "CO"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "organic solvant butane - CG model with MARTINI",
+    "residue_name": "BUT",
+    "atom_names": [
+      "C1"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "acetamide - CG model with MARTINI",
+    "residue_name": "ACE",
+    "atom_names": [
+      "NCO"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "acetic - CG model with MARTINI",
+    "residue_name": "ACH",
+    "atom_names": [
+      "OOH"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "benzene - CG model with MARTINI",
+    "residue_name": "BENZ",
+    "atom_names": [
+      "R1",
+      "R2",
+      "R3"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "butanol - CG model with MARTINI",
+    "residue_name": "BOL",
+    "atom_names": [
+      "COH"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "chlorobenzene - CG model with MARTINI",
+    "residue_name": "CB",
+    "atom_names": [
+      "Cl",
+      "R2",
+      "R3"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "chloroform - CG model with MARTINI",
+    "residue_name": "CLF",
+    "atom_names": [
+      "CX"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "chloropropane - CG model with MARTINI",
+    "residue_name": "PRX",
+    "atom_names": [
+      "CX"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "cyclohexane - CG model with MARTINI",
+    "residue_name": "CHEX",
+    "atom_names": [
+      "R1",
+      "R2",
+      "R3"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "dodecane - CG model with MARTINI",
+    "residue_name": "DEC",
+    "atom_names": [
+      "C",
+      "C",
+      "C"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "glycerinetrioleate - CG model with MARTINI",
+    "residue_name": "TO",
+    "atom_names": [
+      "GLY",
+      "ES1",
+      "ES2",
+      "ES3",
+      "C1A",
+      "D2A",
+      "C3A",
+      "C4A",
+      "C1B",
+      "D2B",
+      "C3B",
+      "C4B",
+      "C1C",
+      "D2C",
+      "C3C",
+      "C4C"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "hexadecane - CG model with MARTINI",
+    "residue_name": "HD",
+    "atom_names": [
+      "C",
+      "C",
+      "C",
+      "C"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "methylethylsulfide - CG model with MARTINI",
+    "residue_name": "MES",
+    "atom_names": [
+      "CS"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "octadecane - CG model with MARTINI",
+    "residue_name": "OD",
+    "atom_names": [
+      "C",
+      "C",
+      "C",
+      "C",
+      "C"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "octane - CG model with MARTINI",
+    "residue_name": "OCT",
+    "atom_names": [
+      "C",
+      "C"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "octanol - CG model with MARTINI",
+    "residue_name": "OCO",
+    "atom_names": [
+      "PC",
+      "C"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "propane - CG model with MARTINI",
+    "residue_name": "POP",
+    "atom_names": [
+      "C"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "propanol - CG model with MARTINI",
+    "residue_name": "POL",
+    "atom_names": [
+      "COH"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "propanon - CG model with MARTINI",
+    "residue_name": "PON",
+    "atom_names": [
+      "CO"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "propylamine - CG model with MARTINI",
+    "residue_name": "PAM",
+    "atom_names": [
+      "CN"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "cis-octadecene - CG model with MARTINI",
+    "residue_name": "BUT",
+    "atom_names": [
+      "C",
+      "C",
+      "D",
+      "C",
+      "C"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "butanol - in CG model",
+    "residue_name": "C4OH",
+    "atom_names": [
+      "COH"
+    ],
+    "family": "solvent"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "DA",
+    "short_name": "A",
+    "family": "dna"
+  },
+  {
+    "description": "thymine",
+    "residue_name": "DT",
+    "short_name": "T",
+    "family": "dna"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "DC",
+    "short_name": "C",
+    "family": "dna"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "DG",
+    "short_name": "G",
+    "family": "dna"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "A",
+    "short_name": "A",
+    "family": "dna"
+  },
+  {
+    "description": "thymine",
+    "residue_name": "T",
+    "short_name": "T",
+    "family": "dna"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "C",
+    "short_name": "C",
+    "family": "dna"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "G",
+    "short_name": "G",
+    "family": "dna"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "DA5",
+    "short_name": "A",
+    "family": "dna"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "DA3",
+    "short_name": "A",
+    "family": "dna"
+  },
+  {
+    "description": "thymine",
+    "residue_name": "DT5",
+    "short_name": "T",
+    "family": "dna"
+  },
+  {
+    "description": "thymine",
+    "residue_name": "DT3",
+    "short_name": "T",
+    "family": "dna"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "DC5",
+    "short_name": "C",
+    "family": "dna"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "DC3",
+    "short_name": "C",
+    "family": "dna"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "DG5",
+    "short_name": "G",
+    "family": "dna"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "DG3",
+    "short_name": "G",
+    "family": "dna"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "RA",
+    "short_name": "A",
+    "family": "rna"
+  },
+  {
+    "description": "uracil",
+    "residue_name": "RU",
+    "short_name": "U",
+    "family": "rna"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "RC",
+    "short_name": "C",
+    "family": "rna"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "RG",
+    "short_name": "G",
+    "family": "rna"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "A",
+    "short_name": "A",
+    "family": "rna"
+  },
+  {
+    "description": "thymine",
+    "residue_name": "T",
+    "short_name": "T",
+    "family": "rna"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "C",
+    "short_name": "C",
+    "family": "rna"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "G",
+    "short_name": "G",
+    "family": "rna"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "RA5",
+    "short_name": "A",
+    "family": "rna"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "RA3",
+    "short_name": "A",
+    "family": "rna"
+  },
+  {
+    "description": "uracil",
+    "residue_name": "RU5",
+    "short_name": "U",
+    "family": "rna"
+  },
+  {
+    "description": "uracil",
+    "residue_name": "RU3",
+    "short_name": "U",
+    "family": "rna"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "RC5",
+    "short_name": "C",
+    "family": "rna"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "RC3",
+    "short_name": "C",
+    "family": "rna"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "RG5",
+    "short_name": "G",
+    "family": "rna"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "RG3",
+    "short_name": "G",
+    "family": "rna"
+  },
+  {
+    "description": "alanine",
+    "residue_name": "ALA",
+    "short_name": "A",
+    "family": "amino_acid"
+  },
+  {
+    "description": "cysteine",
+    "residue_name": "CYS",
+    "short_name": "C",
+    "family": "amino_acid"
+  },
+  {
+    "description": "aspartic acid",
+    "residue_name": "ASP",
+    "short_name": "D",
+    "family": "amino_acid"
+  },
+  {
+    "description": "glutamic acid",
+    "residue_name": "GLU",
+    "short_name": "E",
+    "family": "amino_acid"
+  },
+  {
+    "description": "phenylalanine",
+    "residue_name": "PHE",
+    "short_name": "F",
+    "family": "amino_acid"
+  },
+  {
+    "description": "glycine",
+    "residue_name": "GLY",
+    "short_name": "G",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HIS",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "isoleucine",
+    "residue_name": "ILE",
+    "short_name": "I",
+    "family": "amino_acid"
+  },
+  {
+    "description": "lysine",
+    "residue_name": "LYS",
+    "short_name": "K",
+    "family": "amino_acid"
+  },
+  {
+    "description": "leucine",
+    "residue_name": "LEU",
+    "short_name": "L",
+    "family": "amino_acid"
+  },
+  {
+    "description": "methionine",
+    "residue_name": "MET",
+    "short_name": "M",
+    "family": "amino_acid"
+  },
+  {
+    "description": "asparagine",
+    "residue_name": "ASN",
+    "short_name": "N",
+    "family": "amino_acid"
+  },
+  {
+    "description": "proline",
+    "residue_name": "PRO",
+    "short_name": "P",
+    "family": "amino_acid"
+  },
+  {
+    "description": "glutamine",
+    "residue_name": "GLN",
+    "short_name": "Q",
+    "family": "amino_acid"
+  },
+  {
+    "description": "arginine",
+    "residue_name": "ARG",
+    "short_name": "R",
+    "family": "amino_acid"
+  },
+  {
+    "description": "serine",
+    "residue_name": "SER",
+    "short_name": "S",
+    "family": "amino_acid"
+  },
+  {
+    "description": "threonine",
+    "residue_name": "THR",
+    "short_name": "T",
+    "family": "amino_acid"
+  },
+  {
+    "description": "valine",
+    "residue_name": "VAL",
+    "short_name": "V",
+    "family": "amino_acid"
+  },
+  {
+    "description": "tryptophan",
+    "residue_name": "TRP",
+    "short_name": "W",
+    "family": "amino_acid"
+  },
+  {
+    "description": "tyrosine",
+    "residue_name": "TYR",
+    "short_name": "Y",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HISA",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HISB",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HSE",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HSD",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HID",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HIE",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HIS1",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HIS2",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "aspartic acid",
+    "residue_name": "ASPH",
+    "short_name": "D",
+    "family": "amino_acid"
+  },
+  {
+    "description": "aspartic acid",
+    "residue_name": "ASH",
+    "short_name": "D",
+    "family": "amino_acid"
+  },
+  {
+    "description": "glutamic acid",
+    "residue_name": "GLUH",
+    "short_name": "E",
+    "family": "amino_acid"
+  },
+  {
+    "description": "glutamic acid",
+    "residue_name": "GLH",
+    "short_name": "E",
+    "family": "amino_acid"
+  },
+  {
+    "description": "lysine",
+    "residue_name": "LYSH",
+    "short_name": "K",
+    "family": "amino_acid"
+  },
+  {
+    "description": "lysine",
+    "residue_name": "LYN",
+    "short_name": "K",
+    "family": "amino_acid"
+  },
+  {
+    "description": "arginine",
+    "residue_name": "ARGN",
+    "short_name": "R",
+    "family": "amino_acid"
+  },
+  {
+    "description": "cysteine",
+    "residue_name": "CYSH",
+    "short_name": "C",
+    "family": "amino_acid"
+  },
+  {
+    "description": "cysteine",
+    "residue_name": "CYS1",
+    "short_name": "C",
+    "family": "amino_acid"
+  },
+  {
+    "description": "cysteine",
+    "residue_name": "CYS2",
+    "short_name": "C",
+    "family": "amino_acid"
+  },
+  {
+    "description": "histidine",
+    "residue_name": "HSP",
+    "short_name": "H",
+    "family": "amino_acid"
+  },
+  {
+    "description": "cysteine",
+    "residue_name": "CYSP",
+    "short_name": "C",
+    "family": "amino_acid"
+  }
+]

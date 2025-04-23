@@ -1,10 +1,9 @@
 import MDAnalysis as mda
 
-from .databases import read_molecule_database
 from ._typing import PathLike, UniverseLike
 
 
-__all__ = ["read_molecule_database", "read_topology", "number_of_atoms", "number_of_residues"]
+__all__ = ["read_topology", "number_of_atoms", "number_of_residues"]
 
 
 
