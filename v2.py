@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from loguru import logger
 from typing import Iterable
 
 import grodecoder as gd
@@ -26,31 +25,12 @@ class SmallMoleculeCount:
     number_of_residues: int = 0
 
 
-class NoDefinitionFoundError(Exception):
-    """Base class for all definition not found errors."""
-
-    def __init__(self, residue_name: str, atom_names: Iterable[str]):
-        self.residue_name = residue_name
-        self.atom_names = list(atom_names)
-
-
-class NoDefinitionWithMatchingAtoms(NoDefinitionFoundError):
-    """Exception raised when no definition is found for a given residue name."""
-
-    def __str__(self):
-        return f"No definition found for residue '{self.residue_name}' with atoms {self.atom_names}"
-
-
-class MultipleDefinitionsWithMatchingAtoms(NoDefinitionFoundError):
-    """Exception raised when multiple definitions are found for a given residue name."""
-
-    def __str__(self):
-        return f"Multiple definitions found for residue '{self.residue_name}' with atoms {self.atom_names}"
-
-
 def count_solvents_and_ions(universe) -> SmallMoleculeCount:
-    ion_or_solvent = set(DB.RESIDUE_DATABASE.ion_names) | set(DB.RESIDUE_DATABASE.solvent_names)
+    """Counts the number of solvent and ion residues and atoms in a universe.
 
+    Solvent and ion residues are identified using both the residue name and the atom names.
+    """
+    ion_or_solvent = DB.get_ion_names() | DB.get_solvent_names()
     counts = {}
     for residue_name in ion_or_solvent:
         selection = universe.select_atoms(f"resname {residue_name}")
@@ -58,21 +38,46 @@ def count_solvents_and_ions(universe) -> SmallMoleculeCount:
             continue
 
         for residue in selection.residues:
-            match = DB.find_residue(residue_name, residue.atoms.names)
+            match = DB.api.find_ion_or_solvent(residue_name, residue.atoms.names)
             key = str(match)
-            counts.setdefault(key, SmallMoleculeCount(match["description"], residue_name))
+            counts.setdefault(key, SmallMoleculeCount(match.description, residue_name))
             counts[key].number_of_atoms += len(residue.atoms)
             counts[key].number_of_residues += 1
 
     return list(counts.values())
 
 
+def select_protein(universe):
+    residue_names = DB.get_amino_acid_names()
+    return universe.select_atoms(f"resname {' '.join(residue_names)}")
+
 
 def main():
-    topology_path = "grodecoder/data/examples/1BRS.gro"
+    # topology_path = "grodecoder/data/examples/1BRS.gro"
+    topology_path = "grodecoder/data/examples/2MAT.pdb"
     universe = gd.read_topology(topology_path)
+    
+    protein = select_protein(universe)
+
+
+    ic(protein.atoms.segids)
+    ic(protein.atoms.chainIDs)
+    exit()
+
+    # If "SYSTEM" is in the segids, segment ids have to be guessed.
+    guess_chains = "SYSTEM" in protein.atoms.segids
+    if guess_chains:
+        print("Guessing chains...")
+        protein.guess_chains()
+    
+
+
+    exit()
+
+    start = time.perf_counter()
     c = count_solvents_and_ions(universe)
     ic(c)
+    print(f"method 1: {time.perf_counter() - start:.2f} seconds")
 
     exit()
 
