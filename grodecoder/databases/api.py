@@ -80,6 +80,26 @@ AMINO_ACIDS_DB: list[AminoAcid] = read_amino_acid_database()
 NUCLEOTIDES_DB: list[Nucleotide] = read_nucleotide_database()
 
 
+def get_ion_definitions() -> list[Ion]:
+    """Returns the definitions of the ions in the database."""
+    return ION_DB
+
+
+def get_solvent_definitions() -> list[Solvent]:
+    """Returns the definitions of the solvents in the database."""
+    return SOLVENT_DB
+
+
+def get_amino_acid_definitions() -> list[AminoAcid]:
+    """Returns the definitions of the amino acids in the database."""
+    return AMINO_ACIDS_DB
+
+
+def get_nucleotide_definitions() -> list[Nucleotide]:
+    """Returns the definitions of the nucleotides in the database."""
+    return NUCLEOTIDES_DB
+
+
 def get_ion_names() -> list[str]:
     """Returns the names of the ions in the database."""
     return set(ion.residue_name for ion in ION_DB)
@@ -134,12 +154,16 @@ RESIDUE_DATABASE = ResidueDatabase(
 )
 
 
+class ResidueNotFound(Exception):
+    """Raised when a residue with a given name and atom names is not found in the database."""
+
 class DuplicateResidue(Exception):
     """Raised when a residue with a given name and atom names is defined multiple times in the database."""
 
 
-
-def _find_using_atom_names(residue_name: str, atom_names: Iterable[str], database:list[Ion|Solvent]) -> Ion | Solvent | None:
+def _find_using_atom_names(
+    residue_name: str, atom_names: Iterable[str], database: list[Ion | Solvent]
+) -> Ion | Solvent | None:
     candidate_residues = [ion for ion in database if ion.residue_name == residue_name]
     if not candidate_residues:
         return None
@@ -151,7 +175,9 @@ def _find_using_atom_names(residue_name: str, atom_names: Iterable[str], databas
         raise ResidueNotFound(f"No residue '{residue_name}' found with atom names {actual_atom_names}")
 
     elif len(matching_residues) > 1:
-        raise DuplicateResidue(f"Multiple residues '{residue_name}' found with atom names {actual_atom_names}")
+        raise DuplicateResidue(
+            f"Multiple residues '{residue_name}' found with atom names {actual_atom_names}"
+        )
 
     return matching_residues[0]
 
