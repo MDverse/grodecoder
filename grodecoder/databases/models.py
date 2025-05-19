@@ -43,3 +43,13 @@ class AminoAcid(BaseModel):
     
     def __hash__(self):
         return hash(self.long_name)
+
+
+class Lipid(BaseModel):
+    """Model for a lipid."""
+
+    description: str
+    residue_name: str
+
+    def __hash__(self):
+        return hash(self.residue_name)

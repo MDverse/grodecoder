@@ -1,3 +1,4 @@
+from icecream import ic
 import itertools
 import json
 from collections import Counter
@@ -7,7 +8,8 @@ from typing import Iterable
 
 from loguru import logger
 
-from .models import Ion, Solvent, Nucleotide, AminoAcid
+from .models import Ion, Solvent, Nucleotide, AminoAcid, Lipid
+from .mad import Residue, ResidueFamily
 
 
 DATABASES_DATA_PATH = Path(__file__).parent.parent / "data" / "databases"
@@ -39,6 +41,9 @@ assert_database_exists(AMINO_ACIDS_DB_PATH)
 
 NUCLEOTIDES_DB_PATH = DATABASES_DATA_PATH / "nucleotides.json"
 assert_database_exists(NUCLEOTIDES_DB_PATH)
+
+MAD_DB_PATH = DATABASES_DATA_PATH / "mad_database.json"
+assert_database_exists(MAD_DB_PATH)
 
 
 def _read_database[ModelType](path: Path, model: ModelType) -> list[ModelType]:
@@ -74,10 +79,22 @@ def read_nucleotide_database() -> list[Nucleotide]:
     return _read_database(NUCLEOTIDES_DB_PATH, Nucleotide)
 
 
+def read_mad_database() -> list[Residue]:
+    """Reads the MAD database and returns a list of residues."""
+    return _read_database(MAD_DB_PATH, Residue)
+
+
 ION_DB: list[Ion] = read_ion_database()
 SOLVENT_DB: list[Solvent] = read_solvent_database()
 AMINO_ACIDS_DB: list[AminoAcid] = read_amino_acid_database()
 NUCLEOTIDES_DB: list[Nucleotide] = read_nucleotide_database()
+
+MAD_DB: list[Residue] = read_mad_database()
+LIPID_DB: list[Lipid] = [
+    Lipid(description=item.name, residue_name=item.alias)
+    for item in MAD_DB
+    if item.family == ResidueFamily.LIPID
+]
 
 
 def get_ion_definitions() -> list[Ion]:
@@ -100,6 +117,11 @@ def get_nucleotide_definitions() -> list[Nucleotide]:
     return NUCLEOTIDES_DB
 
 
+def get_lipid_definitions() -> list[Lipid]:
+    """Returns the definitions of the lipids in the database."""
+    return LIPID_DB
+
+
 def get_ion_names() -> list[str]:
     """Returns the names of the ions in the database."""
     return set(ion.residue_name for ion in ION_DB)
@@ -118,6 +140,11 @@ def get_amino_acid_names() -> list[str]:
 def get_nucleotide_names() -> list[str]:
     """Returns the names of the nucleotides in the database."""
     return set(nucleotide.residue_name for nucleotide in NUCLEOTIDES_DB)
+
+
+def get_lipid_names() -> list[str]:
+    """Returns the names of the lipids in the database."""
+    return set(lipid.residue_name for lipid in LIPID_DB)
 
 
 @dataclass(frozen=True)
@@ -146,16 +173,17 @@ class ResidueDatabase:
                 )
 
 
-RESIDUE_DATABASE = ResidueDatabase(
-    ions=ION_DB,
-    solvents=SOLVENT_DB,
-    amino_acids=AMINO_ACIDS_DB,
-    nucleotides=NUCLEOTIDES_DB,
-)
+# RESIDUE_DATABASE = ResidueDatabase(
+#     ions=ION_DB,
+#     solvents=SOLVENT_DB,
+#     amino_acids=AMINO_ACIDS_DB,
+#     nucleotides=NUCLEOTIDES_DB,
+# )
 
 
 class ResidueNotFound(Exception):
     """Raised when a residue with a given name and atom names is not found in the database."""
+
 
 class DuplicateResidue(Exception):
     """Raised when a residue with a given name and atom names is defined multiple times in the database."""

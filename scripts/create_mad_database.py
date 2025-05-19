@@ -1,4 +1,4 @@
-"""Creates the database of molecules based on CHARMM data."""
+"""Creates the database of molecules based on MAD data."""
 
 import json
 import sys
@@ -32,7 +32,7 @@ def main(output: Path):
 
     # Save the data to a JSON file.
     with open(output, "w") as f:
-        json.dump(db, f, indent=2)
+        json.dump([residue.model_dump() for residue in db], f, indent=2)
 
 
 if __name__ == "__main__":

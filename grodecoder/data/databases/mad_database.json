@@ -2,2485 +2,2485 @@
   {
     "name": "tetrahydrocannabinol",
     "alias": "THC",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/THC?version=1112458835848635523"
   },
   {
     "name": "N-arachidonyl-ethanolamide",
     "alias": "AEA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/AEA?version=1112460463279893643"
   },
   {
     "name": "BETA-CAROTENE",
     "alias": "Betacarotene",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/Betacarotene?version=1212118051651792745"
   },
   {
     "name": "BICARBONATE ION",
     "alias": "BCT",
-    "category": "Ions",
+    "family": "ION",
     "link": "https://mad.ibcp.fr/molecule/BCT?version=1212129411409002977"
   },
   {
     "name": "CHLOROPHYLL A",
     "alias": "CLA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CLA?version=1212152621201287408"
   },
   {
     "name": "CHLOROPHYLL B",
     "alias": "CLB",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CLB?version=1212155963328699096"
   },
   {
     "name": "FE2",
     "alias": "FE II ION",
-    "category": "Ions",
+    "family": "ION",
     "link": "https://mad.ibcp.fr/molecule/FE II ION?version=1212159100616245768"
   },
   {
     "name": "HEME",
     "alias": "HEM",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/HEM?version=1212161433268591832"
   },
   {
     "name": "NEOXANTHIN",
     "alias": "NEO",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/NEO?version=1212163389673973106"
   },
   {
     "name": "LUTEIN",
     "alias": "LUT",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/LUT?version=1212165548222981251"
   },
   {
     "name": "CA-MN4-O5 CLUSTER",
     "alias": "OEX",
-    "category": "Ions",
+    "family": "ION",
     "link": "https://mad.ibcp.fr/molecule/OEX?version=1212168449844605771"
   },
   {
     "name": "PHEOPHYTIN A",
     "alias": "PHOA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PHOA?version=1212170923136774624"
   },
   {
     "name": "VIOLAXANTHIN",
     "alias": "VIO",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/VIO?version=1212172755411088853"
   },
   {
     "name": "C60 fullerene model",
     "alias": "F16",
-    "category": "Synthetic nanoparticles",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/F16?version=668648874248280422"
   },
   {
     "name": "F216 fullerene model",
     "alias": "F216",
-    "category": "Synthetic nanoparticles",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/F216?version=668648929595887013"
   },
   {
     "name": "F576 fullerene model",
     "alias": "F576",
-    "category": "Synthetic nanoparticles",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/F576?version=668648982950769479"
   },
   {
     "name": "F64 fullerene model",
     "alias": "F64",
-    "category": "Synthetic nanoparticles",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/F64?version=668649067736146085"
   },
   {
     "name": "beta-octylglucoside",
     "alias": "BOG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/BOG?version=668649115321530171"
   },
   {
     "name": "dodecylmaltoside",
     "alias": "DDM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DDM?version=668649212940576077"
   },
   {
     "name": "dodecylphosphocholine",
     "alias": "DPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPC?version=668649261578224141"
   },
   {
     "name": "C12E5",
     "alias": "EO5",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/EO5?version=668649312440327501"
   },
   {
     "name": "C16:0/20:4 DAG (PADG)",
     "alias": "PADG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PADG?version=668649413114337716"
   },
   {
     "name": "C16:0/18:2 DAG (PIDG)",
     "alias": "PIDG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PIDG?version=668649619489911473"
   },
   {
     "name": "di-C16:1-C18:1 DAG (PODG)",
     "alias": "PODG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PODG?version=668649729272569588"
   },
   {
     "name": "C16:0/18:1 PIP (POP1)",
     "alias": "POP1",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POP1?version=668649773395767715"
   },
   {
     "name": "C16:0/18:1 PIP2 (POP2)",
     "alias": "POP2",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POP2?version=668649827535145058"
   },
   {
     "name": "C16:0/18:1 PIP3 (POP3)",
     "alias": "POP3",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POP3?version=668649883346256629"
   },
   {
     "name": "C16:0/18:1 PI (POPI)",
     "alias": "POPI",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POPI?version=668649936934207014"
   },
   {
     "name": "C16:0/22:6 DAG (PUDG)",
     "alias": "PUDG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PUDG?version=668650122876566839"
   },
   {
     "name": "di-C16:1-C18:1 DAG (PVDG)",
     "alias": "PVDG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PVDG?version=668650232220569322"
   },
   {
     "name": "C16:0/18:1 PIP (PVP1)",
     "alias": "PVP1",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PVP1?version=668650301696156306"
   },
   {
     "name": "C16:0/18:1 (PVP2)",
     "alias": "PVP2",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PVP2?version=668650368747361684"
   },
   {
     "name": "C16:0/18:1 PIP3 (PVP3)",
     "alias": "PVP3",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PVP3?version=668650424497699029"
   },
   {
     "name": "C16:0/18:1 PI (PVPI)",
     "alias": "PVPI",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PVPI?version=668650502645169299"
   },
   {
     "name": "sodium dodecyl sulfate",
     "alias": "SDS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/SDS?version=668650570536668284"
   },
   {
     "name": "ACETAMIDE",
     "alias": "ACE",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/ACE?version=668650736482101897"
   },
   {
     "name": "ACETIC",
     "alias": "ACH",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/ACH?version=668650783638253580"
   },
   {
     "name": "benzene",
     "alias": "BENZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BENZ?version=731653256098816415"
   },
   {
     "name": "BUTANE",
     "alias": "BUT",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/BUT?version=668650875376608640"
   },
   {
     "name": "BUTANOL",
     "alias": "BOL",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/BOL?version=668650921629506865"
   },
   {
     "name": "CHLOROBENZENE",
     "alias": "CB",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/CB?version=668650967190427962"
   },
   {
     "name": "CHLOROFORM",
     "alias": "CLF",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/CLF?version=668651018575588766"
   },
   {
     "name": "CHLOROPROPANE",
     "alias": "PRX",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/PRX?version=668651080866401572"
   },
   {
     "name": "cyclohexane",
     "alias": "CHEX",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CHEX?version=731653995429735177"
   },
   {
     "name": "DODECANE",
     "alias": "DEC",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/DEC?version=668651168759652497"
   },
   {
     "name": "ETHANOL",
     "alias": "EOL",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/EOL?version=668651213577725134"
   },
   {
     "name": "ETHER",
     "alias": "ETH",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/ETH?version=668651267740708257"
   },
   {
     "name": "GLYCERINETRIOLEATE",
     "alias": "TO",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/TO?version=668651315204567630"
   },
   {
     "name": "HEXADECANE",
     "alias": "HD",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/HD?version=668651367763667329"
   },
   {
     "name": "HYDRATEDCHLORIDEION",
     "alias": "CL-",
-    "category": "Ions",
+    "family": "ION",
     "link": "https://mad.ibcp.fr/molecule/CL-?version=668651415217154255"
   },
   {
     "name": "HYDRATEDSODIUMION",
     "alias": "NA+",
-    "category": "Ions",
+    "family": "ION",
     "link": "https://mad.ibcp.fr/molecule/NA+?version=668651463593514660"
   },
   {
     "name": "METHYLETHYLSULFIDE",
     "alias": "MES",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/MES?version=668651515143741037"
   },
   {
     "name": "OCTADECANE",
     "alias": "OD",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/OD?version=668651588996563229"
   },
   {
     "name": "OCTANE",
     "alias": "OCT",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/OCT?version=668651636157320414"
   },
   {
     "name": "OCTANOL",
     "alias": "OCO",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/OCO?version=668651681292590981"
   },
   {
     "name": "PROPANE",
     "alias": "POP",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/POP?version=668651721780239062"
   },
   {
     "name": "PROPANOL",
     "alias": "POL",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/POL?version=668651764605187322"
   },
   {
     "name": "PROPANON",
     "alias": "PON",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/PON?version=668651808176820633"
   },
   {
     "name": "PROPYLAMINE",
     "alias": "PAM",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/PAM?version=668651850850075228"
   },
   {
     "name": "cis-OCTADECENE",
     "alias": "ODE",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/ODE?version=668651897223169897"
   },
   {
     "name": "trans-OCTADECENE",
     "alias": "ODT",
-    "category": "Solvents",
+    "family": "SOLVENT",
     "link": "https://mad.ibcp.fr/molecule/ODT?version=668651949501128350"
   },
   {
     "name": "ALANINE",
     "alias": "ALA",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/ALA?version=668652034989975998"
   },
   {
     "name": "ARGININE",
     "alias": "ARG",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/ARG?version=668652123525536231"
   },
   {
     "name": "ARGININENEUTRALFORM",
     "alias": "ARG0",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/ARG0?version=668652212968857631"
   },
   {
     "name": "ASPARAGINE",
     "alias": "ASN",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/ASN?version=668652296660161571"
   },
   {
     "name": "ASPARTATE",
     "alias": "ASP",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/ASP?version=668652387647741417"
   },
   {
     "name": "ASPARTATENEUTRALFORM",
     "alias": "ASP0",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/ASP0?version=668652481910673508"
   },
   {
     "name": "CYSTEINE",
     "alias": "CYS",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/CYS?version=668652577400169406"
   },
   {
     "name": "GLUTAMATE",
     "alias": "GLU",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/GLU?version=668652670151254403"
   },
   {
     "name": "GLUTAMATENEUTRALFORM",
     "alias": "GLU0",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/GLU0?version=668652757317616638"
   },
   {
     "name": "GLUTAMINE",
     "alias": "GLN",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/GLN?version=668652834259219722"
   },
   {
     "name": "GLYCINE",
     "alias": "GLY",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/GLY?version=668652928858345376"
   },
   {
     "name": "HISTIDINE",
     "alias": "HIS",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/HIS?version=668653013378872685"
   },
   {
     "name": "HISTIDINECHARGED",
     "alias": "HISH",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/HISH?version=668653098289055729"
   },
   {
     "name": "ISOLEUCINE",
     "alias": "ILE",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/ILE?version=668653220306114683"
   },
   {
     "name": "LEUCINE",
     "alias": "LEU",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/LEU?version=668653350774642367"
   },
   {
     "name": "LYSINE",
     "alias": "LYS",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/LYS?version=668653478645794274"
   },
   {
     "name": "LYSINENEUTRALFORM",
     "alias": "LYS0",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/LYS0?version=668653604695510940"
   },
   {
     "name": "METHIONINE",
     "alias": "MET",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/MET?version=668653732632906210"
   },
   {
     "name": "PHENYLALANINE",
     "alias": "PHE",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/PHE?version=668653843679426660"
   },
   {
     "name": "PROLINE",
     "alias": "PRO",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/PRO?version=668653948241279167"
   },
   {
     "name": "SERINE",
     "alias": "SER",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/SER?version=668654066327243936"
   },
   {
     "name": "THREONINE",
     "alias": "THR",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/THR?version=668654165985227648"
   },
   {
     "name": "TRYPTOPHAN",
     "alias": "TRP",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/TRP?version=668654260195437888"
   },
   {
     "name": "TYROSINE",
     "alias": "TYR",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/TYR?version=668654345219183946"
   },
   {
     "name": "VALINE",
     "alias": "VAL",
-    "category": "Amino acids",
+    "family": "PROTEIN",
     "link": "https://mad.ibcp.fr/molecule/VAL?version=668654444188462883"
   },
   {
     "name": "CHOLINEION",
     "alias": "NC3+",
-    "category": "Ions",
+    "family": "ION",
     "link": "https://mad.ibcp.fr/molecule/NC3+?version=668654491773676646"
   },
   {
     "name": "HYDRATEDCALCIUMION",
     "alias": "CA+",
-    "category": "Ions",
+    "family": "ION",
     "link": "https://mad.ibcp.fr/molecule/CA+?version=668654538956185319"
   },
   {
     "name": "C20:4-C22:5 LPC (APC)",
     "alias": "APC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/APC?version=668654588626185333"
   },
   {
     "name": "C(d20:1/24:1) SM (BNSM)",
     "alias": "BNSM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/BNSM?version=668654640128035612"
   },
   {
     "name": "cyclic di-DPPC Bolalipid",
     "alias": "BOLA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/BOLA?version=668654682188702399"
   },
   {
     "name": "acyclic di-DPPC Bolalipid",
     "alias": "BOLB",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/BOLB?version=668654728517057387"
   },
   {
     "name": "cardiolipin (CL) 0-",
     "alias": "CDL0",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/CDL0?version=668654770679765002"
   },
   {
     "name": "cardiolipin (CL) 1-",
     "alias": "CDL1",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/CDL1?version=668654811694186135"
   },
   {
     "name": "cardiolipin (CL) 2-",
     "alias": "CDL2",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/CDL2?version=668654855185692333"
   },
   {
     "name": "C04:0-C06:0 LPC (CPC)",
     "alias": "CPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/CPC?version=668655028917868590"
   },
   {
     "name": "di-C20:4-C22:5 PA (DAPA)",
     "alias": "DAPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DAPA?version=731642048404925506"
   },
   {
     "name": "di-C20:4-C22:5 PE (DAPE)",
     "alias": "DAPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DAPE?version=731642189070609730"
   },
   {
     "name": "di-C20:4-C22:5 PG (DAPG)",
     "alias": "DAPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DAPG?version=731642258054992454"
   },
   {
     "name": "di-C20:4-C22:5 PS (DAPS)",
     "alias": "DAPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DAPS?version=731642326005147846"
   },
   {
     "name": "C(d20:1/20:0) GM1 (DBG1)",
     "alias": "DBG1",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DBG1?version=668655288281737527"
   },
   {
     "name": "di-C20:0-C22:0 PA (DBPA)",
     "alias": "DBPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DBPA?version=731642391037820291"
   },
   {
     "name": "di-C20:0-C22:0 PC (DBPC)",
     "alias": "DBPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DBPC?version=731642458592507863"
   },
   {
     "name": "di-C20:0-C22:0 PE (DBPE)",
     "alias": "DBPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DBPE?version=731642526520771754"
   },
   {
     "name": "di-C20:0-C22:0 PG (DBPG)",
     "alias": "DBPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DBPG?version=731642593040111071"
   },
   {
     "name": "di-C20:0-C22:0 PS (DBPS)",
     "alias": "DBPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DBPS?version=731642663536486865"
   },
   {
     "name": "C(d20:1/20:0) SM (DBSM)",
     "alias": "DBSM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DBSM?version=668655535435259969"
   },
   {
     "name": "di-C18:3 DGDG (DFGG)",
     "alias": "DFGG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DFGG?version=668655575667974684"
   },
   {
     "name": "di-C18:3 MGDG",
     "alias": "DFMG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DFMG?version=668655620725595922"
   },
   {
     "name": "di-C16:3-C18:3 PA (DFPA)",
     "alias": "DFPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DFPA?version=731642727218260152"
   },
   {
     "name": "di-C16:3-C18:3 PC (DFPC)",
     "alias": "DFPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DFPC?version=731642794459657515"
   },
   {
     "name": "di-C16:3-C18:3 PE (DFPE)",
     "alias": "DFPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DFPE?version=731642862676086571"
   },
   {
     "name": "di-C16:3-C18:3 PG (DFPG)",
     "alias": "DFPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DFPG?version=731642929310287529"
   },
   {
     "name": "di-C16:3-C18:3 PS (DFPS)",
     "alias": "DFPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DFPS?version=731642998555544050"
   },
   {
     "name": "di-C20:1-C22:1 PA (DGPA)",
     "alias": "DGPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DGPA?version=731643064150072286"
   },
   {
     "name": "di-C20:1-C22:1 PC (DGPC)",
     "alias": "DGPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DGPC?version=731643131692086458"
   },
   {
     "name": "di-C20:1-C22:1 PE (DGPE)",
     "alias": "DGPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DGPE?version=731643198583702468"
   },
   {
     "name": "di-C20:1-C22:1 PG (DGPG)",
     "alias": "DGPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DGPG?version=731643265642761170"
   },
   {
     "name": "di-C20:1-C22:1 PS (DGPS)",
     "alias": "DGPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DGPS?version=731643335199927301"
   },
   {
     "name": "di-C16:2-C18:2 PA (DIPA)",
     "alias": "DIPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DIPA?version=731643401772316175"
   },
   {
     "name": "di-C16:2-C18:2 PC (DIPC)",
     "alias": "DIPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DIPC?version=731643468016977451"
   },
   {
     "name": "di-C16:2-C18:2 PE (DIPE)",
     "alias": "DIPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DIPE?version=731643537917735119"
   },
   {
     "name": "di-C16:2-C18:2 PG (DIPG)",
     "alias": "DIPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DIPG?version=731643601535230700"
   },
   {
     "name": "di-C16:2-C18:2 PS (DIPS)",
     "alias": "DIPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DIPS?version=731643670391848400"
   },
   {
     "name": "di-C12:0-C14:0 PA (DLPA)",
     "alias": "DLPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DLPA?version=731643736402193848"
   },
   {
     "name": "di-C12:0-C14:0 PC (DLPC)",
     "alias": "DLPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DLPC?version=731643804033717033"
   },
   {
     "name": "di-C12:0-C14:0 PE (DLPE)",
     "alias": "DLPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DLPE?version=731643875845441647"
   },
   {
     "name": "di-C12:0-C14:0 PG (DLPG)",
     "alias": "DLPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DLPG?version=731643940761949802"
   },
   {
     "name": "di-C12:0-C14:0 PS (DLPS)",
     "alias": "DLPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DLPS?version=731644008401851225"
   },
   {
     "name": "di-C24:1-C26:1 PA (DNPA)",
     "alias": "DNPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DNPA?version=731644076343214872"
   },
   {
     "name": "di-C24:1-C26:1 PC (DNPC)",
     "alias": "DNPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DNPC?version=731644142710443743"
   },
   {
     "name": "di-C24:1-C26:1 PE (DNPE)",
     "alias": "DNPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DNPE?version=731644213037095085"
   },
   {
     "name": "di-C24:1-C26:1 PG (DNPG)",
     "alias": "DNPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DNPG?version=731644276802261011"
   },
   {
     "name": "di-C24:1-C26:1 PS (DNPS)",
     "alias": "DNPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DNPS?version=731644344220054531"
   },
   {
     "name": "di-C16:1-C18:1 PA (DOPA)",
     "alias": "DOPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DOPA?version=731644413834548318"
   },
   {
     "name": "di-C16:1-C18:1 PC (DOPC)",
     "alias": "DOPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DOPC?version=731644478371847111"
   },
   {
     "name": "C(d16:1/16:0) GS (DPGS)",
     "alias": "DPGS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPGS?version=668657055674171322"
   },
   {
     "name": "di-C16:0-C18:0 PIP (DPP1)",
     "alias": "DPP1",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPP1?version=668657137856989454"
   },
   {
     "name": "di-C16:0-C18:0 PIP2 (DPP2)",
     "alias": "DPP2",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPP2?version=668657180416782782"
   },
   {
     "name": "di-C16:0-C18:0 PA (DPPA)",
     "alias": "DPPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPPA?version=731644749687293485"
   },
   {
     "name": "di-C16:0-C18:0 PC (DPPC)",
     "alias": "DPPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPPC?version=731644814714693310"
   },
   {
     "name": "di-C16:0-C18:0 PE (DPPE)",
     "alias": "DPPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPPE?version=731644885967122130"
   },
   {
     "name": "di-C16:0-C18:0 PG (DPPG)",
     "alias": "DPPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPPG?version=731644949068639165"
   },
   {
     "name": "di-C16:0-C18:0 PI (DPPI)",
     "alias": "DPPI",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPPI?version=668657411654485917"
   },
   {
     "name": "di-C16:0-C18:0 PS (DPPS)",
     "alias": "DPPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPPS?version=731645017289186026"
   },
   {
     "name": "C(d18:1/18:0) SM (DPSM)",
     "alias": "DPSM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPSM?version=668657561138945370"
   },
   {
     "name": "di-C24:6-C26:6 PA (DRPA)",
     "alias": "DRPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DRPA?version=731645085799748788"
   },
   {
     "name": "di-C24:6-C26:6 PC (DRPC)",
     "alias": "DRPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DRPC?version=731645151792011590"
   },
   {
     "name": "di-C24:6-C26:6 PE (DRPE)",
     "alias": "DRPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DRPE?version=731645222449906117"
   },
   {
     "name": "di-C24:6-C26:6 PG (DRPG)",
     "alias": "DRPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DRPG?version=731645285645454177"
   },
   {
     "name": "di-C24:6-C26:6 PS (DRPS)",
     "alias": "DRPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DRPS?version=731645354206802823"
   },
   {
     "name": "di-C08:0-C10:0 PA (DTPA)",
     "alias": "DTPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DTPA?version=731645421959783160"
   },
   {
     "name": "di-C08:0-C10:0 PC (DTPC)",
     "alias": "DTPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DTPC?version=731645488455822429"
   },
   {
     "name": "di-C08:0-C10:0 PE (DTPE)",
     "alias": "DTPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DTPE?version=731645558510413867"
   },
   {
     "name": "di-C08:0-C10:0 PG (DTPG)",
     "alias": "DTPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DTPG?version=731645622120737704"
   },
   {
     "name": "di-C08:0-C10:0 PS (DTPS)",
     "alias": "DTPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DTPS?version=731645690138084373"
   },
   {
     "name": "di-C20:5-C22:6 PE (DUPE)",
     "alias": "DUPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DUPE?version=731645758258341873"
   },
   {
     "name": "di-C20:5-C22:6 PS (DUPS)",
     "alias": "DUPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DUPS?version=731645827516836296"
   },
   {
     "name": "di-C16:1-C18:1 PA (DVPA)",
     "alias": "DVPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DVPA?version=731645894163485976"
   },
   {
     "name": "di-C16:1-C18:1 PC (DVPC)",
     "alias": "DVPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DVPC?version=731645964567191660"
   },
   {
     "name": "di-C16:1-C18:1 PE (DVPE)",
     "alias": "DVPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DVPE?version=731646029671186981"
   },
   {
     "name": "di-C16:1-C18:1 PG (DVPG)",
     "alias": "DVPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DVPG?version=731646099817108097"
   },
   {
     "name": "di-C16:1-C18:1 PS (DVPS)",
     "alias": "DVPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DVPS?version=731646164204763647"
   },
   {
     "name": "di-C24:0-C26:0 PA (DXPA)",
     "alias": "DXPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DXPA?version=731646231073969865"
   },
   {
     "name": "di-C24:0-C26:0 PC (DXPC)",
     "alias": "DXPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DXPC?version=731646301079368888"
   },
   {
     "name": "di-C24:0-C26:0 PE (DXPE)",
     "alias": "DXPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DXPE?version=731646365920447157"
   },
   {
     "name": "di-C24:0-C26:0 PG (DXPG)",
     "alias": "DXPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DXPG?version=731646435111254254"
   },
   {
     "name": "di-C24:0-C26:0 PS (DXPS)",
     "alias": "DXPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DXPS?version=731646500614612020"
   },
   {
     "name": "C(d24:1/24:0) SM (DXSM)",
     "alias": "DXSM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DXSM?version=668659045494545822"
   },
   {
     "name": "di-C12:1-C14:1 PA (DYPA)",
     "alias": "DYPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DYPA?version=731646568930471886"
   },
   {
     "name": "di-C12:1-C14:1 PC (DYPC)",
     "alias": "DYPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DYPC?version=731646637003939704"
   },
   {
     "name": "di-C12:1-C14:1 PE (DYPE)",
     "alias": "DYPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DYPE?version=731646702423081300"
   },
   {
     "name": "di-C12:1-C14:1 PG (DYPG)",
     "alias": "DYPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DYPG?version=731646773166736677"
   },
   {
     "name": "di-C12:1-C14:1 PS (DYPS)",
     "alias": "DYPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DYPS?version=731646837256770679"
   },
   {
     "name": "C18:3/16:0 DGDG (FPGG)",
     "alias": "FPGG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/FPGG?version=668659357327217091"
   },
   {
     "name": "C18:3/16:0 MGDG (FPMG)",
     "alias": "FPMG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/FPMG?version=668659412479956908"
   },
   {
     "name": "C18:3/16:0 SQDG (FPSG)",
     "alias": "FPSG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/FPSG?version=668659486601770194"
   },
   {
     "name": "C16:2-C18:2 LPC (IPC)",
     "alias": "IPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/IPC?version=668659531903078199"
   },
   {
     "name": "C16:1(3t)/18:3 PG (JFPG)",
     "alias": "JFPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/JFPG?version=731646905930815039"
   },
   {
     "name": "C16:1(3t)/16:0 PG (JPPG)",
     "alias": "JPPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/JPPG?version=731646973065330552"
   },
   {
     "name": "C12:0-C14:0 LPC (LPC)",
     "alias": "LPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/LPC?version=668659703670108417"
   },
   {
     "name": "C12:0/16:0 PA (LPPA)",
     "alias": "LPPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/LPPA?version=731647039793559524"
   },
   {
     "name": "C12:0/16:0 PC (LPPC)",
     "alias": "LPPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/LPPC?version=731647111088292849"
   },
   {
     "name": "C12:0/16:0 PE (LPPE)",
     "alias": "LPPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/LPPE?version=731647173948757003"
   },
   {
     "name": "C12:0/16:0 PG (LPPG)",
     "alias": "LPPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/LPPG?version=731647241725066183"
   },
   {
     "name": "C12:0/16:0 PS (LPPS)",
     "alias": "LPPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/LPPS?version=731647309478051064"
   },
   {
     "name": "C16:1-C18:1 LPC (OPC)",
     "alias": "OPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/OPC?version=668660078695018599"
   },
   {
     "name": "C18:1/16:0 DGDG (OPGG)",
     "alias": "OPGG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/OPGG?version=668660156254194702"
   },
   {
     "name": "C18:1/16:0 MGDG (OPMG)",
     "alias": "OPMG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/OPMG?version=668660210379826930"
   },
   {
     "name": "C18:1-C16:0 PG (OPPG)",
     "alias": "OPPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/OPPG?version=731647378802474542"
   },
   {
     "name": "C18:1(9c)/16:0 SQDG (OPSG)",
     "alias": "OPSG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/OPSG?version=668660340133433393"
   },
   {
     "name": "C16:0/20:4 PA (PAPA)",
     "alias": "PAPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PAPA?version=731647446860974183"
   },
   {
     "name": "C16:0/20:4 PC (PAPC)",
     "alias": "PAPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PAPC?version=731647514270007230"
   },
   {
     "name": "C16:0/20:4 PE (PAPE)",
     "alias": "PAPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PAPE?version=731647580905895285"
   },
   {
     "name": "C16:0/20:4 PG (PAPG)",
     "alias": "PAPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PAPG?version=731647647627315040"
   },
   {
     "name": "C16:0/20:4 PI (PAPI)",
     "alias": "PAPI",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PAPI?version=668660636116369934"
   },
   {
     "name": "C16:0/20:4 PS (PAPS)",
     "alias": "PAPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PAPS?version=731647715392627466"
   },
   {
     "name": "C16:0/20:2 PC (PEPC)",
     "alias": "PEPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PEPC?version=731647782427250855"
   },
   {
     "name": "C16:0/20:1 PA (PGPA)",
     "alias": "PGPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PGPA?version=731647851732801511"
   },
   {
     "name": "C16:0/20:1 PC (PGPC)",
     "alias": "PGPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PGPC?version=731647917056890056"
   },
   {
     "name": "C16:0/20:1 PE (PGPE)",
     "alias": "PGPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PGPE?version=731647984367900098"
   },
   {
     "name": "C16:0/20:1 PG (PGPG)",
     "alias": "PGPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PGPG?version=731648050974138743"
   },
   {
     "name": "C16:0/20:1 PS (PGPS)",
     "alias": "PGPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PGPS?version=731648122749542565"
   },
   {
     "name": "C(d18:1/22:1) SM (PGSM)",
     "alias": "PGSM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PGSM?version=668661082364688931"
   },
   {
     "name": "C16:0/18:2 PA (PIPA)",
     "alias": "PIPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PIPA?version=731648187465017355"
   },
   {
     "name": "C16:0/18:2 PC (PIPC)",
     "alias": "PIPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PIPC?version=731648253205189864"
   },
   {
     "name": "C16:0/18:2 PE (PIPE)",
     "alias": "PIPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PIPE?version=731648321686168051"
   },
   {
     "name": "C16:0/18:2 PG (PIPG)",
     "alias": "PIPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PIPG?version=731648387075848744"
   },
   {
     "name": "C16:0/18:2 PI (PIPI)",
     "alias": "PIPI",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PIPI?version=668661321363508648"
   },
   {
     "name": "C16:0/18:2 PS (PIPS)",
     "alias": "PIPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PIPS?version=731648455084886264"
   },
   {
     "name": "C(d18:1/24:1) GM3 (PNG3)",
     "alias": "PNG3",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PNG3?version=731664674769807630"
   },
   {
     "name": "C(d18:1/24:1) SM (PNSM)",
     "alias": "PNSM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PNSM?version=668661538854003077"
   },
   {
     "name": "C16:0/18:1 PA (POPA)",
     "alias": "POPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POPA?version=731648524828129507"
   },
   {
     "name": "C16:0/18:1 PE (POPE)",
     "alias": "POPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POPE?version=731664759772855254"
   },
   {
     "name": "C(d18:1/18:1) SM (POSM)",
     "alias": "POSM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POSM?version=668661830515917184"
   },
   {
     "name": "C16:0/20:3 PE (PQPE)",
     "alias": "PQPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PQPE?version=731648871041012651"
   },
   {
     "name": "C16:0/20:3 PS (PQPS)",
     "alias": "PQPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PQPS?version=731648934563374121"
   },
   {
     "name": "C16:0/24:6 PA (PRPA)",
     "alias": "PRPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PRPA?version=731649001745701199"
   },
   {
     "name": "C16:0/24:6 PC (PRPC)",
     "alias": "PRPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PRPC?version=731649073402984461"
   },
   {
     "name": "C16:0/24:6 PE (PRPE)",
     "alias": "PRPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PRPE?version=731649147076521712"
   },
   {
     "name": "C16:0/24:6 PG (PRPG)",
     "alias": "PRPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PRPG?version=731649213541733878"
   },
   {
     "name": "C16:0/24:6 PS (PRPS)",
     "alias": "PRPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PRPS?version=731649280391482172"
   },
   {
     "name": "C16:0/22:6 PA (PUPA)",
     "alias": "PUPA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PUPA?version=731649345821985331"
   },
   {
     "name": "C16:0/22:6 PC (PUPC)",
     "alias": "PUPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PUPC?version=731649417648756164"
   },
   {
     "name": "C16:0/22:6 PE (PUPE)",
     "alias": "PUPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PUPE?version=731649480939611361"
   },
   {
     "name": "C16:0/22:6 PI (PUPI)",
     "alias": "PUPI",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PUPI?version=668662479851460155"
   },
   {
     "name": "C16:0/22:6 PS (PUPS)",
     "alias": "PUPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PUPS?version=731649547672583207"
   },
   {
     "name": "C(d18:1/18:1) SM (PVSM)",
     "alias": "PVSM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PVSM?version=668662583090601349"
   },
   {
     "name": "glyceryl trioleate",
     "alias": "TOG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/TOG?version=668662630141171648"
   },
   {
     "name": "C08:0-C10:0 LPC (TPC)",
     "alias": "TPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/TPC?version=668662678237808853"
   },
   {
     "name": "C20:5-C22:6 LPC (UPC)",
     "alias": "UPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/UPC?version=668662724290871739"
   },
   {
     "name": "C16:1-C18:1 LPC (VPC)",
     "alias": "VPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/VPC?version=668662765871205845"
   },
   {
     "name": "C(d24:1/24:1) SM (XNSM)",
     "alias": "XNSM",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/XNSM?version=668662957470001683"
   },
   {
     "name": "ALT_EPIGALLOCATECHINGALLATE",
     "alias": "EGCGN0",
-    "category": "Phytochemicals",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/EGCGN0?version=668663010407849019"
   },
   {
     "name": "CAPSAICIN",
     "alias": "CAPCG",
-    "category": "Phytochemicals",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CAPCG?version=668663056049327280"
   },
   {
     "name": "CURCUMIN",
     "alias": "CURCG",
-    "category": "Phytochemicals",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CURCG?version=668663109083160961"
   },
   {
     "name": "EPIGALLOCATECHINGALLATE",
     "alias": "EGCGCG",
-    "category": "Phytochemicals",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/EGCGCG?version=668663154862520705"
   },
   {
     "name": "GENISTEIN",
     "alias": "GENCG",
-    "category": "Phytochemicals",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/GENCG?version=668663200127966154"
   },
   {
     "name": "RESVERATROL",
     "alias": "RESCG",
-    "category": "Phytochemicals",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/RESCG?version=668663251129004216"
   },
   {
     "name": "PAMAM",
     "alias": "PAMAM",
-    "category": "Polymers",
+    "family": "POLYMER",
     "link": "https://mad.ibcp.fr/molecule/PAMAM?version=668663303041374638"
   },
   {
     "name": "CELLOBIOSE",
     "alias": "CELL",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/CELL?version=668663349977154563"
   },
   {
     "name": "FRUCTOSE",
     "alias": "FRUC",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/FRUC?version=668663397867788001"
   },
   {
     "name": "GLUCOSE",
     "alias": "GLUC",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/GLUC?version=668663454727958195"
   },
   {
     "name": "KOJIBIOSE",
     "alias": "KOJI",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/KOJI?version=668663514441935239"
   },
   {
     "name": "LAMINARABIOSE",
     "alias": "LAMI",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/LAMI?version=668663570380172533"
   },
   {
     "name": "LAMINARAHEPTABIOSE",
     "alias": "CURD",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/CURD?version=668663636962119591"
   },
   {
     "name": "MALTOHEPTAOSE",
     "alias": "AMYL",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/AMYL?version=668663698147069009"
   },
   {
     "name": "MALTOSE",
     "alias": "MALT",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/MALT?version=668663764552607390"
   },
   {
     "name": "NIGEROSE",
     "alias": "NIGE",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/NIGE?version=668663816549615901"
   },
   {
     "name": "SOPHOROSE",
     "alias": "SOPH",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/SOPH?version=668663885536974663"
   },
   {
     "name": "SUCROSE",
     "alias": "SUCR",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/SUCR?version=668663939595670012"
   },
   {
     "name": "TREHALOSE",
     "alias": "TREH",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/TREH?version=668663992411167080"
   },
   {
     "name": "HEXANOYLPHOSPHATIDYLCHOLINE",
     "alias": "HPC",
-    "category": "Surfactants",
+    "family": "DETERGENT",
     "link": "https://mad.ibcp.fr/molecule/HPC?version=668664066563928149"
   },
   {
     "name": "Bacteroides fragilis Lipid A",
     "alias": "BFRA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/BFRA?version=668664126362594852"
   },
   {
     "name": "Bordetella pertussis Lipid A",
     "alias": "BPER",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/BPER?version=668664194861244011"
   },
   {
     "name": "Campylobacter jejuni Lipid A",
     "alias": "CJEJ",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/CJEJ?version=668664247223832024"
   },
   {
     "name": "Chlamydia trachomatis Lipid A",
     "alias": "CTRA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/CTRA?version=668664311810038909"
   },
   {
     "name": "di-C16:2-C18:2(9-12c) trimethylammonium-propane (DITAP)",
     "alias": "DITAP",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DITAP?version=668664366548191433"
   },
   {
     "name": "di-C16:1-C18:1 trimethylammonium-propane (DOTAP)",
     "alias": "DOTAP",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DOTAP?version=668664432636432195"
   },
   {
     "name": "di-C16:0-C18:0 trimethylammonium-propane (DPTAP)",
     "alias": "DPTAP",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPTAP?version=668664487889655215"
   },
   {
     "name": "ergosterol",
     "alias": "ERGO",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/ERGO?version=668664533771903227"
   },
   {
     "name": "martini_v2.0_HBHT_01",
     "alias": "HBHT",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/HBHT?version=668664577601119417"
   },
   {
     "name": "Helicobacter pylori Lipid A",
     "alias": "HPYL",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/HPYL?version=668664623320225423"
   },
   {
     "name": "Pseudomonas aeruginosa PAO1 lipopolysaccharide",
     "alias": "LPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/LPS?version=668664664927719006"
   },
   {
     "name": "Neisseria meningitidis Lipid A",
     "alias": "NMEN",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/NMEN?version=668664708166848210"
   },
   {
     "name": "Pseudomonas aeruginosa Lipid A",
     "alias": "PARU",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PARU?version=668664750842369668"
   },
   {
     "name": "Porphyromonas gingivalis Lipid A",
     "alias": "PGIN",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PGIN?version=668664794893236610"
   },
   {
     "name": "Salmonella minnesota Lipid A",
     "alias": "SMIN",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/SMIN?version=668664834752409585"
   },
   {
     "name": "diploptene",
     "alias": "HDPT",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/HDPT?version=668664876546743467"
   },
   {
     "name": "hopane",
     "alias": "HHOP",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/HHOP?version=668664922567807133"
   },
   {
     "name": "hopanoid polycyclic moiety",
     "alias": "HOPR",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/HOPR?version=668664962208529210"
   },
   {
     "name": "di-C20:4-C22:5 PC (DAPC)",
     "alias": "DAPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DAPC?version=731672601500623480"
   },
   {
     "name": "di-C16:1-C18:1 PE (DOPE)",
     "alias": "DOPE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DOPE?version=731672689778665770"
   },
   {
     "name": "di-C16:1-C18:1 PG (DOPG)",
     "alias": "DOPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DOPG?version=731672774401184036"
   },
   {
     "name": "di-C16:1-C18:1 PS (DOPS)",
     "alias": "DOPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DOPS?version=731672858282480275"
   },
   {
     "name": "C16:0/18:1 PC (POPC)",
     "alias": "POPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POPC?version=731673614593789038"
   },
   {
     "name": "C16:0/18:1 PG (POPG)",
     "alias": "POPG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POPG?version=731673695953474367"
   },
   {
     "name": "C16:0/18:1 PS (POPS)",
     "alias": "POPS",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/POPS?version=731673779491245829"
   },
   {
     "name": "1-methylimidazole",
     "alias": "1MIMI",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/1MIMI?version=731652371657079594"
   },
   {
     "name": "2-methylpyridine",
     "alias": "2MPYR",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/2MPYR?version=731652438203913401"
   },
   {
     "name": "2-nitro-m-xylene",
     "alias": "2NIMX",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/2NIMX?version=731652509028400812"
   },
   {
     "name": "2-nitrotoluene",
     "alias": "2NITL",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/2NITL?version=731652575840591321"
   },
   {
     "name": "2.2'-bithiophene",
     "alias": "2T",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/2T?version=731652648785061881"
   },
   {
     "name": "3-hexyl-thiophene",
     "alias": "3HT",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/3HT?version=731652719968003227"
   },
   {
     "name": "3-propyl-thiophene",
     "alias": "3PT",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/3PT?version=731652784449857021"
   },
   {
     "name": "4-methylimidazole",
     "alias": "4MIMI",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/4MIMI?version=731652853971116915"
   },
   {
     "name": "4-nitroanisole",
     "alias": "4NIAN",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/4NIAN?version=731652919238754135"
   },
   {
     "name": "acetophenone",
     "alias": "ACPH",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/ACPH?version=731652986708537338"
   },
   {
     "name": "aniline",
     "alias": "ANIL",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/ANIL?version=731653055791374212"
   },
   {
     "name": "anthracene",
     "alias": "ANTH",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/ANTH?version=731653122017959177"
   },
   {
     "name": "benzaldehyde",
     "alias": "BEAL",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BEAL?version=731653191663369345"
   },
   {
     "name": "4-boromoanisole",
     "alias": "BRA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BRA?version=731653323549961654"
   },
   {
     "name": "bromobenzene",
     "alias": "BRBZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BRBZ?version=731653392485901737"
   },
   {
     "name": "1,3-benzenediol",
     "alias": "BZDOL",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BZDOL?version=731653457706202909"
   },
   {
     "name": "benzimidazole",
     "alias": "BZIM",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BZIM?version=731653528849769397"
   },
   {
     "name": "benzonitrile",
     "alias": "BZNI",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BZNI?version=731653592714138329"
   },
   {
     "name": "para-benzoquinone",
     "alias": "BZQU",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BZQU?version=731653664986790856"
   },
   {
     "name": "benzothiazole",
     "alias": "BZTA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BZTA?version=731653729481055352"
   },
   {
     "name": "benzotrifluoride",
     "alias": "BZTF",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BZTF?version=731653794361430581"
   },
   {
     "name": "benzothiophene",
     "alias": "BZTH",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/BZTH?version=731653865029522250"
   },
   {
     "name": "caffeine",
     "alias": "CAFF",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CAFF?version=731653928894901178"
   },
   {
     "name": "cyclohexene",
     "alias": "CHEXE",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CHEXE?version=731654064332414257"
   },
   {
     "name": "chlorobenzene",
     "alias": "CLBZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CLBZ?version=731654131330765462"
   },
   {
     "name": "chlorpropham",
     "alias": "CLPR",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CLPR?version=731654199650327972"
   },
   {
     "name": "2-chlorotoluene",
     "alias": "CLTL",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CLTL?version=731654266734507605"
   },
   {
     "name": "1-chloro-naphthalene",
     "alias": "CNAP",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CNAP?version=731654334145134618"
   },
   {
     "name": "cyclopropane",
     "alias": "CPR",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CPR?version=731654404249598121"
   },
   {
     "name": "cumene",
     "alias": "CUME",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CUME?version=731654470277108215"
   },
   {
     "name": "cyclopentane",
     "alias": "CYPE",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CYPE?version=731654537335715670"
   },
   {
     "name": "cyclopentanone",
     "alias": "CYPO",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CYPO?version=731654606627333728"
   },
   {
     "name": "cyclopentanol",
     "alias": "CYPOL",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/CYPOL?version=731654672159510333"
   },
   {
     "name": "1,2-dibromobenzene / 1,3-dibromobenzene",
     "alias": "DBRBZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/DBRBZ?version=731654742251515292"
   },
   {
     "name": "1,2-dichlorobenzene / 1,3-dichlorobenzene",
     "alias": "DCLBZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/DCLBZ?version=731654806667851994"
   },
   {
     "name": "1,4-dioxane",
     "alias": "DIOX",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/DIOX?version=731654873352755456"
   },
   {
     "name": "N,N-dimethylaniline",
     "alias": "DMAN",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/DMAN?version=731654942802473495"
   },
   {
     "name": "2,5-dimethyl-1,4-benzoquinone",
     "alias": "DMBZQ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/DMBZQ?version=731655007946942254"
   },
   {
     "name": "1,3-dioxolane",
     "alias": "DXLA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/DXLA?version=731655077577068831"
   },
   {
     "name": "ethyl-benzene",
     "alias": "EBEN",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/EBEN?version=731655142804070293"
   },
   {
     "name": "1-ethylnaphthalene",
     "alias": "ENAPH",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/ENAPH?version=731655210179495550"
   },
   {
     "name": "furan",
     "alias": "FURA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/FURA?version=731655279368591917"
   },
   {
     "name": "imidazole",
     "alias": "IMID",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/IMID?version=731655343209187753"
   },
   {
     "name": "indazole",
     "alias": "INDA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/INDA?version=731655411196389040"
   },
   {
     "name": "indole",
     "alias": "INDO",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/INDO?version=731655477636477943"
   },
   {
     "name": "iodobenzene",
     "alias": "IOBZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/IOBZ?version=731655544891000486"
   },
   {
     "name": "2-iodophenol",
     "alias": "IOPHE",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/IOPHE?version=731655613755363076"
   },
   {
     "name": "methyl-benzoate",
     "alias": "MBZOA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/MBZOA?version=731655679556134686"
   },
   {
     "name": "methylcyclopentane",
     "alias": "MCYPE",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/MCYPE?version=731655748808948495"
   },
   {
     "name": "mesitylene",
     "alias": "MESI",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/MESI?version=731655813412643720"
   },
   {
     "name": "3-methyl-1H-indole",
     "alias": "MIND",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/MIND?version=731655881248693735"
   },
   {
     "name": "1-methyl-indazole",
     "alias": "MINDA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/MINDA?version=731655951925792708"
   },
   {
     "name": "1-methyl-naphthalene",
     "alias": "MNAP",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/MNAP?version=731656017049147657"
   },
   {
     "name": "m-xylene",
     "alias": "MXYLE",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/MXYLE?version=731656087793476812"
   },
   {
     "name": "naphthalene",
     "alias": "NAPH",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/NAPH?version=731656153337328992"
   },
   {
     "name": "1,5-naphthyridine",
     "alias": "NAPY",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/NAPY?version=731656221019478191"
   },
   {
     "name": "N-boc-2-aminophenol",
     "alias": "NBAPH",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/NBAPH?version=731656287489951535"
   },
   {
     "name": "(4-(1,3-dimethyl-2,3-dihydro-1H-benzoimidazol-2-yl)phenyl)dimethylamine",
     "alias": "NDMBI",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/NDMBI?version=731656353993549670"
   },
   {
     "name": "nitrobenzene",
     "alias": "NIBZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/NIBZ?version=731656424683416274"
   },
   {
     "name": "ortho-methylanisole",
     "alias": "OMA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/OMA?version=731656489124742310"
   },
   {
     "name": "o-xylene",
     "alias": "OXYLE",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/OXYLE?version=731656556259336548"
   },
   {
     "name": "propyl-benzene",
     "alias": "PBEN",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PBEN?version=731656624135492781"
   },
   {
     "name": "propyl-benzoate",
     "alias": "PBZOA",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PBZOA?version=731656690810294761"
   },
   {
     "name": "para-cresol",
     "alias": "PCRE",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PCRE?version=731656760105936774"
   },
   {
     "name": "p-cymene",
     "alias": "PCYM",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PCYM?version=731656826091165224"
   },
   {
     "name": "phenol",
     "alias": "PHEN",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PHEN?version=731656894008557742"
   },
   {
     "name": "piperidine",
     "alias": "PIPER",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PIPER?version=731656960833007459"
   },
   {
     "name": "p-xylene",
     "alias": "PXYLE",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PXYLE?version=731657027075972971"
   },
   {
     "name": "pyridazine",
     "alias": "PYAZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PYAZ?version=731657095650735402"
   },
   {
     "name": "pyrrolidine",
     "alias": "PYLI",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PYLI?version=731657163416198705"
   },
   {
     "name": "pyrimidine",
     "alias": "PYMI",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PYMI?version=731657228771128039"
   },
   {
     "name": "pyridine",
     "alias": "PYRI",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PYRI?version=731657296211978478"
   },
   {
     "name": "pyrrole",
     "alias": "PYRR",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/PYRR?version=731657362790730244"
   },
   {
     "name": "quinole",
     "alias": "QUIN",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/QUIN?version=731657432132718776"
   },
   {
     "name": "styrene",
     "alias": "STYR",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/STYR?version=731657501690571555"
   },
   {
     "name": "1,2,4-trichlorobenzene",
     "alias": "TCLBZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/TCLBZ?version=731657567352672291"
   },
   {
     "name": "TEG-DMBI / (4-(1,3-dimethyl-2,3-dihydro-1H-benzoimidazol-2-yl)phenyl)TEG",
     "alias": "TDMBI",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/TDMBI?version=731657637848464113"
   },
   {
     "name": "tetracene",
     "alias": "TECE",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/TECE?version=731657701529920071"
   },
   {
     "name": "thiazole",
     "alias": "THAZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/THAZ?version=731657768691128686"
   },
   {
     "name": "tetrahydrofuran",
     "alias": "THF",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/THF?version=731657837749343918"
   },
   {
     "name": "thiophene",
     "alias": "THIO",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/THIO?version=731657903222563214"
   },
   {
     "name": "tetrahydropyran",
     "alias": "THP",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/THP?version=731657975683641692"
   },
   {
     "name": "thiophenol",
     "alias": "THPH",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/THPH?version=731658049035125739"
   },
   {
     "name": "thieno[2,3-c]pyridine",
     "alias": "THPY",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/THPY?version=731658114140969647"
   },
   {
     "name": "tetrahydrothiophene",
     "alias": "THT",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/THT?version=731658186586198270"
   },
   {
     "name": "toluene",
     "alias": "TOLU",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/TOLU?version=731658258879878996"
   },
   {
     "name": "methoxybenzene / anisole",
     "alias": "XBZ",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/XBZ?version=731658324220225469"
   },
   {
     "name": "1-methoxynaphthalene",
     "alias": "XNAPH",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/XNAPH?version=731658394200116906"
   },
   {
     "name": "C(d20:1/20:0) GM3 (DBG3)",
     "alias": "DBG3",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DBG3?version=731664193934397424"
   },
   {
     "name": "arachidonic (C20:4) / docosapentaenoic (C22:5) acid",
     "alias": "ACA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/ACA?version=731664968254401919"
   },
   {
     "name": "arachidonic (C20:4) / docosapentaenoic (C22:5) acid (unprotonated)",
     "alias": "ACN",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/ACN?version=731665009292467188"
   },
   {
     "name": "arachidic (C20:0) / behenic (C22:0) acid",
     "alias": "BCA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/BCA?version=731665050901715774"
   },
   {
     "name": "arachidic (C20:0) / behenic (C22:0) acid (unprotonated)",
     "alias": "BCN",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/BCN?version=731665094820310882"
   },
   {
     "name": "lauric (C12:0) / myristic (C14:0)",
     "alias": "LCA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/LCA?version=731665134533764634"
   },
   {
     "name": "lauric (C12:0) / myristic (C14:0) (unprotonated)",
     "alias": "LCN",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/LCN?version=731665177154355873"
   },
   {
     "name": "palmitoyl-CoA (unprotonated)",
     "alias": "PCN",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PCN?version=731665220080961330"
   },
   {
     "name": "docosahexaenoic (C22:6) acid (DHA)",
     "alias": "UCA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/UCA?version=731665262830327541"
   },
   {
     "name": "docosahexaenoic (C22:6) acid (DHA) (unprotonated)",
     "alias": "UCN",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/UCN?version=731665303957989938"
   },
   {
     "name": "lignoceroyl (C24:0) / hexacosanoic (C26:0) acid",
     "alias": "XCA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/XCA?version=731665344892244148"
   },
   {
     "name": "lignoceroyl (C24:0) / hexacosanoic (C26:0) acid (unprotonated)",
     "alias": "XCN",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/XCN?version=731665387547064579"
   },
   {
     "name": "cholate",
     "alias": "CHOA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/CHOA?version=731672353009308395"
   },
   {
     "name": "cholesterol",
     "alias": "CHOL",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/CHOL?version=731672437140964041"
   },
   {
     "name": "cholesteryl oleate",
     "alias": "CHYO",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/CHYO?version=731672520509276690"
   },
   {
     "name": "C(d18:1/18:0) GM1 (DPG1)",
     "alias": "DPG1",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPG1?version=731672943590408412"
   },
   {
     "name": "C(d18:1/18:0) GM3 (DPG3)",
     "alias": "DPG3",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPG3?version=731673024541941509"
   },
   {
     "name": "di-C16:0-C18:0 DGDG (DPGG)",
     "alias": "DPGG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPGG?version=731673105841099119"
   },
   {
     "name": "di-C16:0-C18:0 MGDG (DPMG)",
     "alias": "DPMG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPMG?version=731673194057135610"
   },
   {
     "name": "di-C16:0-C18:0 DPSG (DPSG)",
     "alias": "DPSG",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPSG?version=731673338484070452"
   },
   {
     "name": "C(d24:1/24:0) GM1 (DXG1)",
     "alias": "DXG1",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DXG1?version=731673378938484717"
   },
   {
     "name": "C(d24:1/24:0) GM3 (DXG3)",
     "alias": "DXG3",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DXG3?version=731673455362219483"
   },
   {
     "name": "C(d18:1/24:1) GM1 (PNG1)",
     "alias": "PNG1",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PNG1?version=731673539188554243"
   },
   {
     "name": "PALMITOYL PHOSPHATIDYLCHOLINE",
     "alias": "PPC",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PPC?version=731673865154289914"
   },
   {
     "name": "C(d24:1/24:1) GM1 (XNG1)",
     "alias": "XNG1",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/XNG1?version=731673950085920348"
   },
   {
     "name": "C(d24:1/24:1) GM3 (XNG3)",
     "alias": "XNG3",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/XNG3?version=731674032201302686"
   },
   {
     "name": "C(d24:1/24:0) CER (DXCE)",
     "alias": "DXCE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DXCE?version=731674076127774615"
   },
   {
     "name": "C(d18:1/24:1) CER (PNCE)",
     "alias": "PNCE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PNCE?version=731674116221359113"
   },
   {
     "name": "C(d24:1/24:1) CER (XNCE)",
     "alias": "XNCE",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/XNCE?version=731674158773642656"
   },
   {
     "name": "palmitoyl-CoA",
     "alias": "PCA",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/PCA?version=731674202431954400"
   },
   {
     "name": "Butanol",
     "alias": "C4OH",
-    "category": "Solvents, Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/C4OH?version=765802311302909677"
   },
   {
     "name": "Dexamethasone succinate",
     "alias": "DEXS",
-    "category": "Small molecule",
+    "family": "SMALL MOLECULE",
     "link": "https://mad.ibcp.fr/molecule/DEXS?version=813527547014997173"
   },
   {
     "name": "D-glucopyranose",
     "alias": "GLC",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/GLC?version=820709763960906070"
   },
   {
     "name": "beta-D-mannopyranose",
     "alias": "MAN",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/MAN?version=820712141140497900"
   },
   {
     "name": "beta-D-galactopyranose",
     "alias": "GAL",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/GAL?version=820713630936441255"
   },
   {
     "name": "beta-D-fructofuranose",
     "alias": "FRUF",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/FRUF?version=820714790353875909"
   },
   {
     "name": "beta-L-fucopyranose",
     "alias": "LFUC",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/LFUC?version=820716012466172123"
   },
   {
     "name": "beta-L-rhamnopyranose",
     "alias": "LRHA",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/LRHA?version=820717127155384620"
   },
   {
     "name": "beta-D-ribofuranose",
     "alias": "RIBF",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/RIBF?version=820718260164424136"
   },
   {
     "name": "beta-D-xylopyranose",
     "alias": "XYL",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/XYL?version=820719262384660064"
   },
   {
     "name": "myo-inositol",
     "alias": "INO",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/INO?version=820720161544095757"
   },
   {
     "name": "beta-D-glucuronic acid",
     "alias": "GLA",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/GLA?version=820722250154889681"
   },
   {
     "name": "beta-N-acetyl-D-glucosamine",
     "alias": "GYN",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/GYN?version=820723694702400373"
   },
   {
     "name": "beta-Lactose",
     "alias": "LAC",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/LAC?version=820730973224162929"
   },
   {
     "name": "Sucrose",
     "alias": "SUCR",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/SUCR?version=820731978778464743"
   },
   {
     "name": "Trehalose",
     "alias": "TREH",
-    "category": "Sugars",
+    "family": "CARBOHYDRATE",
     "link": "https://mad.ibcp.fr/molecule/TREH?version=820733112352696164"
   },
   {
     "name": "Monosialodihexosylganglioside",
     "alias": "DPG3",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/DPG3?version=838991444671996362"
   },
   {
     "name": "Globotriaosylceramide",
     "alias": "Gb3",
-    "category": "Lipids",
+    "family": "LIPID",
     "link": "https://mad.ibcp.fr/molecule/Gb3?version=838992590868495498"
   }
 ]
