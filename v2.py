@@ -9,9 +9,9 @@ import grodecoder.databases as DB
 
 # DEBUG
 import icecream
+icecream.install()
 import time
 
-icecream.install()
 
 
 # Import the "old" grodecoder for comparison.
@@ -155,11 +155,6 @@ def count_solvents_and_ions(universe: gd.UniverseLike):
 def count_lipids(universe: gd.UniverseLike):
     lipid_definitions = DB.get_lipid_definitions()
 
-    sel = universe.select_atoms("resname ADG")
-    ic(sel)
-
-
-    exit()
     counts = []
     for lipid in lipid_definitions:
         selection = universe.select_atoms(f"resname {lipid.residue_name}")
@@ -176,7 +171,6 @@ def count_lipids(universe: gd.UniverseLike):
             )
         )
 
-    ic(counts)
     return counts
 
 

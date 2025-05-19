@@ -53,6 +53,9 @@ class Residue(BaseModel):
     source: str
     family: ResidueFamily
 
+    def __hash__(self):
+        return hash((self.name, self.description, self.charge, self.family))
+
 
 # Maps topology file names to molecule families.
 TOPOLOGY_FILES = {

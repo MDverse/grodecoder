@@ -1,4 +1,3 @@
-from icecream import ic
 import itertools
 import json
 from collections import Counter
@@ -9,7 +8,9 @@ from typing import Iterable
 from loguru import logger
 
 from .models import Ion, Solvent, Nucleotide, AminoAcid, Lipid
-from .mad import Residue, ResidueFamily
+
+from . import mad
+from . import csml
 
 
 DATABASES_DATA_PATH = Path(__file__).parent.parent / "data" / "databases"
@@ -45,6 +46,8 @@ assert_database_exists(NUCLEOTIDES_DB_PATH)
 MAD_DB_PATH = DATABASES_DATA_PATH / "mad_database.json"
 assert_database_exists(MAD_DB_PATH)
 
+CSML_DB_PATH = DATABASES_DATA_PATH / "charmm_csml_database.json"
+assert_database_exists(CSML_DB_PATH)
 
 def _read_database[ModelType](path: Path, model: ModelType) -> list[ModelType]:
     """Reads a database file and returns a list of entries."""
@@ -79,9 +82,14 @@ def read_nucleotide_database() -> list[Nucleotide]:
     return _read_database(NUCLEOTIDES_DB_PATH, Nucleotide)
 
 
-def read_mad_database() -> list[Residue]:
+def read_mad_database() -> list[mad.Residue]:
     """Reads the MAD database and returns a list of residues."""
-    return _read_database(MAD_DB_PATH, Residue)
+    return _read_database(MAD_DB_PATH, mad.Residue)
+
+
+def read_csml_database() -> list[csml.Residue]:
+    """Reads the CSML database and returns a list of residues."""
+    return _read_database(CSML_DB_PATH, csml.Residue)
 
 
 ION_DB: list[Ion] = read_ion_database()
@@ -89,13 +97,18 @@ SOLVENT_DB: list[Solvent] = read_solvent_database()
 AMINO_ACIDS_DB: list[AminoAcid] = read_amino_acid_database()
 NUCLEOTIDES_DB: list[Nucleotide] = read_nucleotide_database()
 
-MAD_DB: list[Residue] = read_mad_database()
+MAD_DB: list[mad.Residue] = read_mad_database()
+CSML_DB: list[csml.Residue] = read_csml_database()
 LIPID_DB: list[Lipid] = [
     Lipid(description=item.name, residue_name=item.alias)
     for item in MAD_DB
-    if item.family == ResidueFamily.LIPID
+    if item.family == mad.ResidueFamily.LIPID
 ]
 
+for lipid in [residue for residue in CSML_DB if residue.family == csml.ResidueFamily.LIPID]:
+    if lipid.name in {item.name for item in MAD_DB}:
+        print(f"Duplicate residue {lipid.name} found in MAD and CSML databases")
+    LIPID_DB.append(Lipid(description=lipid.description, residue_name=lipid.name))
 
 def get_ion_definitions() -> list[Ion]:
     """Returns the definitions of the ions in the database."""
