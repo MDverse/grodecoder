@@ -12,6 +12,7 @@ from .api import (
     get_solvent_names,
 )
 from .models import (
+    ResidueDefinition,
     AminoAcid,
     Ion,
     Lipid,
@@ -32,6 +33,7 @@ __all__ = [
     "get_nucleotide_names",
     "get_solvent_definitions",
     "get_solvent_names",
+    "ResidueDefinition",
     "Ion",
     "Lipid",
     "Solvent",

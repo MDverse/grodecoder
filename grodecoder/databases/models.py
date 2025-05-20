@@ -1,5 +1,15 @@
+from typing import Protocol
 from pydantic import BaseModel
 
+
+class ResidueDefinition(Protocol):
+    """Protocol for a residue definition."""
+
+    name: str
+    description: str
+
+    def __hash__(self):
+        pass
 
 class Ion(BaseModel):
     """Model for an ion."""
