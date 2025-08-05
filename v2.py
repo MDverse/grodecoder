@@ -16,6 +16,10 @@ icecream.install()
 class HasAtoms:
     "Interface for objects that have atoms."
 
+    def __init__(self, atoms: gd.AtomGroup):
+        """Initializes the SmallMoleculeBase with a set of atoms."""
+        self.atoms = atoms
+
     @property
     def atom_indices(self) -> np.ndarray:
         """Returns the indices of the atoms in the residue."""
@@ -40,9 +44,6 @@ class HasAtoms:
 class SmallMoleculeBase(HasAtoms):
     """Used to count small molecules in a universe."""
 
-    def __init__(self, atoms: gd.AtomGroup):
-        """Initializes the SmallMoleculeBase with a set of atoms."""
-        self.atoms = atoms
 
     def __repr__(self) -> str:
         """Returns a string representation of the SmallMolecule."""
@@ -312,7 +313,10 @@ def count_lipids(universe: gd.UniverseLike) -> list[Lipid]:
 
 
 def count_protein_segments(universe: gd.UniverseLike) -> dict["str", list[ProteinSegment]]:
-    """Counts the protein segments in the universe."""
+    """Counts the protein segments in the universe.
+
+    Segments are grouped by their sequence, hence the return type.
+    """
     protein = select_protein(universe)
 
     if len(protein.atoms) == 0:
@@ -327,7 +331,10 @@ def count_protein_segments(universe: gd.UniverseLike) -> dict["str", list[Protei
 
 
 def dump_protein_segments_json(by_sequence: dict[str, list[ProteinSegment]]) -> list[dict]:
-    """Dumps the protein segments to JSON format."""
+    """Dumps the protein segments to JSON format.
+
+    Segments are grouped by their sequence.
+    """
     segments_json = []
     for sequence, segments in by_sequence.items():
         segments_json.append(
@@ -389,7 +396,7 @@ def actually_count(topology_path: Path):
 
 
 def main():
-    data_root_dir = Path("grodecoder/data/examples")
+    data_root_dir = Path("data/examples")
     topology_files = [
         "1BRS.gro",
         "1QJ8.gro",
