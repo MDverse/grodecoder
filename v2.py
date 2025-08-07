@@ -287,8 +287,8 @@ def count(
     Only using the residue name, not the atom names.
     """
     counts = []
-    definitions = unique_definitions(definitions)
-    for residue_name, definition in definitions.items():
+    u_definitions = unique_definitions(definitions)
+    for residue_name, definition in u_definitions.items():
         selection = universe.select_atoms(f"resname {definition.residue_name}")
         if len(selection) == 0:
             continue
@@ -323,7 +323,7 @@ def count_protein_segments(universe: gd.UniverseLike) -> dict["str", list[Protei
         return {}
 
     # Group the protein segments by sequence.
-    by_sequence = {}
+    by_sequence: dict[str, list[ProteinSegment]] = {}
     for segment in protein.iter_segments():
         by_sequence.setdefault(segment.sequence, []).append(segment)
 

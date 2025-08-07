@@ -153,7 +153,7 @@ def fetch() -> list[Residue]:
     return residues
 
 
-def read_database(path: Path | str) -> dict[str, Residue]:
+def read_database(path: Path | str) -> list[Residue]:
     """Reads the CSML database from a JSON file."""
     with open(path, "r") as f:
         data = json.load(f)

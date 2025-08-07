@@ -3,7 +3,7 @@ import json
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, TypeVar
 
 from loguru import logger
 
@@ -49,7 +49,10 @@ assert_database_exists(MAD_DB_PATH)
 CSML_DB_PATH = DATABASES_DATA_PATH / "charmm_csml_database.json"
 assert_database_exists(CSML_DB_PATH)
 
-def _read_database[ModelType](path: Path, model: ModelType) -> list[ModelType]:
+
+ModelType = TypeVar("ModelType", Ion, Solvent, Nucleotide, AminoAcid)
+
+def _read_database(path: Path, model: type[ModelType]) -> list[ModelType]:
     """Reads a database file and returns a list of entries."""
     with open(path, "r") as f:
         raw_data = [model.model_validate(entry) for entry in json.load(f)]
@@ -135,27 +138,27 @@ def get_lipid_definitions() -> list[Lipid]:
     return LIPID_DB
 
 
-def get_ion_names() -> list[str]:
+def get_ion_names() -> set[str]:
     """Returns the names of the ions in the database."""
     return set(ion.residue_name for ion in ION_DB)
 
 
-def get_solvent_names() -> list[str]:
+def get_solvent_names() -> set[str]:
     """Returns the names of the solvents in the database."""
     return set(solvent.residue_name for solvent in SOLVENT_DB)
 
 
-def get_amino_acid_names() -> list[str]:
+def get_amino_acid_names() -> set[str]:
     """Returns the names of the amino acids in the database."""
     return set(aa.long_name for aa in AMINO_ACIDS_DB)
 
 
-def get_nucleotide_names() -> list[str]:
+def get_nucleotide_names() -> set[str]:
     """Returns the names of the nucleotides in the database."""
     return set(nucleotide.residue_name for nucleotide in NUCLEOTIDES_DB)
 
 
-def get_lipid_names() -> list[str]:
+def get_lipid_names() -> set[str]:
     """Returns the names of the lipids in the database."""
     return set(lipid.residue_name for lipid in LIPID_DB)
 
@@ -223,9 +226,9 @@ def _find_using_atom_names(
     return matching_residues[0]
 
 
-def find_ion_or_solvent(residue_name: str, atom_names: Iterable[str]) -> Ion:
-    """Find the definitions of a given ion in the database."""
-    match = _find_using_atom_names(residue_name, atom_names, RESIDUE_DATABASE.ions)
-    if match is not None:
-        return match
-    return _find_using_atom_names(residue_name, atom_names, RESIDUE_DATABASE.solvents)
+# def find_ion_or_solvent(residue_name: str, atom_names: Iterable[str]) -> Ion:
+#     """Find the definitions of a given ion in the database."""
+#     match = _find_using_atom_names(residue_name, atom_names, RESIDUE_DATABASE.ions)
+#     if match is not None:
+#         return match
+#     return _find_using_atom_names(residue_name, atom_names, RESIDUE_DATABASE.solvents)

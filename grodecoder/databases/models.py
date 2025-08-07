@@ -5,7 +5,7 @@ from pydantic import BaseModel
 class ResidueDefinition(Protocol):
     """Protocol for a residue definition."""
 
-    name: str
+    residue_name: str
     description: str
 
     def __hash__(self):
