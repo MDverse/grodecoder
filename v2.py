@@ -2,6 +2,7 @@ import time
 from pathlib import Path
 from typing import Iterable
 
+import click
 from loguru import logger
 
 import grodecoder as gd
@@ -22,6 +23,7 @@ import icecream
 
 icecream.install()
 
+logger.remove()
 
 def find_methanol(universe: gd.UniverseLike) -> list[int]:
     """Returns the indices of methanol atoms in the universe."""
@@ -189,11 +191,37 @@ def actually_count(topology_path: Path):
     }
 
     elapsed = time.perf_counter() - timer_start
-    logger.info(f"{log_prefix}: {n_atoms:,d} atoms processed in {elapsed:.2f} seconds")
+    logger.debug(f"{log_prefix}: {n_atoms:,d} atoms processed in {elapsed:.2f} seconds")
     return json_data
 
 
-def main():
+
+def print_inventory(inventory: dict):
+    """Prints the inventory of molecules in a human-readable format."""
+    for molecule in inventory:
+        if molecule["molecular_type"] == "protein":
+            seq = molecule["sequence"]
+            name = f"{seq[0:10]}..."
+
+            if len(name) > 10:
+                name += "..."
+                name += molecule["sequence"][-min(10, (len(seq)-10)):]
+
+            segments = molecule["number_of_segments"]
+            atoms = molecule["number_of_atoms"][0]
+            residues = molecule["number_of_residues"][0]
+            if segments > 1:
+                print(f"  {name}: {segments} segments, {residues} residues each, {atoms} atoms each")
+            else:
+                print(f"  {name}: {segments} segment, {residues} residues, {atoms} atoms")
+        else:
+            name = molecule["name"]
+            atoms = molecule["number_of_atoms"]
+            residues = molecule["number_of_residues"]
+            print(f"  {name:>5s}: {residues} residues, {atoms} atoms")
+
+
+def test():
     data_root_dir = Path("data/examples")
     topology_files = [
         "1BRS.gro",
@@ -216,10 +244,24 @@ def main():
 
     for topology_file in topology_files:
         topology_path = data_root_dir / topology_file
-        _ = actually_count(topology_path)
+        inventory = actually_count(topology_path)["inventory"]
+        print(f"{topology_path}:")
+        print_inventory(inventory)
 
-        # TODO: do something with the result...
+
+
+@click.command()
+@click.argument("topology_path", type=click.Path(exists=True, path_type=Path))
+def main(topology_path):
+    """Counts the molecules in a topology file and outputs the inventory in JSON format."""
+    logger.info(f"Processing topology file: {topology_path}")
+
+    inventory = actually_count(topology_path)["inventory"]
+    print_inventory(inventory)
+
+
 
 
 if __name__ == "__main__":
     main()
+    # test()

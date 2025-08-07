@@ -7,6 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "beautifulsoup4>=4.13.3",
     "biopython>=1.85",
+    "click>=8.1.8",
     "loguru>=0.7.3",
     "mdanalysis>=2.9.0",
     "playwright>=1.51.0",
