@@ -97,6 +97,13 @@ class Solvent(SmallMolecule):
     molecular_type: str = "solvent"
 
 
+class Nucleotide(SmallMolecule):
+    """Nucleotide residue."""
+
+    molecular_type: str = "nucleotide"
+
+
+
 class Lipid(SmallMolecule):
     """Lipid residue."""
 

@@ -1,3 +1,4 @@
+import sys
 import time
 from pathlib import Path
 from typing import Iterable
@@ -11,6 +12,7 @@ from grodecoder.models import (
     HasAtoms,
     Ion,
     Lipid,
+    Nucleotide,
     Protein,
     ProteinSegment,
     SmallMolecule,
@@ -24,6 +26,10 @@ import icecream
 icecream.install()
 
 logger.remove()
+logger.add(
+    sys.stderr, level="INFO", format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{message}</level>"
+)
+
 
 def find_methanol(universe: gd.UniverseLike) -> list[int]:
     """Returns the indices of methanol atoms in the universe."""
@@ -84,6 +90,11 @@ def count_ions(universe: gd.UniverseLike) -> list[Ion]:
 def count_solvents(universe: gd.UniverseLike) -> list[Solvent]:
     """Counts the solvents in the universe."""
     return count(universe, DB.get_solvent_definitions(), model=Solvent)
+
+
+def count_nucleotides(universe: gd.UniverseLike) -> list[Nucleotide]:
+    """Counts the nucleotides in the universe."""
+    return count(universe, DB.get_nucleotide_definitions(), model=Nucleotide)
 
 
 def count_lipids(universe: gd.UniverseLike) -> list[Lipid]:
@@ -148,9 +159,11 @@ def actually_count(topology_path: Path):
 
     universe = gd.read_topology(topology_path).select_atoms("all")
 
-    timer_start = time.perf_counter()  # do not include topology reading time in the count
     n_atoms = len(universe.atoms)  # used for logging later-on
     log_prefix = f"{topology_path}"
+    logger.debug(f"{log_prefix}: Read {n_atoms:,d} atoms")
+
+    timer_start = time.perf_counter()  # do not include topology reading time in the count
 
     protein_segments = count_protein_segments(universe)
     for segments in protein_segments.values():
@@ -169,6 +182,10 @@ def actually_count(topology_path: Path):
     universe = remove_identified_atoms(universe, lipids)
     logger.debug(f"{log_prefix}: Found {len(lipids)} lipids")
 
+    nucleotides = count_nucleotides(universe)
+    universe = remove_identified_atoms(universe, nucleotides)
+    logger.debug(f"{log_prefix}: Found {len(nucleotides)} nucleotides")
+
     # Collecting unknown small molecules that are not defined in the database.
     unknown_molecules = []
     if len(universe.atoms) > 0:
@@ -185,6 +202,7 @@ def actually_count(topology_path: Path):
             [ion.dump_json() for ion in ions]
             + [solvent.dump_json() for solvent in solvents]
             + [lipid.dump_json() for lipid in lipids]
+            + [nucleotide.dump_json() for nucleotide in nucleotides]
             + [molecule.dump_json() for molecule in unknown_molecules]
             + dump_protein_segments_json(protein_segments)
         )
@@ -195,9 +213,9 @@ def actually_count(topology_path: Path):
     return json_data
 
 
-
 def print_inventory(inventory: dict):
     """Prints the inventory of molecules in a human-readable format."""
+    logger.info("Inventory:")
     for molecule in inventory:
         if molecule["molecular_type"] == "protein":
             seq = molecule["sequence"]
@@ -205,20 +223,20 @@ def print_inventory(inventory: dict):
 
             if len(name) > 10:
                 name += "..."
-                name += molecule["sequence"][-min(10, (len(seq)-10)):]
+                name += molecule["sequence"][-min(10, (len(seq) - 10)) :]
 
             segments = molecule["number_of_segments"]
             atoms = molecule["number_of_atoms"][0]
             residues = molecule["number_of_residues"][0]
             if segments > 1:
-                print(f"  {name}: {segments} segments, {residues} residues each, {atoms} atoms each")
+                logger.info(f"  {name}: {segments} segments, {residues} residues each, {atoms} atoms each")
             else:
-                print(f"  {name}: {segments} segment, {residues} residues, {atoms} atoms")
+                logger.info(f"  {name}: {segments} segment, {residues} residues, {atoms} atoms")
         else:
             name = molecule["name"]
             atoms = molecule["number_of_atoms"]
             residues = molecule["number_of_residues"]
-            print(f"  {name:>5s}: {residues} residues, {atoms} atoms")
+            logger.info(f"  {name:>5s}: {residues} residues, {atoms} atoms")
 
 
 def test():
@@ -249,17 +267,12 @@ def test():
         print_inventory(inventory)
 
 
-
 @click.command()
 @click.argument("topology_path", type=click.Path(exists=True, path_type=Path))
 def main(topology_path):
-    """Counts the molecules in a topology file and outputs the inventory in JSON format."""
     logger.info(f"Processing topology file: {topology_path}")
-
     inventory = actually_count(topology_path)["inventory"]
     print_inventory(inventory)
-
-
 
 
 if __name__ == "__main__":
