@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Iterable
 
 import numpy as np
+from loguru import logger
 
 import grodecoder as gd
 import grodecoder.databases as DB
@@ -43,7 +44,6 @@ class HasAtoms:
 
 class SmallMoleculeBase(HasAtoms):
     """Used to count small molecules in a universe."""
-
 
     def __repr__(self) -> str:
         """Returns a string representation of the SmallMolecule."""
@@ -350,36 +350,48 @@ def dump_protein_segments_json(by_sequence: dict[str, list[ProteinSegment]]) -> 
     return segments_json
 
 
+def remove_identified_atoms(universe: gd.UniverseLike, molecules: list[HasAtoms]) -> gd.UniverseLike:
+    """Removes the atoms of the identified molecules from the universe."""
+    for molecule in molecules:
+        universe -= molecule.atoms
+    return universe
+
+
 def actually_count(topology_path: Path):
-    universe = gd.read_topology(topology_path).select_atoms(
-        "all"
-    )  # needs the 'select_atoms' to convert to AtomGroup
+    """Identifies and counts the molecules in a topology file."""
+
+    # Along the way, we will remove the counted atoms from the universe to avoid counting them multiple times.
+    # This is necessary because some residues can be counted as part of a protein segment and as a solvent or ion.
+    # For example, the residue "MET" could be counted as part of a protein segment and as a solvent.
+    #
+    # This is why the `universe` is created with `select_atoms("all")`: it has to be converted to AtomGroup
+    # to allow removing atoms from it.
+
+    universe = gd.read_topology(topology_path).select_atoms("all")
 
     protein_segments = count_protein_segments(universe)
 
-    # Removing previously analyzed parts of the system prevents residues from being counted in several groups
-    # (e.g. residue "MET" could be counted as part of a protein segment and as a solvent).
     for segments in protein_segments.values():
         for segment in segments:
             universe -= segment.atoms
 
     ions = count_ions(universe)
-    for ion in ions:
-        universe -= ion.atoms
+    universe = remove_identified_atoms(universe, ions)
 
     solvents = count_solvents(universe)
-    for solvent in solvents:
-        universe -= solvent.atoms
+    universe = remove_identified_atoms(universe, solvents)
 
     lipids = count_lipids(universe)
-    for lipid in lipids:
-        universe -= lipid.atoms
+    universe = remove_identified_atoms(universe, lipids)
 
     # Collecting unknown small molecules that are not defined in the database.
     unknown_molecules = []
     if len(universe.atoms) > 0:
         residue_names = set(universe.residues.resnames)
         for residue_name in residue_names:
+            logger.warning(
+                f"{topology_path}: residue {residue_name!r} is unidentified, counting as unknown molecule"
+            )
             molecule = SmallMoleculeBase(universe.select_atoms(f"resname {residue_name}"))
             unknown_molecules.append(molecule)
 
@@ -439,8 +451,8 @@ def main():
                 print(f"  {name:10s}     {atoms:8,d} atoms  {residues:6,d} residues")
         print()
 
-        
         import json
+
         reference_path = Path("tests") / "data" / f"{topology_path.stem}.json"
         if reference_path.exists():
             with open(reference_path, "r") as f:
@@ -449,9 +461,6 @@ def main():
             assert len(count["inventory"]) == len(expected), (
                 f"{topology_path}: Counted {len(count['inventory'])} items, expected {len(expected)}"
             )
-
-
-
 
 
 if __name__ == "__main__":
