@@ -343,6 +343,7 @@ def dump_protein_segments_json(by_sequence: dict[str, list[ProteinSegment]]) -> 
                 "number_of_atoms": [segment.number_of_atoms for segment in segments],
                 "number_of_residues": [segment.number_of_residues for segment in segments],
                 "number_of_segments": len(segments),
+                # "atom_indices": [segment.atom_indices.tolist() for segment in segments],
                 "molecular_type": "protein",
             }
         )

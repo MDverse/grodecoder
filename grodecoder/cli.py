@@ -130,14 +130,15 @@ def parse_arg() -> argparse.Namespace:
 
 
 def main():
-    args = parse_arg()
-    grodecoder.v1.main(
-        args.topology,
-        args.psf,
-        check_connectivity=args.checkconnectivity,
-        bond_threshold=args.bondthreshold,
-        query_pdb=args.querypdb,
-    )
+    raise NotImplementedError
+    # args = parse_arg()
+    # grodecoder.v1.main(
+    #     args.topology,
+    #     args.psf,
+    #     check_connectivity=args.checkconnectivity,
+    #     bond_threshold=args.bondthreshold,
+    #     query_pdb=args.querypdb,
+    # )
 
 
 
