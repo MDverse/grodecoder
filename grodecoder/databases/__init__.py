@@ -2,6 +2,7 @@ from . import csml, mad
 from .api import (
     get_amino_acid_definitions,
     get_amino_acid_names,
+    get_amino_acid_name_map,
     get_ion_definitions,
     get_ion_names,
     get_lipid_definitions,
@@ -25,6 +26,7 @@ __all__ = [
     "mad",
     "get_amino_acid_definitions",
     "get_amino_acid_names",
+    "get_amino_acid_name_map",
     "get_ion_definitions",
     "get_ion_names",
     "get_lipid_definitions",

@@ -128,6 +128,10 @@ def get_amino_acid_definitions() -> list[AminoAcid]:
     return AMINO_ACIDS_DB
 
 
+def get_amino_acid_name_map() -> dict[str, str]:
+    """Returns a mapping of amino acid 3-letter names to 1-letter names."""
+    return {aa.long_name: aa.short_name for aa in AMINO_ACIDS_DB}
+
 def get_nucleotide_definitions() -> list[Nucleotide]:
     """Returns the definitions of the nucleotides in the database."""
     return NUCLEOTIDES_DB
