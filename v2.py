@@ -19,6 +19,7 @@ from grodecoder.models import (
     SmallMoleculeBase,
     Solvent,
 )
+from grodecoder import Json
 
 # DEBUG
 import icecream
@@ -31,24 +32,13 @@ logger.add(
 )
 
 
-def find_methanol(universe: gd.UniverseLike) -> list[int]:
-    """Returns the indices of methanol atoms in the universe."""
-    met = universe.select_atoms("resname MET")
-    methanol = []
-    for residue in met.residues:
-        carbones = residue.atoms.select_atoms("name C*")
-        if len(carbones) == 1:
-            methanol += residue.atoms.indices.tolist()
-    return methanol
-
-
 def select_protein(universe: gd.UniverseLike) -> Protein:
     """Selects the protein atoms from the universe."""
     protein_residue_names = DB.get_amino_acid_names()
     selection_str = f"resname {' '.join(protein_residue_names)}"
 
     # Exclude methanol residues from the selection.
-    methanol = find_methanol(universe)
+    methanol = gd.toputils.find_methanol(universe)
     if methanol:
         selection_str += f" and not index {' '.join(map(str, methanol))}"
 
@@ -262,9 +252,14 @@ def test():
 
     for topology_file in topology_files:
         topology_path = data_root_dir / topology_file
-        inventory = actually_count(topology_path)["inventory"]
-        print(f"{topology_path}:")
-        print_inventory(inventory)
+        top = gd.read_topology(topology_path)
+
+        description: Json = {
+            "resolution": gd.toputils.guess_resolution(top),
+        }
+
+        description["inventory"] = actually_count(topology_path)["inventory"]
+        ic(topology_path, description)
 
 
 @click.command()
@@ -276,5 +271,5 @@ def main(topology_path):
 
 
 if __name__ == "__main__":
-    main()
-    # test()
+    # main()
+    test()

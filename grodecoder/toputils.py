@@ -1,12 +1,18 @@
 """Defines utility functions for working with molecular topologies."""
 
 import collections
+from enum import Enum, auto
 from typing import Iterable
 
 import numpy as np
 
 from ._typing import Residue, UniverseLike
 from .databases import get_amino_acid_name_map
+
+
+class MolecularResolution(Enum):
+    COARSE_GRAINED = auto()
+    ALL_ATOM = auto()
 
 
 def _first_alpha(s: str) -> str:
@@ -38,14 +44,25 @@ def sequence(atoms: UniverseLike) -> str:
     return "".join(residue_names.get(residue.resname, "X") for residue in atoms.residues)
 
 
-def has_bonds(residue1: Residue, residue2: Residue, cutoff: float = 5.0):
+def has_bonds(residue: Residue, cutoff: float = 2.0):
+    """Returns True if the residue has any bonds."""
+    cutoff_squared = cutoff**2
+    distances_squared = (
+        np.linalg.norm(residue.atoms.positions[:, None] - residue.atoms.positions, axis=-1) ** 2
+    )
+    np.fill_diagonal(distances_squared, np.inf)  # Ignore self-pairs
+    bonded = distances_squared < cutoff_squared
+    return bool(np.any(bonded))
+
+
+def has_bonds_between(residue1: Residue, residue2: Residue, cutoff: float = 5.0):
     """Returns True if the two residues are bonded."""
     cutoff_squared = cutoff**2
     distances_squared = (
         np.linalg.norm(residue1.atoms.positions[:, None] - residue2.atoms.positions, axis=-1) ** 2
     )
     bonded = distances_squared < cutoff_squared
-    return True if np.any(bonded) else False
+    return bool(np.any(bonded))
 
 
 def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int, int]]:
@@ -84,7 +101,8 @@ def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int
     """
 
     def end_of_chain():
-        return not has_bonds(current_residue, next_residue, cutoff)
+        """The end of a chain is defined as the point where two consecutive residues are not bonded."""
+        return not has_bonds_between(current_residue, next_residue, cutoff)
 
     segments = []
 
@@ -97,3 +115,31 @@ def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int
     segments.append((start_current_chain, len(universe.residues) - 1))
 
     return segments
+
+
+def guess_resolution(universe: UniverseLike) -> MolecularResolution:
+    """Guesses the resolution (i.e. all-atom or coarse grain) of the universe.
+
+    The resolution is considered coarse-grained if a residue has at least two atoms within a distance of 2.0 Å.
+
+    Finds the first five residues with at least two atoms and checks if they have bonds.
+    If any of them have bonds, the resolution is considered all-atom.
+    If none of the first five residues have bonds, the resolution is considered coarse-grained.
+    """
+    # Select the first five residues with at least two atoms.
+    residues = [residue for residue in universe.residues if len(residue.atoms) >= 2][:5]
+    for residue in residues:
+        if has_bonds(residue, cutoff=2.0):
+            return MolecularResolution.ALL_ATOM
+    return MolecularResolution.COARSE_GRAINED
+
+
+def find_methanol(universe: UniverseLike) -> list[int]:
+    """Returns the indices of methanol atoms in the universe."""
+    met = universe.select_atoms("resname MET")
+    methanol = []
+    for residue in met.residues:
+        carbones = residue.atoms.select_atoms("name C*")
+        if len(carbones) == 1:
+            methanol += residue.atoms.indices.tolist()
+    return methanol
