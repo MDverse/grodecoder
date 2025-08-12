@@ -9,6 +9,8 @@ from .api import (
     get_lipid_names,
     get_nucleotide_definitions,
     get_nucleotide_names,
+    get_nucleotide_name_map,
+    get_other_definitions,
     get_solvent_definitions,
     get_solvent_names,
 )
@@ -33,6 +35,8 @@ __all__ = [
     "get_lipid_names",
     "get_nucleotide_definitions",
     "get_nucleotide_names",
+    "get_nucleotide_name_map",
+    "get_other_definitions",
     "get_solvent_definitions",
     "get_solvent_names",
     "ResidueDefinition",

@@ -7,7 +7,7 @@ from typing import Iterable, TypeVar
 
 from loguru import logger
 
-from .models import Ion, Solvent, Nucleotide, AminoAcid, Lipid
+from .models import Ion, Solvent, Nucleotide, AminoAcid, Lipid, Residue
 
 from . import mad
 from . import csml
@@ -51,6 +51,7 @@ assert_database_exists(CSML_DB_PATH)
 
 
 ModelType = TypeVar("ModelType", Ion, Solvent, Nucleotide, AminoAcid)
+
 
 def _read_database(path: Path, model: type[ModelType]) -> list[ModelType]:
     """Reads a database file and returns a list of entries."""
@@ -102,16 +103,71 @@ NUCLEOTIDES_DB: list[Nucleotide] = read_nucleotide_database()
 
 MAD_DB: list[mad.Residue] = read_mad_database()
 CSML_DB: list[csml.Residue] = read_csml_database()
-LIPID_DB: list[Lipid] = [
-    Lipid(description=item.name, residue_name=item.alias)
-    for item in MAD_DB
-    if item.family == mad.ResidueFamily.LIPID
-]
 
-for lipid in [residue for residue in CSML_DB if residue.family == csml.ResidueFamily.LIPID]:
-    if lipid.name in {item.name for item in MAD_DB}:
-        print(f"Duplicate residue {lipid.name} found in MAD and CSML databases")
-    LIPID_DB.append(Lipid(description=lipid.description, residue_name=lipid.name))
+
+def _build_lipid_db() -> list[Lipid]:
+    _mad_lipid_resnames = {item.alias for item in MAD_DB if item.family == mad.ResidueFamily.LIPID}
+    _csml_lipid_resnames = {residue.name for residue in CSML_DB if residue.family == csml.ResidueFamily.LIPID}
+    _duplicates = _mad_lipid_resnames & _csml_lipid_resnames
+    if _duplicates:
+        logger.warning(f"Duplicate lipid residue names found in MAD and CSML databases: {_duplicates}")
+
+    db = {
+        item.alias: Lipid(description=item.name, residue_name=item.alias)
+        for item in MAD_DB
+        if item.family == mad.ResidueFamily.LIPID
+    }
+    db.update(
+        {
+            residue.name: Lipid(description=residue.description, residue_name=residue.name)
+            for residue in CSML_DB
+            if residue.family == csml.ResidueFamily.LIPID
+        }
+    )
+    return list(db.values())
+
+
+LIPID_DB: list[Lipid] = _build_lipid_db()
+
+
+def _build_other_db() -> list[Residue]:
+    """Builds a database of other residues that are not ions, solvents, amino acids, or nucleotides."""
+    csml_other = {
+        residue.name: Residue(residue_name=residue.name, description=residue.description)
+        for residue in CSML_DB
+        if residue.family
+        not in {
+            csml.ResidueFamily.PROTEIN,
+            csml.ResidueFamily.NUCLEIC_ACID,
+            csml.ResidueFamily.LIPID,
+            csml.ResidueFamily.SOLVENT,
+            csml.ResidueFamily.ION,
+        }
+    }
+
+    mad_other = {
+        residue.alias: Residue(residue_name=residue.alias, description=residue.name)
+        for residue in MAD_DB
+        if residue.family
+        not in {
+            mad.ResidueFamily.PROTEIN,
+            mad.ResidueFamily.LIPID,
+            mad.ResidueFamily.ION,
+            mad.ResidueFamily.SOLVENT,
+        }
+    }
+
+    by_name = {**csml_other, **mad_other}
+    return list(by_name.values())
+
+
+OTHER_DB: list[Residue] = _build_other_db()
+
+
+def get_other_definitions() -> list[Residue]:
+    """Returns the definitions of other residues in the database."""
+    return OTHER_DB
+
 
 def get_ion_definitions() -> list[Ion]:
     """Returns the definitions of the ions in the database."""
@@ -131,6 +187,12 @@ def get_amino_acid_definitions() -> list[AminoAcid]:
 def get_amino_acid_name_map() -> dict[str, str]:
     """Returns a mapping of amino acid 3-letter names to 1-letter names."""
     return {aa.long_name: aa.short_name for aa in AMINO_ACIDS_DB}
+
+
+def get_nucleotide_name_map() -> dict[str, str]:
+    """Returns a mapping of nucleotide 3-letter names to 1-letter names."""
+    return {nucleotide.residue_name: nucleotide.short_name for nucleotide in NUCLEOTIDES_DB}
+
 
 def get_nucleotide_definitions() -> list[Nucleotide]:
     """Returns the definitions of the nucleotides in the database."""

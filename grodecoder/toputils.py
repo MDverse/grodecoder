@@ -7,7 +7,7 @@ from typing import Iterable
 import numpy as np
 
 from ._typing import Residue, UniverseLike
-from .databases import get_amino_acid_name_map
+from .databases import get_amino_acid_name_map, get_nucleotide_name_map
 
 
 class MolecularResolution(Enum):
@@ -41,6 +41,7 @@ def formula(molecule: UniverseLike, elements: Iterable[str] = ("C", "H", "O", "N
 def sequence(atoms: UniverseLike) -> str:
     """Returns the protein sequence from a set of atoms."""
     residue_names = get_amino_acid_name_map()
+    residue_names.update(get_nucleotide_name_map())
     return "".join(residue_names.get(residue.resname, "X") for residue in atoms.residues)
 
 
@@ -132,14 +133,3 @@ def guess_resolution(universe: UniverseLike) -> MolecularResolution:
         if has_bonds(residue, cutoff=2.0):
             return MolecularResolution.ALL_ATOM
     return MolecularResolution.COARSE_GRAINED
-
-
-def find_methanol(universe: UniverseLike) -> list[int]:
-    """Returns the indices of methanol atoms in the universe."""
-    met = universe.select_atoms("resname MET")
-    methanol = []
-    for residue in met.residues:
-        carbones = residue.atoms.select_atoms("name C*")
-        if len(carbones) == 1:
-            methanol += residue.atoms.indices.tolist()
-    return methanol

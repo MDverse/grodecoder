@@ -11,6 +11,18 @@ class ResidueDefinition(Protocol):
     def __hash__(self):
         pass
 
+
+
+class Residue(BaseModel):
+    """Model for a residue."""
+
+    description: str
+    residue_name: str
+
+    def __hash__(self):
+        return hash((self.residue_name, self.description))
+
+
 class Ion(BaseModel):
     """Model for an ion."""
 

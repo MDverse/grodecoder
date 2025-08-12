@@ -158,6 +158,7 @@ def read_database(path: Path | str) -> list[Residue]:
     with open(path, "r") as f:
         data = json.load(f)
         db = [Residue.model_validate(entry) for entry in data]
+    assert len(db) == len(set(residue.name for residue in db)), f"{path}: Duplicate residues found in the database"
     return db
 
 
