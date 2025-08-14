@@ -21,7 +21,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project.scripts]
-grodecoder = "grodecoder.cli:main"
+grodecoder = "grodecoder.cli:cli"
 
 [dependency-groups]
 dev = [
@@ -34,4 +34,3 @@ dev = [
 
 [tool.ruff]
 line-length = 110
-
