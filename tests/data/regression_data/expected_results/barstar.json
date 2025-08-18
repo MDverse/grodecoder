@@ -1,0 +1,30 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "KKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDCLTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGCDITIILS",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1434
+      ],
+      "number_of_residues": [
+        89
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "NA+",
+      "number_of_atoms": 6,
+      "number_of_residues": 6,
+      "description": "sodium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "SOL",
+      "number_of_atoms": 17259,
+      "number_of_residues": 5753,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    }
+  ]
+}

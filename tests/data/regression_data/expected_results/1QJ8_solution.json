@@ -1,0 +1,44 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKNQYYGITAGPAYRINDWASIYGVVGVGYGKFQTTEYPTYKNDTSDYGFSYGAGLQFNPMENVALDFSYEQSRIRSVDVGTWIAGVGYRF",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        2226
+      ],
+      "number_of_residues": [
+        148
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "CLA",
+      "number_of_atoms": 21,
+      "number_of_residues": 21,
+      "description": "chloride ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "SOD",
+      "number_of_atoms": 23,
+      "number_of_residues": 23,
+      "description": "sodium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "TIP3",
+      "number_of_atoms": 24240,
+      "number_of_residues": 8080,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    },
+    {
+      "name": "DMPC",
+      "number_of_atoms": 11800,
+      "number_of_residues": 100,
+      "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLCHOLINE",
+      "molecular_type": "lipid"
+    }
+  ]
+}

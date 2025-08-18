@@ -1,0 +1,44 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "AISIKTPEDIEKMRVAGRLAAEVLEMIEPYVKPGVSTGELDRICNDYIVNEQHAVSACLGYHGYPKSVCISINEVVCHGIPDDAKLLKDGDIVNIDVTVIKDGFHGDTSKMFIVGKPTIMGERLCRITQESLYLALRMVKPGINLREIGAAIQKFVEAEGFSVVREYCGHGIGQGFHEEPQVLHYDSRETNVVLKPGMTFTIEPMVNAGKKEIRTMKDGWTVKTKDRSLSAQYEHTIVVTDNGCEILTLRKDDTIPAIISHD",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1991
+      ],
+      "number_of_residues": [
+        262
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "SOL",
+      "number_of_atoms": 600,
+      "number_of_residues": 200,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    },
+    {
+      "name": "URE",
+      "number_of_atoms": 1600,
+      "number_of_residues": 200,
+      "description": "urea solvant",
+      "molecular_type": "solvent"
+    },
+    {
+      "name": "MET",
+      "number_of_atoms": 1200,
+      "number_of_residues": 200,
+      "description": "organic solvant methanol/OPLS",
+      "molecular_type": "solvent"
+    },
+    {
+      "name": "ETH",
+      "number_of_atoms": 1800,
+      "number_of_residues": 200,
+      "description": "organic solvant ethanol/OPLS",
+      "molecular_type": "solvent"
+    }
+  ]
+}

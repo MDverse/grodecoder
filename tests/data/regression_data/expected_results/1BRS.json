@@ -1,0 +1,127 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "VINTFDGVADYLQTYHKLPDNYITKSEAQALGWVASKGNLADVAPGKSIGGDIFSNREGKLPGKSGRTWREADINYTSGFRNSDRILYSSDWLIYKTTDHYQTFTKIR",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1700
+      ],
+      "number_of_residues": [
+        108
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "AQVINTFDGVADYLQTYHKLPDNYITKSEAQALGWVASKGNLADVAPGKSIGGDIFSNREGKLPGKSGRTWREADINYTSGFRNSDRILYSSDWLIYKTTDHYQTFTKIR",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1727
+      ],
+      "number_of_residues": [
+        110
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "VINTFDGVADYLQTYHKLPDNYITKSEAQALGWVASKGNLADVAPGKSIGGDIFSNREGKLPGKSGRTWREADINYTSGFRNSDRILYSSDWLIYKTTDHYQTFTKIR",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1700
+      ],
+      "number_of_residues": [
+        108
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "KKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDALTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGADITIILS",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1432
+      ],
+      "number_of_residues": [
+        89
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "KAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDALTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGADITIILS",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1410
+      ],
+      "number_of_residues": [
+        88
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "KKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDALTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGADITIILS",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1432
+      ],
+      "number_of_residues": [
+        89
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "CAL",
+      "number_of_atoms": 141,
+      "number_of_residues": 141,
+      "description": "calcium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "CLA",
+      "number_of_atoms": 846,
+      "number_of_residues": 846,
+      "description": "chloride ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "MG",
+      "number_of_atoms": 141,
+      "number_of_residues": 141,
+      "description": "magnesium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "OH",
+      "number_of_atoms": 564,
+      "number_of_residues": 282,
+      "description": "hydroxide ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "POT",
+      "number_of_atoms": 154,
+      "number_of_residues": 154,
+      "description": "potassium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "SOD",
+      "number_of_atoms": 141,
+      "number_of_residues": 141,
+      "description": "sodium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "ZN2",
+      "number_of_atoms": 141,
+      "number_of_residues": 141,
+      "description": "zinc ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "TIP3",
+      "number_of_atoms": 135381,
+      "number_of_residues": 45127,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    }
+  ]
+}

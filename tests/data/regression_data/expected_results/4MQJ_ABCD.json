@@ -1,0 +1,70 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "VLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTPAVHASLDKFLASVSTVLTSKYR",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        2143
+      ],
+      "number_of_residues": [
+        141
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "VHFTEEDKATITSLWGKVNVEDAGGETLGRLLVVYPWTQRFFDSFGNLSSASAIMGNPKVKAHGKKVLTSLGDAIKHLDDLKGTFAQLSELHCDKLHVDPENFKLLGNVLVTVLAIHFGKEFTPEVQASWQKMVTGVASALSSRYH",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        2266
+      ],
+      "number_of_residues": [
+        146
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "VLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTPAVHASLDKFLASVSTVLTSKYR",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        2142
+      ],
+      "number_of_residues": [
+        141
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "VHFTEEDKATITSLWGKVNVEDAGGETLGRLLVVYPWTQRFFDSFGNLSSASAIMGNPKVKAHGKKVLTSLGDAIKHLDDLKGTFAQLSELHCDKLHVDPENFKLLGNVLVTVLAIHFGKEFTPEVQASWQKMVTGVASALSSRYH",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        2265
+      ],
+      "number_of_residues": [
+        146
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "CLA",
+      "number_of_atoms": 59,
+      "number_of_residues": 59,
+      "description": "chloride ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "POT",
+      "number_of_atoms": 55,
+      "number_of_residues": 55,
+      "description": "potassium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "TIP3",
+      "number_of_atoms": 59016,
+      "number_of_residues": 19672,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    }
+  ]
+}

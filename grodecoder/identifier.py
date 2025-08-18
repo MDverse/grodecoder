@@ -1,3 +1,4 @@
+import time
 from typing import Iterable, Iterator
 
 from loguru import logger
@@ -106,7 +107,19 @@ def identify_small_molecule(
     return counts
 
 
-def identify(universe: UniverseLike) -> Inventory:
+def identify(universe: UniverseLike, measure_perf: bool = False) -> Inventory:
+    """Identifies the molecules in a topology file.
+
+    Optionally measures the performance of the identification process and logs the time taken at debug level.
+    """
+    timer_start = time.perf_counter()  # do not include topology reading time in the performance measurement
+    inventory = _identify(universe)
+    elapsed = time.perf_counter() - timer_start
+    logger.debug(f"{len(universe.atoms):,d} atoms processed in {elapsed:.2f} seconds")
+    return inventory
+
+
+def _identify(universe: UniverseLike) -> Inventory:
     """Identifies the molecules in the universe."""
 
     # Ensure the universe is an AtomGroup.

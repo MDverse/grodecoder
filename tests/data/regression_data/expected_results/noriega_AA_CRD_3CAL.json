@@ -1,0 +1,44 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "CCPLNWEYFQSSCYFFSTDTKSWALSLKNCSAMGAHLVVINSQEEQEFLSYKKPKMREFFIGLSDQVVEGQWQWVDGTPLTKSLSFWDVGEPNNIATLEDCATMRDSSNPRQNWNDVTCFLNYFRICEMV",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        2049
+      ],
+      "number_of_residues": [
+        130
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "CAL",
+      "number_of_atoms": 3,
+      "number_of_residues": 3,
+      "description": "calcium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "CLA",
+      "number_of_atoms": 19,
+      "number_of_residues": 19,
+      "description": "chloride ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "SOD",
+      "number_of_atoms": 19,
+      "number_of_residues": 19,
+      "description": "sodium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "TIP3",
+      "number_of_atoms": 21207,
+      "number_of_residues": 7069,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    }
+  ]
+}

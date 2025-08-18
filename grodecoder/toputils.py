@@ -1,18 +1,13 @@
 """Defines utility functions for working with molecular topologies."""
 
 import collections
-from enum import Enum, auto
 from typing import Iterable
 
 import numpy as np
 
 from ._typing import Residue, UniverseLike
 from .databases import get_amino_acid_name_map, get_nucleotide_name_map
-
-
-class MolecularResolution(Enum):
-    COARSE_GRAINED = auto()
-    ALL_ATOM = auto()
+from .models import MolecularResolution
 
 
 def _first_alpha(s: str) -> str:

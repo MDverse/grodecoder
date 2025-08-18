@@ -1,12 +1,11 @@
+import json
 import sys
-import time
 from pathlib import Path
 
 import click
 from loguru import logger
 
 import grodecoder as gd
-from grodecoder.models import Inventory
 
 
 class PathToTopologyFile(click.ParamType):
@@ -37,45 +36,31 @@ def setup_logging(debug: bool = False):
     logger.add(sys.stderr, level=level, format=fmt, colorize=True, backtrace=True, diagnose=True)
 
 
-def actually_count(universe: gd.UniverseLike) -> Inventory:
-    """Identifies and counts the molecules in a topology file."""
-    timer_start = time.perf_counter()  # do not include topology reading time in the count
-    inventory = gd.identify(universe)
-    elapsed = time.perf_counter() - timer_start
-    logger.debug(f"{len(universe.atoms):,d} atoms processed in {elapsed:.2f} seconds")
-    return inventory
-
-
-def main(topology_path: Path) -> dict:
+def main(topology_path: Path, output_to_stdout: bool) -> dict:
     """Main function to process a topology file and count the molecules."""
     logger.info(f"Processing topology file: {topology_path}")
 
-    universe = gd.read_topology(topology_path)
-    logger.debug(f"{topology_path}: {len(universe.atoms):,d} atoms")
+    # Decoding.
+    json_data = gd.decode_topology(topology_path).dump_json() 
 
-    inventory = actually_count(universe)
-
-    # Debug mode: print the inventory
-    for molecule in inventory.small_molecules:
-        logger.debug(f"{topology_path}: {molecule}")
-    for segment in inventory.segments:
-        logger.debug(f"{topology_path}: {segment}")
-
-    # Create JSON data
-    json_data = {
-        "resolution": gd.toputils.guess_resolution(universe),
-        "inventory": inventory,
-    }
-    return json_data
+    # Output results: to stdout or writes to a file.
+    if output_to_stdout:
+        print(json.dumps(json_data, indent=2))
+    else:
+        output_file = topology_path.with_suffix(".json").name
+        with open(output_file, "w") as f:
+            json.dump(json_data, f, indent=2)
+        logger.info(f"Results written to {output_file}")
 
 
 @click.command()
 @click.argument("topology_path", type=PathToTopologyFile())
+@click.option("--stdout", is_flag=True, help="Output the results to stdout in JSON format")
 @click.option("--debug", is_flag=True, help="Enable debug mode for detailed logging")
-def cli(topology_path, debug):
+def cli(topology_path, stdout, debug):
     """Command-line interface for processing topology files."""
     setup_logging(debug)
-    main(topology_path)
+    main(topology_path, stdout)
 
 
 if __name__ == "__main__":

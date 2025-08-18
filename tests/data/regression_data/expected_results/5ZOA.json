@@ -1,0 +1,121 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "ANPYERGPNPTDALLEASSGPFSVSEENVSRLSASGFGGGTIYYPRENNTYGAVAISPGYTGTEASIAWLGERIASHGFVVITIDTITTLDQPDSRAEQLNAALNHMINRASSTVRSRIDSSRLAVMGHSMGGGGTLRLASQRPDLKAAIPLTPWHLNKNWSSVTVPTLIIGADLDTIAPVATHAKPFYNSLPSSISKAYLELDGATHFAPNIPNKIIGKYSVAWLKRFVDNDTRYTQFLCPGPRDGLFGEVEEYRSTCPF",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        3932
+      ],
+      "number_of_residues": [
+        261
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "CAL",
+      "number_of_atoms": 49,
+      "number_of_residues": 49,
+      "description": "calcium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "CLA",
+      "number_of_atoms": 196,
+      "number_of_residues": 196,
+      "description": "chloride ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "POT",
+      "number_of_atoms": 356,
+      "number_of_residues": 356,
+      "description": "potassium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "SOD",
+      "number_of_atoms": 49,
+      "number_of_residues": 49,
+      "description": "sodium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "TIP3",
+      "number_of_atoms": 53817,
+      "number_of_residues": 17939,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    },
+    {
+      "name": "DLPG",
+      "number_of_atoms": 4653,
+      "number_of_residues": 47,
+      "description": "2,3 DILAUROYL-D-GLYCERO-1-PHOSPHATIDYLGLYCEROL",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "DPPI",
+      "number_of_atoms": 4256,
+      "number_of_residues": 32,
+      "description": "2,3 DIPALMITOYL-D-GLYCERO-1-PHOSPHATIDYLCHOLINE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "OPPG",
+      "number_of_atoms": 4064,
+      "number_of_residues": 32,
+      "description": "PG-1819Z/160",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "TLCL2",
+      "number_of_atoms": 7680,
+      "number_of_residues": 32,
+      "description": "TETRALINOLEOYL CARDIOLIPIN WITH HEAD GROUP CHARGE = -2",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "CHL1",
+      "number_of_atoms": 3478,
+      "number_of_residues": 47,
+      "description": "CHOLESTEROL NAME TO AVOID CONFLICT WITH CHOLINE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "CHSD",
+      "number_of_atoms": 2856,
+      "number_of_residues": 34,
+      "description": "CHOLESTERYL HEMISUCCINATE DEPROTONATED Y01",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "SITO",
+      "number_of_atoms": 2560,
+      "number_of_residues": 32,
+      "description": "BETA-SITOSTEROL",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "STIG",
+      "number_of_atoms": 1170,
+      "number_of_residues": 15,
+      "description": "STIGMASTEROL",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "POPI1",
+      "number_of_atoms": 4480,
+      "number_of_residues": 32,
+      "description": "Unknown small molecule",
+      "molecular_type": "small_molecule"
+    },
+    {
+      "name": "DPOP",
+      "number_of_atoms": 1245,
+      "number_of_residues": 15,
+      "description": "Unknown small molecule",
+      "molecular_type": "small_molecule"
+    }
+  ]
+}

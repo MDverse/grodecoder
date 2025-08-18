@@ -1,0 +1,41 @@
+{
+  "resolution": "coarse-grained",
+  "inventory": [
+    {
+      "sequence": "CCPLNWEYFQSSCYFFSTDTKSWALSLKNCSAMGA",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        91
+      ],
+      "number_of_residues": [
+        35
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "LVVINSQEEQEFLSYKKPKMREFFIGLSDQVVEGQWQWVDGTPLTKSLSFWDVGEPNNIATLEDCATMRDSSNPRQNWNDVTCFLNYFRICEMV",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        226
+      ],
+      "number_of_residues": [
+        94
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "ION",
+      "number_of_atoms": 35,
+      "number_of_residues": 35,
+      "description": "calcium ion - CG model with MARTINI",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "W",
+      "number_of_atoms": 1770,
+      "number_of_residues": 1770,
+      "description": "water W - in CG model with MARTINI",
+      "molecular_type": "solvent"
+    }
+  ]
+}

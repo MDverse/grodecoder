@@ -1,0 +1,121 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKNQYYGITAGPAYRINDWASIYGVVGVGYGKFQTTEYPTYKNDTSDYGFSYGAGLQFNPMENVALDFSYEQSRIRSVDVGTWIAGVGYRF",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        2226
+      ],
+      "number_of_residues": [
+        148
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "CAL",
+      "number_of_atoms": 60,
+      "number_of_residues": 60,
+      "description": "calcium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "CLA",
+      "number_of_atoms": 360,
+      "number_of_residues": 360,
+      "description": "chloride ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "MG",
+      "number_of_atoms": 60,
+      "number_of_residues": 60,
+      "description": "magnesium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "POT",
+      "number_of_atoms": 314,
+      "number_of_residues": 314,
+      "description": "potassium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "SOD",
+      "number_of_atoms": 60,
+      "number_of_residues": 60,
+      "description": "sodium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "TIP3",
+      "number_of_atoms": 65865,
+      "number_of_residues": 21955,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    },
+    {
+      "name": "DOPA",
+      "number_of_atoms": 4320,
+      "number_of_residues": 36,
+      "description": "2,3-DIOLEOYL-D-GLYCERO-1-PHOSPHATIDIC ACID",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "DYPG",
+      "number_of_atoms": 4284,
+      "number_of_residues": 36,
+      "description": "DI-PALMITOLEIC-PHOSPHATIDYLGLYCEROL DIC161",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "POPS",
+      "number_of_atoms": 4572,
+      "number_of_residues": 36,
+      "description": "3-PALMITOYL-2-OLEOYL-D-GLYCERO-1-PHOSPHATIDYLSERINE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "DMPE",
+      "number_of_atoms": 3924,
+      "number_of_residues": 36,
+      "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLETHANOLAMINE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "DMPS",
+      "number_of_atoms": 3996,
+      "number_of_residues": 36,
+      "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLSERINE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "CHL1",
+      "number_of_atoms": 2664,
+      "number_of_residues": 36,
+      "description": "CHOLESTEROL NAME TO AVOID CONFLICT WITH CHOLINE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "DDPC",
+      "number_of_atoms": 3384,
+      "number_of_residues": 36,
+      "description": "1,2 DIDECANOYL-D-GLYCERO-3-PHOSPHATIDYLCHOLINE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "POPP2",
+      "number_of_atoms": 4320,
+      "number_of_residues": 36,
+      "description": "2,3-DIOLEOYL-D-GLYCERO-1-PYROPHOSPHATE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "SOPG",
+      "number_of_atoms": 4788,
+      "number_of_residues": 36,
+      "description": "1-STEAROYL-2-OLEOYL-PHOSPHATIDYLGLYCEROL",
+      "molecular_type": "lipid"
+    }
+  ]
+}

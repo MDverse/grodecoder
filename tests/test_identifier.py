@@ -2,32 +2,26 @@
 
 import warnings
 from pathlib import Path
-from unittest.mock import Mock, patch
-
+from unittest.mock import Mock
 
 import MDAnalysis as mda
-import numpy as np
-import pytest
 
-from grodecoder.databases.models import Ion, Solvent
+from grodecoder.databases.models import Ion
 from grodecoder.identifier import (
     _find_methanol,
     _get_nucleic_segments,
     _get_protein_segments,
     _iter_chains,
-    _remove_identified_atoms,
     _select_nucleic,
     _select_protein,
     _unique_definitions,
-    identify,
-    identify_small_molecule,
 )
-from grodecoder.models import Inventory, Segment, SmallMolecule
+from grodecoder.models import Segment
 
 
 def read_pdb_no_warning_missing_elements(path: Path) -> mda.Universe:
     """Reads a PDB file without warning about missing elements."""
-    with warnings.catch_warnings() as w:
+    with warnings.catch_warnings():
         warnings.simplefilter("ignore", category=UserWarning)
         return mda.Universe(path)
 
@@ -239,7 +233,9 @@ class TestUniqueDefinitions:
     def test_unique_definitions_duplicates(self):
         """Test unique definitions with duplicate residue names (first one wins)."""
         def1 = Ion(residue_name="ION", description="First Ion", atom_names=["I"])
-        def2 = Ion(residue_name="ION", description="Second Ion", atom_names=["I", "I2"])  # unique is atom name insensitive
+        def2 = Ion(
+            residue_name="ION", description="Second Ion", atom_names=["I", "I2"]
+        )  # unique is atom name insensitive
         result = _unique_definitions([def1, def2])
 
         assert len(result) == 1

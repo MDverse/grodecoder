@@ -1,0 +1,153 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "LTTEIDNNIEQISSYKSEITELRRNVQALEIELQSQLALKQSLEASLAETEGRYCVQLSQIQAQISALEEQLQQIRAETECQNTEYQQLLDIKIRLENEIQTYRSLLEGE",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1781
+      ],
+      "number_of_residues": [
+        110
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "sequence": "RHGDSVRNSKIEISELNRVIQRLRSEIDNVKKQISNLQQSISDAEQRGENALKDAKNKLNDLEDALQQAKEDLARLLRDYQELMNTKLALDLEIATYRTLLEGE",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1697
+      ],
+      "number_of_residues": [
+        104
+      ],
+      "molecular_type": "protein"
+    },
+    {
+      "name": "CAL",
+      "number_of_atoms": 141,
+      "number_of_residues": 141,
+      "description": "calcium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "CLA",
+      "number_of_atoms": 846,
+      "number_of_residues": 846,
+      "description": "chloride ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "MG",
+      "number_of_atoms": 141,
+      "number_of_residues": 141,
+      "description": "magnesium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "POT",
+      "number_of_atoms": 223,
+      "number_of_residues": 223,
+      "description": "potassium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "SOD",
+      "number_of_atoms": 141,
+      "number_of_residues": 141,
+      "description": "sodium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "TIP3",
+      "number_of_atoms": 154308,
+      "number_of_residues": 51436,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    },
+    {
+      "name": "GSITO",
+      "number_of_atoms": 3434,
+      "number_of_residues": 34,
+      "description": "SITOSTERYL GLUCOSIDE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "BMGP",
+      "number_of_atoms": 4454,
+      "number_of_residues": 34,
+      "description": "181 BIS MONOOLEOYLGLYCEROL PHOSPHATE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "DEPS",
+      "number_of_atoms": 5270,
+      "number_of_residues": 34,
+      "description": "",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "PEPS",
+      "number_of_atoms": 4726,
+      "number_of_residues": 34,
+      "description": "PALMITOYL-ERUCIC-PHOSPHATIDYLSERINE PS160_221",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "MLN1",
+      "number_of_atoms": 2210,
+      "number_of_residues": 34,
+      "description": "MONOLEIN-1",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "DOPEE",
+      "number_of_atoms": 4454,
+      "number_of_residues": 34,
+      "description": "2,3-DIOLEOYL-D-GLYCERO-1-PHOSPHATIDYLETHANOLAMINE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "PLC20",
+      "number_of_atoms": 4726,
+      "number_of_residues": 34,
+      "description": "PLASMALOGEN PHOSPHATIDYLCHOLINE 18/204",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "ADG",
+      "number_of_atoms": 1836,
+      "number_of_residues": 34,
+      "description": "DECYL-ALPHA-D-GLUCOSIDE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "DDAOP",
+      "number_of_atoms": 1428,
+      "number_of_residues": 34,
+      "description": "N-DECYL-N,N-DIMETHYLAMINE-N-OXIDE PROTONATED",
+      "molecular_type": "other"
+    },
+    {
+      "name": "FOS14",
+      "number_of_atoms": 2278,
+      "number_of_residues": 34,
+      "description": "N-TRIDECYLPHOSPHOCHOLINE, TPC",
+      "molecular_type": "other"
+    },
+    {
+      "name": "PLESE",
+      "number_of_atoms": 4352,
+      "number_of_residues": 34,
+      "description": "Unknown small molecule",
+      "molecular_type": "small_molecule"
+    },
+    {
+      "name": "SB3-1",
+      "number_of_atoms": 2210,
+      "number_of_residues": 34,
+      "description": "Unknown small molecule",
+      "molecular_type": "small_molecule"
+    }
+  ]
+}

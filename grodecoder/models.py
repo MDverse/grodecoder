@@ -1,5 +1,7 @@
 import itertools
 from dataclasses import dataclass, field
+from enum import StrEnum
+
 from MDAnalysis import AtomGroup
 
 
@@ -118,3 +120,23 @@ class Inventory:
                 }
             )
         return inventory_json
+
+
+class MolecularResolution(StrEnum):
+    COARSE_GRAINED = "coarse-grained"
+    ALL_ATOM = "all-atom"
+
+
+@dataclass(frozen=True)
+class Decoded:
+    """A decoded structure with its inventory."""
+
+    inventory: Inventory
+    resolution: MolecularResolution
+
+    def dump_json(self) -> dict:
+        """Returns a JSON representation of the decoded structure."""
+        return {
+            "resolution": self.resolution,
+            "inventory": self.inventory.dump_json(),
+        }

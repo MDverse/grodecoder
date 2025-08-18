@@ -1,0 +1,54 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "name": "CLA",
+      "number_of_atoms": 28,
+      "number_of_residues": 28,
+      "description": "chloride ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "SOD",
+      "number_of_atoms": 104,
+      "number_of_residues": 104,
+      "description": "sodium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "TIP3",
+      "number_of_atoms": 38400,
+      "number_of_residues": 12800,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    },
+    {
+      "name": "POPI",
+      "number_of_atoms": 2192,
+      "number_of_residues": 16,
+      "description": "1-PALMITOYL-2-OLEOYL-INOSITOL",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "DMPC",
+      "number_of_atoms": 21240,
+      "number_of_residues": 180,
+      "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLCHOLINE",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "SAPI",
+      "number_of_atoms": 6578,
+      "number_of_residues": 46,
+      "description": "PHOSPHATIDYLINOSITOL",
+      "molecular_type": "lipid"
+    },
+    {
+      "name": "SLPI",
+      "number_of_atoms": 1974,
+      "number_of_residues": 14,
+      "description": "1-STEAROYL-2-LINOLEOYL-PHOSPHATIDYLCHOLINE",
+      "molecular_type": "lipid"
+    }
+  ]
+}

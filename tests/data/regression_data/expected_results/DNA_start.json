@@ -1,0 +1,37 @@
+{
+  "resolution": "all-atom",
+  "inventory": [
+    {
+      "sequence": "GCGGGGGGGGGGGGGGGCGCCCCCCCCCCCCCCCGC",
+      "number_of_segments": 1,
+      "number_of_atoms": [
+        1132
+      ],
+      "number_of_residues": [
+        36
+      ],
+      "molecular_type": "nucleic_acid"
+    },
+    {
+      "name": "CL",
+      "number_of_atoms": 88,
+      "number_of_residues": 88,
+      "description": "chloride ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "K",
+      "number_of_atoms": 122,
+      "number_of_residues": 122,
+      "description": "potassium ion",
+      "molecular_type": "ion"
+    },
+    {
+      "name": "SOL",
+      "number_of_atoms": 95049,
+      "number_of_residues": 31683,
+      "description": "water TIP3P solvant",
+      "molecular_type": "solvent"
+    }
+  ]
+}
