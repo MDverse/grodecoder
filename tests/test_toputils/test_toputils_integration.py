@@ -16,7 +16,7 @@ from grodecoder.toputils import (
 )
 
 TEST_DATA_DIR = Path(__file__).parent.parent / "data"
-GRO_SMALL = TEST_DATA_DIR / "barstar.gro"
+GRO_SMALL = TEST_DATA_DIR / "barstar_water_ions.gro"
 GRO_BIG = TEST_DATA_DIR / "1BRS.pdb"
 GRO_CG = TEST_DATA_DIR / "noriega_CG_CRD_3CAL.gro"
 

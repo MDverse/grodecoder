@@ -1,8 +1,7 @@
 """Unit tests for grodecoder.toputils module."""
 
 import numpy as np
-import pytest
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 
 from grodecoder.toputils import (
     _first_alpha,
