@@ -1,37 +1,36 @@
 from pathlib import Path
 
-import json
 import pytest
 
 import grodecoder as gd
+from grodecoder.models import DecodedRead
 
 TEST_DATA_ROOT_DIR = Path(__file__).parent / "data" / "regression_data"
 TEST_DATA_INPUT_FILES_DIR = TEST_DATA_ROOT_DIR / "input_files"
-TEST_DATA_EXPECTED_RESULTS_DIR = TEST_DATA_ROOT_DIR / "expected_results"
+# TEST_DATA_EXPECTED_RESULTS_DIR = TEST_DATA_ROOT_DIR / "expected_results"
+TEST_DATA_EXPECTED_RESULTS_DIR  = Path("/Volumes/Projects/Development/grodecoder/expected_results")  # DEBUG
+
 
 assert TEST_DATA_ROOT_DIR.exists()
 assert TEST_DATA_INPUT_FILES_DIR.exists()
 assert TEST_DATA_EXPECTED_RESULTS_DIR.exists()
 
+TEST_TOPOLOGY_FILES = list(TEST_DATA_INPUT_FILES_DIR.glob("*.gro")) + list(
+    TEST_DATA_INPUT_FILES_DIR.glob("*.pdb")
+)
 
 def expected_results_file(topology_file: Path) -> Path:
     """Returns the expected results file path for a given topology file."""
     return TEST_DATA_EXPECTED_RESULTS_DIR / topology_file.with_suffix(".json").name
 
 
-def all_test_data_files() -> list[Path]:
-    """Returns a list of all test data files in the input files directory."""
-    foo = list(TEST_DATA_INPUT_FILES_DIR.glob("*.gro")) + list(TEST_DATA_INPUT_FILES_DIR.glob("*.pdb"))
-    return foo
-
-
-def read_json_file(file_path: Path) -> dict:
-    """Reads a JSON file and returns its content as a dictionary."""
+def read_json_file(file_path: Path) -> DecodedRead:
+    """Reads a JSON file and returns its content."""
     with open(file_path, "r") as file:
-        return json.load(file)
+        return DecodedRead.model_validate_json(file.read())
 
 
-def compare_molecules(result: dict, expected: dict) -> None:
+def assert_equal_molecules(result: dict, expected: dict) -> None:
     expected_by_name = {
         molecule.get("name", molecule.get("sequence")): molecule for molecule in expected["inventory"]
     }
@@ -47,24 +46,33 @@ def compare_molecules(result: dict, expected: dict) -> None:
         assert molecule == expected_molecule, f"Molecule {molecule_name} does not match expected results."
 
 
-@pytest.mark.parametrize("topology_file", all_test_data_files())
+@pytest.mark.parametrize("topology_file", TEST_TOPOLOGY_FILES)
 def test_regression(topology_file: Path):
     expected_results_json = expected_results_file(topology_file)
 
     assert topology_file.exists()
     assert expected_results_json.exists()
 
-    result = gd.decode_topology(topology_file).dump_json()
+    result = gd.decode_topology(topology_file)
+
+    actual = gd.models.DecodedRead.from_decoded(result)
     expected = read_json_file(expected_results_json)
 
-    compare_molecules(result, expected)
+    assert actual == expected, f"Decoded result does not match expected for {topology_file.name}"
 
 
-def test_coucou():
-    topology_file = TEST_DATA_INPUT_FILES_DIR / "5ZOA.gro"
+
+
+def test_foo():
+    topology_file = TEST_DATA_INPUT_FILES_DIR / "4ZRY.gro"
     expected_results_json = expected_results_file(topology_file)
 
-    result = gd.decode_topology(topology_file).dump_json()
+    result = gd.decode_topology(topology_file)
+    actual = gd.models.DecodedRead.from_decoded(result)
     expected = read_json_file(expected_results_json)
 
-    compare_molecules(result, expected)
+    with open("youpi.json", "w") as f:
+        f.write(actual.model_dump_json(indent=2))
+
+    assert actual == expected, f"Decoded result does not match expected for {topology_file.name}"
+
