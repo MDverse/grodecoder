@@ -1,125 +1,12 @@
-import itertools
-from dataclasses import dataclass, field
+from __future__ import annotations
 from enum import StrEnum
 
 from MDAnalysis import AtomGroup
 
-
-@dataclass(frozen=True)
-class SmallMolecule:
-    """Small molecules are defined as residues with a single residue name."""
-
-    atoms: AtomGroup
-    description: str = field(default="Unknown small molecule")
-    molecular_type: str = field(default="small_molecule")
-
-    def __repr__(self) -> str:
-        """Returns a string representation of the SmallMolecule."""
-        return (
-            f"<{self.__class__.__name__}("
-            f"name={self.name!r}, "
-            f"description={self.description!r}, "
-            f"atoms=<AtomGroup with {self.number_of_atoms()} atoms, {self.number_of_residues()} residues>"
-            ")>"
-        )
-
-    @property
-    def name(self) -> str:
-        """Returns the name of the residue."""
-        return self.atoms.residues[0].resname
-
-    def number_of_atoms(self) -> int:
-        """Returns the number of atoms in the small molecule."""
-        return len(self.atoms)
-
-    def number_of_residues(self) -> int:
-        """Returns the number of residues in the small molecule."""
-        return len(self.atoms.residues)
-
-    def dump_json(self) -> dict:
-        """Returns a JSON representation of the residue."""
-        return {
-            "name": self.name,
-            "description": self.description,
-            "number_of_atoms": self.number_of_atoms(),
-            "number_of_residues": self.number_of_residues(),
-            "molecular_type": self.molecular_type,
-            # "atom_indices": self.atom_indices.tolist(),
-        }
+from pydantic import BaseModel, ConfigDict, computed_field, field_serializer
 
 
-@dataclass(frozen=True)
-class Segment:
-    """A segment is a group of atoms that are connected."""
-
-    atoms: AtomGroup
-    sequence: str
-    molecular_type: str
-
-    def __repr__(self) -> str:
-        """Returns a string representation of the Segment."""
-        seq = self.sequence
-        pretty_seq = seq[:15] + "..." + seq[-5:] if len(seq) > 20 else seq
-        return (
-            f"<{self.__class__.__name__}("
-            f"molecular_type={self.molecular_type!r}, "
-            f"sequence={pretty_seq!r}, "
-            f"atoms=<AtomGroup with {self.number_of_atoms()} atoms, {self.number_of_residues()} residues>"
-            ")>"
-        )
-
-    @property
-    def name(self) -> str:
-        """Returns the name of the segment."""
-        return self.atoms.residues[0].resname
-
-    def number_of_atoms(self) -> int:
-        """Returns the number of atoms in the segment."""
-        return len(self.atoms)
-
-    def number_of_residues(self) -> int:
-        """Returns the number of residues in the segment."""
-        return len(self.atoms.residues)
-
-
-@dataclass(frozen=True)
-class Inventory:
-    """An inventory of molecules in a universe."""
-
-    small_molecules: list[SmallMolecule] = field(default_factory=list)
-    segments: list[Segment] = field(default_factory=list)
-
-    def dump_json(self) -> list[dict]:
-        inventory_json = []
-
-        # Group segments by molecular type and sequence.
-        by_molecular_type = itertools.groupby(self.segments, key=lambda x: x.molecular_type)
-        for molecular_type, segments in by_molecular_type:
-            by_sequence = itertools.groupby(segments, key=lambda x: x.sequence)
-            for sequence, segments in by_sequence:
-                segments_list = list(segments)
-                inventory_json.append(
-                    {
-                        "sequence": sequence,
-                        "number_of_segments": len(segments_list),
-                        "number_of_atoms": [segment.number_of_atoms() for segment in segments_list],
-                        "number_of_residues": [segment.number_of_residues() for segment in segments_list],
-                        "molecular_type": molecular_type,
-                    }
-                )
-
-        # Add small molecules.
-        for small_molecule in self.small_molecules:
-            inventory_json.append(
-                {
-                    "name": small_molecule.name,
-                    "number_of_atoms": small_molecule.number_of_atoms(),
-                    "number_of_residues": small_molecule.number_of_residues(),
-                    "description": small_molecule.description,
-                    "molecular_type": small_molecule.molecular_type,
-                }
-            )
-        return inventory_json
+ATOMS_DEBUG = [1, 2, 3]  # DEBUG: Placeholder for atom indices, should be replaced with actual indices
 
 
 class MolecularResolution(StrEnum):
@@ -127,16 +14,131 @@ class MolecularResolution(StrEnum):
     ALL_ATOM = "all-atom"
 
 
-@dataclass(frozen=True)
-class Decoded:
+class MolecularType(StrEnum):
+    PROTEIN = "protein"
+    NUCLEIC = "nucleic_acid"
+    LIPID = "lipid"
+    SOLVENT = "solvent"
+    ION = "ion"
+    UNKNOWN = "unknown"
+
+
+class FrozenModel(BaseModel):
+    """Base model with frozen configuration to prevent modification."""
+
+    model_config = ConfigDict(frozen=True)
+
+
+class BaseModelWithAtoms(FrozenModel):
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+    atoms: AtomGroup
+
+    @field_serializer("atoms")
+    def serialize_atoms(self, value: AtomGroup) -> list[int]:
+        """Serializes the AtomGroup to a list of atom indices."""
+        return value.indices.tolist()
+
+    @computed_field
+    def number_of_atoms(self) -> int:
+        """Returns the number of atoms in the small molecule."""
+        return len(self.atoms)
+
+    @computed_field
+    def number_of_residues(self) -> int:
+        """Returns the number of residues in the small molecule."""
+        return len(self.atoms.residues)
+
+
+class SmallMolecule(BaseModelWithAtoms):
+    """Small molecules are defined as residues with a single residue name."""
+
+    description: str
+    molecular_type: MolecularType
+
+    @computed_field
+    @property
+    def name(self) -> str:
+        """Returns the name of the residue."""
+        return self.atoms.residues[0].resname
+
+
+class Segment(BaseModelWithAtoms):
+    """A segment is a group of atoms that are connected."""
+
+    sequence: str
+    molecular_type: MolecularType  # likely to be protein or nucleic acid
+
+
+class Inventory(FrozenModel):
+    """An inventory of molecules in a universe."""
+
+    small_molecules: list[SmallMolecule]
+    segments: list[Segment]
+
+
+class Decoded(FrozenModel):
     """A decoded structure with its inventory."""
 
     inventory: Inventory
     resolution: MolecularResolution
 
-    def dump_json(self) -> dict:
-        """Returns a JSON representation of the decoded structure."""
-        return {
-            "resolution": self.resolution,
-            "inventory": self.inventory.dump_json(),
-        }
+
+# =========================================================================================================
+# Models used for reading back decoded data from JSON files or APIs.
+
+class BaseModelWithAtomsRead(FrozenModel):
+    atoms: list[int]
+    number_of_atoms: int
+    number_of_residues: int
+
+
+class SmallMoleculeRead(BaseModelWithAtomsRead):
+    name: str
+    description: str
+    molecular_type: MolecularType
+
+
+class SegmentRead(BaseModelWithAtomsRead):
+    sequence: str
+    molecular_type: MolecularType
+
+
+class InventoryRead(FrozenModel):
+    small_molecules: list[SmallMoleculeRead]
+    segments: list[SegmentRead]
+
+
+class DecodedRead(FrozenModel):
+    inventory: InventoryRead
+    resolution: MolecularResolution
+
+    @classmethod
+    def from_decoded(cls, decoded: Decoded) -> DecodedRead:
+        """Creates a DecodedRead instance from a Decoded instance."""
+        small_molecules_read = [
+            SmallMoleculeRead(
+                name=sm.name,
+                description=sm.description,
+                molecular_type=sm.molecular_type,
+                number_of_atoms=sm.number_of_atoms,
+                number_of_residues=sm.number_of_residues,
+                atoms=sm.atoms.indices.tolist(),
+            )
+            for sm in decoded.inventory.small_molecules
+        ]
+    
+        segments_read = [
+            SegmentRead(
+                sequence=seg.sequence,
+                molecular_type=seg.molecular_type,
+                atoms=seg.atoms.indices.tolist(),
+                number_of_atoms=seg.number_of_atoms,
+                number_of_residues=seg.number_of_residues,
+            )
+            for seg in decoded.inventory.segments
+        ]
+    
+        inventory_read = InventoryRead(small_molecules=small_molecules_read, segments=segments_read)
+    
+        return cls(inventory=inventory_read, resolution=decoded.resolution)

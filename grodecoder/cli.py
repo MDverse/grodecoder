@@ -1,4 +1,3 @@
-import json
 import sys
 from pathlib import Path
 
@@ -41,15 +40,15 @@ def main(topology_path: Path, output_to_stdout: bool) -> dict:
     logger.info(f"Processing topology file: {topology_path}")
 
     # Decoding.
-    json_data = gd.decode_topology(topology_path).dump_json() 
+    json_string = gd.decode_topology(topology_path).model_dump_json(indent=2)
 
     # Output results: to stdout or writes to a file.
     if output_to_stdout:
-        print(json.dumps(json_data, indent=2))
+        print(json_string)
     else:
         output_file = topology_path.with_suffix(".json").name
         with open(output_file, "w") as f:
-            json.dump(json_data, f, indent=2)
+            f.write(json_string)
         logger.info(f"Results written to {output_file}")
 
 
