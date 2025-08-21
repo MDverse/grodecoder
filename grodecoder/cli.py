@@ -35,12 +35,12 @@ def setup_logging(debug: bool = False):
     logger.add(sys.stderr, level=level, format=fmt, colorize=True, backtrace=True, diagnose=True)
 
 
-def main(topology_path: Path, compact_serialization: bool, output_to_stdout: bool) -> dict:
+def main(topology_path: Path, bond_threshold: float, compact_serialization: bool, output_to_stdout: bool) -> dict:
     """Main function to process a topology file and count the molecules."""
     logger.info(f"Processing topology file: {topology_path}")
 
     # Decoding.
-    decoded = gd.decode_topology(topology_path)
+    decoded = gd.decode_topology(topology_path, bond_threshold=bond_threshold)
 
     # Serialization.
     serialization_mode = "compact" if compact_serialization else "full"
@@ -58,13 +58,19 @@ def main(topology_path: Path, compact_serialization: bool, output_to_stdout: boo
 
 @click.command()
 @click.argument("topology_path", type=PathToTopologyFile())
+@click.option(
+    "--bond-threshold",
+    default=5.0,
+    type=float,
+    help="Threshold for interchain bond detection (default: 5 Å)",
+)
 @click.option("--compact", is_flag=True, help="do not output the atom indice array")
 @click.option("-s", "--stdout", is_flag=True, help="Output the results to stdout in JSON format")
 @click.option("--debug", is_flag=True, help="Enable debug mode for detailed logging")
-def cli(topology_path, compact, stdout, debug):
+def cli(topology_path, bond_threshold, compact, stdout, debug):
     """Command-line interface for processing topology files."""
     setup_logging(debug)
-    main(topology_path, compact, stdout)
+    main(topology_path, bond_threshold, compact, stdout)
 
 
 if __name__ == "__main__":

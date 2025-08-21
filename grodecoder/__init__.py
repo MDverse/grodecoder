@@ -28,16 +28,16 @@ def read_topology(path: PathLike, psf_path: PathLike | None = None) -> Universe:
     return mda.Universe(path)
 
 
-def decode(universe: UniverseLike) -> Decoded:
+def decode(universe: UniverseLike, bond_threshold: float = 5.0) -> Decoded:
     """Decodes the universe into an inventory of segments."""
     return Decoded(
-        inventory=identify(universe),
+        inventory=identify(universe, bond_threshold=bond_threshold),
         resolution=toputils.guess_resolution(universe),
     )
 
 
-def decode_topology(path: PathLike, psf_path: PathLike | None = None) -> Decoded:
+def decode_topology(path: PathLike, psf_path: PathLike | None = None, bond_threshold: float = 5.0) -> Decoded:
     """Reads a topology file and decodes it into an inventory of segments."""
     universe = read_topology(path, psf_path)
     logger.debug(f"{path}: {len(universe.atoms):,d} atoms")
-    return decode(universe)
+    return decode(universe, bond_threshold=bond_threshold)

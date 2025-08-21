@@ -10,6 +10,47 @@ from ._typing import UniverseLike
 from .models import Inventory, MolecularType, SmallMolecule, Segment
 
 
+def identify_small_molecule(
+    universe: UniverseLike,
+    definitions: Iterable[DB.ResidueDefinition],
+    molecular_type: MolecularType = MolecularType.UNKNOWN,
+) -> list[SmallMolecule]:
+    """Counts the residues in the universe based on the definitions.
+
+    Only using the residue name, not the atom names.
+    """
+    counts = []
+    u_definitions = _unique_definitions(definitions)
+    for residue_name, definition in u_definitions.items():
+        selection = universe.select_atoms(f"resname {definition.residue_name}")
+        if len(selection) == 0:
+            continue
+        residue = SmallMolecule(
+            atoms=selection, description=definition.description, molecular_type=molecular_type
+        )
+        counts.append(residue)
+    return counts
+
+
+def identify(universe: UniverseLike, bond_threshold: float = 5.0, measure_perf: bool = False) -> Inventory:
+    """Identifies the molecules in a topology file.
+
+    Optionally measures the performance of the identification process and logs the time taken at debug level.
+    """
+    timer_start = time.perf_counter()  # do not include topology reading time in the performance measurement
+    inventory = _identify(universe, bond_threshold)
+    elapsed = time.perf_counter() - timer_start
+    logger.debug(f"{len(universe.atoms):,d} atoms processed in {elapsed:.2f} seconds")
+    return inventory
+
+
+# ========================================================================================================
+#
+#   Private functions
+#
+# ========================================================================================================
+
+
 def _find_methanol(universe: UniverseLike) -> list[int]:
     """Returns the indices of methanol atoms in the universe."""
     met = universe.select_atoms("resname MET")
@@ -41,33 +82,33 @@ def _select_nucleic(universe: UniverseLike) -> AtomGroup:
     return universe.select_atoms(selection_str)
 
 
-def _iter_chains(atoms: AtomGroup) -> Iterator[AtomGroup]:
+def _iter_chains(atoms: AtomGroup, bond_threshold: float = 5.0) -> Iterator[AtomGroup]:
     """Iterates over the chains of a group of atoms.
 
     Chains are defined as segments of residues that are connected by bonds.
     """
     if len(atoms) == 0:
         return
-    segments = toputils.detect_chains(atoms)
+    segments = toputils.detect_chains(atoms, cutoff=bond_threshold)
     for start, end in segments:
         yield atoms.residues[start : end + 1].atoms
 
 
-def _get_protein_segments(atoms: AtomGroup) -> list[Segment]:
+def _get_protein_segments(atoms: AtomGroup, bond_threshold: float = 5.0) -> list[Segment]:
     """Returns the protein segments in the universe."""
     protein = _select_protein(atoms)
     return [
         Segment(atoms=atoms, sequence=toputils.sequence(atoms), molecular_type=MolecularType.PROTEIN)
-        for atoms in _iter_chains(protein)
+        for atoms in _iter_chains(protein, bond_threshold)
     ]
 
 
-def _get_nucleic_segments(atoms: AtomGroup) -> list[Segment]:
+def _get_nucleic_segments(atoms: AtomGroup, bond_threshold: float = 5.0) -> list[Segment]:
     """Returns the nucleic acid segments in the universe."""
     nucleic = _select_nucleic(atoms)
     return [
         Segment(atoms=atoms, sequence=toputils.sequence(atoms), molecular_type=MolecularType.NUCLEIC)
-        for atoms in _iter_chains(nucleic)
+        for atoms in _iter_chains(nucleic, bond_threshold)
     ]
 
 
@@ -87,41 +128,7 @@ def _remove_identified_atoms(universe: AtomGroup, molecules: list[AtomGroup]) ->
     return universe
 
 
-def identify_small_molecule(
-    universe: UniverseLike,
-    definitions: Iterable[DB.ResidueDefinition],
-    molecular_type: MolecularType = MolecularType.UNKNOWN,
-) -> list[SmallMolecule]:
-    """Counts the residues in the universe based on the definitions.
-
-    Only using the residue name, not the atom names.
-    """
-    counts = []
-    u_definitions = _unique_definitions(definitions)
-    for residue_name, definition in u_definitions.items():
-        selection = universe.select_atoms(f"resname {definition.residue_name}")
-        if len(selection) == 0:
-            continue
-        residue = SmallMolecule(
-            atoms=selection, description=definition.description, molecular_type=molecular_type
-        )
-        counts.append(residue)
-    return counts
-
-
-def identify(universe: UniverseLike, measure_perf: bool = False) -> Inventory:
-    """Identifies the molecules in a topology file.
-
-    Optionally measures the performance of the identification process and logs the time taken at debug level.
-    """
-    timer_start = time.perf_counter()  # do not include topology reading time in the performance measurement
-    inventory = _identify(universe)
-    elapsed = time.perf_counter() - timer_start
-    logger.debug(f"{len(universe.atoms):,d} atoms processed in {elapsed:.2f} seconds")
-    return inventory
-
-
-def _identify(universe: UniverseLike) -> Inventory:
+def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     """Identifies the molecules in the universe."""
 
     # Ensure the universe is an AtomGroup.
@@ -130,10 +137,10 @@ def _identify(universe: UniverseLike) -> Inventory:
     # Remove identified atoms from the universe along the way to avoid double counting (e.g.
     # 'MET' residues are counted first in the protein, then removed so not counted elsewhere).
 
-    protein = _get_protein_segments(universe)
+    protein = _get_protein_segments(universe, bond_threshold=bond_threshold)
     universe = _remove_identified_atoms(universe, protein)
 
-    nucleic = _get_nucleic_segments(universe)
+    nucleic = _get_nucleic_segments(universe, bond_threshold=bond_threshold)
     universe = _remove_identified_atoms(universe, nucleic)
 
     ions = identify_small_molecule(universe, DB.get_ion_definitions(), molecular_type=MolecularType.ION)
