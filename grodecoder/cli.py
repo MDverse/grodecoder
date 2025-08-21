@@ -35,12 +35,16 @@ def setup_logging(debug: bool = False):
     logger.add(sys.stderr, level=level, format=fmt, colorize=True, backtrace=True, diagnose=True)
 
 
-def main(topology_path: Path, output_to_stdout: bool) -> dict:
+def main(topology_path: Path, compact_serialization: bool, output_to_stdout: bool) -> dict:
     """Main function to process a topology file and count the molecules."""
     logger.info(f"Processing topology file: {topology_path}")
 
     # Decoding.
-    json_string = gd.decode_topology(topology_path).model_dump_json(indent=2)
+    decoded = gd.decode_topology(topology_path)
+
+    # Serialization.
+    serialization_mode = "compact" if compact_serialization else "full"
+    json_string = decoded.model_dump_json(indent=2, context={"serialization_mode": serialization_mode})
 
     # Output results: to stdout or writes to a file.
     if output_to_stdout:
@@ -54,12 +58,13 @@ def main(topology_path: Path, output_to_stdout: bool) -> dict:
 
 @click.command()
 @click.argument("topology_path", type=PathToTopologyFile())
-@click.option("--stdout", is_flag=True, help="Output the results to stdout in JSON format")
+@click.option("--compact", is_flag=True, help="do not output the atom indice array")
+@click.option("-s", "--stdout", is_flag=True, help="Output the results to stdout in JSON format")
 @click.option("--debug", is_flag=True, help="Enable debug mode for detailed logging")
-def cli(topology_path, stdout, debug):
+def cli(topology_path, compact, stdout, debug):
     """Command-line interface for processing topology files."""
     setup_logging(debug)
-    main(topology_path, stdout)
+    main(topology_path, compact, stdout)
 
 
 if __name__ == "__main__":

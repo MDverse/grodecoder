@@ -1,12 +1,17 @@
 from __future__ import annotations
+
 from enum import StrEnum
 
 from MDAnalysis import AtomGroup
-
-from pydantic import BaseModel, ConfigDict, computed_field, field_serializer
-
-
-ATOMS_DEBUG = [1, 2, 3]  # DEBUG: Placeholder for atom indices, should be replaced with actual indices
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    SerializationInfo,
+    SerializerFunctionWrapHandler,
+    computed_field,
+    field_serializer,
+    model_serializer,
+)
 
 
 class MolecularResolution(StrEnum):
@@ -23,13 +28,18 @@ class MolecularType(StrEnum):
     UNKNOWN = "unknown"
 
 
+class SerializationMode(StrEnum):
+    FULL = "full"
+    COMPACT = "compact"
+
+
 class FrozenModel(BaseModel):
     """Base model with frozen configuration to prevent modification."""
 
     model_config = ConfigDict(frozen=True)
 
 
-class BaseModelWithAtoms(FrozenModel):
+class FrozenWithAtoms(FrozenModel):
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
     atoms: AtomGroup
@@ -49,8 +59,33 @@ class BaseModelWithAtoms(FrozenModel):
         """Returns the number of residues in the small molecule."""
         return len(self.atoms.residues)
 
+    def _get_serialization_mode(self, info: SerializationInfo) -> SerializationMode:
+        """Determines the serialization mode based on the context."""
+        if info.context and "serialization_mode" in info.context:
+            return info.context["serialization_mode"]
+        return SerializationMode.FULL
 
-class SmallMolecule(BaseModelWithAtoms):
+    @model_serializer(mode="wrap")
+    def serialize(self, handler: SerializerFunctionWrapHandler, info: SerializationInfo) -> dict:
+        """Serializes the small molecule, optionally excluding the atoms.
+
+        Example:
+            >>> topology_file = Path("tests/data/barstar.gro")
+            >>> decoded = decode_topology(topology_file)
+            >>> seg = decoded.inventory.segments[0]
+            >>> seg.model_dump()
+            {"atoms": [0, 1, 2, ...], "sequence": "KKAVI...", "number_of_atoms": 1434, "number_of_residues": 89}
+            >>> seg.model_dump(context={"serialization_mode": "compact"})
+            {"sequence": "KKAVI...", "number_of_atoms": 1434, "number_of_residues": 89}  # does not include "atoms" key
+        """
+        self_data = handler(self)
+        if self._get_serialization_mode(info) == SerializationMode.COMPACT:
+            # In compact mode, we exclude the atoms from the serialized output.
+            del self_data["atoms"]
+        return self_data
+
+
+class SmallMolecule(FrozenWithAtoms):
     """Small molecules are defined as residues with a single residue name."""
 
     description: str
@@ -63,7 +98,7 @@ class SmallMolecule(BaseModelWithAtoms):
         return self.atoms.residues[0].resname
 
 
-class Segment(BaseModelWithAtoms):
+class Segment(FrozenWithAtoms):
     """A segment is a group of atoms that are connected."""
 
     sequence: str
@@ -86,6 +121,7 @@ class Decoded(FrozenModel):
 
 # =========================================================================================================
 # Models used for reading back decoded data from JSON files or APIs.
+
 
 class BaseModelWithAtomsRead(FrozenModel):
     atoms: list[int]
@@ -127,7 +163,7 @@ class DecodedRead(FrozenModel):
             )
             for sm in decoded.inventory.small_molecules
         ]
-    
+
         segments_read = [
             SegmentRead(
                 sequence=seg.sequence,
@@ -138,7 +174,7 @@ class DecodedRead(FrozenModel):
             )
             for seg in decoded.inventory.segments
         ]
-    
+
         inventory_read = InventoryRead(small_molecules=small_molecules_read, segments=segments_read)
-    
+
         return cls(inventory=inventory_read, resolution=decoded.resolution)
