@@ -7,8 +7,7 @@ from grodecoder.models import DecodedRead
 
 TEST_DATA_ROOT_DIR = Path(__file__).parent / "data" / "regression_data"
 TEST_DATA_INPUT_FILES_DIR = TEST_DATA_ROOT_DIR / "input_files"
-# TEST_DATA_EXPECTED_RESULTS_DIR = TEST_DATA_ROOT_DIR / "expected_results"
-TEST_DATA_EXPECTED_RESULTS_DIR  = Path("/Volumes/Projects/Development/grodecoder/expected_results")  # DEBUG
+TEST_DATA_EXPECTED_RESULTS_DIR = TEST_DATA_ROOT_DIR / "expected_results"
 
 
 assert TEST_DATA_ROOT_DIR.exists()
@@ -59,20 +58,3 @@ def test_regression(topology_file: Path):
     expected = read_json_file(expected_results_json)
 
     assert actual == expected, f"Decoded result does not match expected for {topology_file.name}"
-
-
-
-
-def test_foo():
-    topology_file = TEST_DATA_INPUT_FILES_DIR / "4ZRY.gro"
-    expected_results_json = expected_results_file(topology_file)
-
-    result = gd.decode_topology(topology_file)
-    actual = gd.models.DecodedRead.from_decoded(result)
-    expected = read_json_file(expected_results_json)
-
-    with open("youpi.json", "w") as f:
-        f.write(actual.model_dump_json(indent=2))
-
-    assert actual == expected, f"Decoded result does not match expected for {topology_file.name}"
-
