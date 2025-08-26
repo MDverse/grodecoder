@@ -33,6 +33,7 @@ def decode(universe: UniverseLike, bond_threshold: float = 5.0) -> Decoded:
     return Decoded(
         inventory=identify(universe, bond_threshold=bond_threshold),
         resolution=toputils.guess_resolution(universe),
+        database_version=databases.__version__,
     )
 
 

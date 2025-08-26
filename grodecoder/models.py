@@ -117,6 +117,7 @@ class Decoded(FrozenModel):
 
     inventory: Inventory
     resolution: MolecularResolution
+    database_version: str
 
 
 # =========================================================================================================

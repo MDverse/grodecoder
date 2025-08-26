@@ -18,6 +18,7 @@ TEST_TOPOLOGY_FILES = list(TEST_DATA_INPUT_FILES_DIR.glob("*.gro")) + list(
     TEST_DATA_INPUT_FILES_DIR.glob("*.pdb")
 )
 
+
 def expected_results_file(topology_file: Path) -> Path:
     """Returns the expected results file path for a given topology file."""
     return TEST_DATA_EXPECTED_RESULTS_DIR / topology_file.with_suffix(".json").name

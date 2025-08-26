@@ -13,6 +13,7 @@ from .api import (
     get_other_definitions,
     get_solvent_definitions,
     get_solvent_names,
+    DATABASES_DATA_PATH,
 )
 from .models import (
     ResidueDefinition,
@@ -46,3 +47,7 @@ __all__ = [
     "AminoAcid",
     "Nucleotide",
 ]
+
+
+with open(DATABASES_DATA_PATH / "version.txt") as f:
+    __version__ = f.read().strip()
