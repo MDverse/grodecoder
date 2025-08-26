@@ -62,7 +62,7 @@ class FrozenWithAtoms(FrozenModel):
     def _get_serialization_mode(self, info: SerializationInfo) -> SerializationMode:
         """Determines the serialization mode based on the context."""
         if info.context and "serialization_mode" in info.context:
-            return info.context["serialization_mode"]
+            return SerializationMode(info.context["serialization_mode"])
         return SerializationMode.FULL
 
     @model_serializer(mode="wrap")
@@ -91,7 +91,7 @@ class SmallMolecule(FrozenWithAtoms):
     description: str
     molecular_type: MolecularType
 
-    @computed_field
+    @computed_field  # type: ignore[prop-decorator]
     @property
     def name(self) -> str:
         """Returns the name of the residue."""

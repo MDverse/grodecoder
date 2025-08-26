@@ -35,7 +35,7 @@ def setup_logging(debug: bool = False):
     logger.add(sys.stderr, level=level, format=fmt, colorize=True, backtrace=True, diagnose=True)
 
 
-def main(topology_path: Path, bond_threshold: float, compact_serialization: bool, output_to_stdout: bool) -> dict:
+def main(topology_path: Path, bond_threshold: float, compact_serialization: bool, output_to_stdout: bool):
     """Main function to process a topology file and count the molecules."""
     logger.info(f"Processing topology file: {topology_path}")
 
@@ -71,7 +71,3 @@ def cli(topology_path, bond_threshold, compact, stdout, debug):
     """Command-line interface for processing topology files."""
     setup_logging(debug)
     main(topology_path, bond_threshold, compact, stdout)
-
-
-if __name__ == "__main__":
-    main()
