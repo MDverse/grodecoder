@@ -108,9 +108,16 @@ CSML_DB: list[csml.Residue] = read_csml_database()
 def _build_lipid_db() -> list[Lipid]:
     _mad_lipid_resnames = {item.alias for item in MAD_DB if item.family == mad.ResidueFamily.LIPID}
     _csml_lipid_resnames = {residue.name for residue in CSML_DB if residue.family == csml.ResidueFamily.LIPID}
-    _duplicates = _mad_lipid_resnames & _csml_lipid_resnames
-    if _duplicates:
-        logger.warning(f"Duplicate lipid residue names found in MAD and CSML databases: {_duplicates}")
+
+    if False:
+        # IMPORTANT:
+        #   Right now, having duplicates is not an issue has we are only interested in the residue names
+        #   and the molecular type (i.e. lipid in this case).
+        #   If we ever start checking atom names or other properties, we will need to handle duplicates
+        #   properly.
+        _duplicates = _mad_lipid_resnames & _csml_lipid_resnames
+        if _duplicates:
+            logger.warning(f"Duplicate lipid residue names found in MAD and CSML databases: {_duplicates}")
 
     db = {
         item.alias: Lipid(description=item.name, residue_name=item.alias)
