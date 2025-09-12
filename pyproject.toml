@@ -5,21 +5,38 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "beautifulsoup4>=4.13.3",
-    "biopython>=1.85",
+    "click>=8.1.8",
     "loguru>=0.7.3",
     "mdanalysis>=2.9.0",
-    "networkx>=3.4.2",
-    "numpy>=2.2.4",
-    "pandas>=2.2.3",
-    "pillow>=11.1.0",
-    "playwright>=1.51.0",
-    "requests>=2.32.3",
-    "scipy>=1.15.2",
-    "streamlit>=1.44.0",
+    "pydantic>=2.11.3",
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+grodecoder = "grodecoder.cli:cli"
 
 [dependency-groups]
 dev = [
+    "icecream>=2.1.4",
+    "mypy>=1.17.1",
+    "pytest>=8.3.5",
     "ruff>=0.11.2",
+    "types-requests>=2.32.4.20250809",
+    "beautifulsoup4>=4.13.3",
+    "biopython>=1.85",
+    "playwright>=1.51.0",
+    "requests>=2.32.3",
+    "streamlit>=1.44.0",
 ]
+
+[tool.ruff]
+line-length = 110
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+
+[tool.mypy]
+ignore_missing_imports = true

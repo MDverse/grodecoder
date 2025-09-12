@@ -1,0 +1,495 @@
+[
+  {
+    "description": "aluminium ion ",
+    "residue_name": "AL3P",
+    "atom_names": [
+      "AL3P"
+    ]
+  },
+  {
+    "description": "barium ion - CHARMM",
+    "residue_name": "BAR",
+    "atom_names": [
+      "BAR"
+    ]
+  },
+  {
+    "description": "bromide ion",
+    "residue_name": "BR",
+    "atom_names": [
+      "BR"
+    ]
+  },
+  {
+    "description": "bromide ion",
+    "residue_name": "BR-",
+    "atom_names": [
+      "BR"
+    ]
+  },
+  {
+    "description": "calcium ion",
+    "residue_name": "CA",
+    "atom_names": [
+      "CA"
+    ]
+  },
+  {
+    "description": "calcium ion",
+    "residue_name": "CA2+",
+    "atom_names": [
+      "CA"
+    ]
+  },
+  {
+    "description": "calcium ion",
+    "residue_name": "CAL",
+    "atom_names": [
+      "CAL"
+    ]
+  },
+  {
+    "description": "cadmuim II cation - CHARMM",
+    "residue_name": "CD2",
+    "atom_names": [
+      "CD"
+    ]
+  },
+  {
+    "description": "cesium ion - CHARMM",
+    "residue_name": "CES",
+    "atom_names": [
+      "CES"
+    ]
+  },
+  {
+    "description": "copper ion",
+    "residue_name": "CU",
+    "atom_names": [
+      "CU"
+    ]
+  },
+  {
+    "description": "copper ion",
+    "residue_name": "CU1",
+    "atom_names": [
+      "CU"
+    ]
+  },
+  {
+    "description": "copper ion",
+    "residue_name": "CU1+",
+    "atom_names": [
+      "CU1+"
+    ]
+  },
+  {
+    "description": "copper ion",
+    "residue_name": "CU2+",
+    "atom_names": [
+      "CU"
+    ]
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "CLA",
+    "atom_names": [
+      "CLA"
+    ]
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "CL",
+    "atom_names": [
+      "CL"
+    ]
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "CL-",
+    "atom_names": [
+      "CL"
+    ]
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "Cl-",
+    "atom_names": [
+      "Cl-"
+    ]
+  },
+  {
+    "description": "chloride ion",
+    "residue_name": "CL",
+    "atom_names": [
+      "CA"
+    ]
+  },
+  {
+    "description": "caesium ion",
+    "residue_name": "CS",
+    "atom_names": [
+      "CS"
+    ]
+  },
+  {
+    "description": "caesium ion",
+    "residue_name": "Cs+",
+    "atom_names": [
+      "Cs"
+    ]
+  },
+  {
+    "description": "fluoride ion",
+    "residue_name": "F",
+    "atom_names": [
+      "F"
+    ]
+  },
+  {
+    "description": "fluoride ion",
+    "residue_name": "F-",
+    "atom_names": [
+      "F"
+    ]
+  },
+  {
+    "description": "H2PO4 ion - CHARMM",
+    "residue_name": "H2PO",
+    "atom_names": [
+      "P",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H1",
+      "H2"
+    ]
+  },
+  {
+    "description": "H3PO4 ion - CHARMM",
+    "residue_name": "H3PO",
+    "atom_names": [
+      "P",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H1",
+      "H2",
+      "H3"
+    ]
+  },
+  {
+    "description": "HPO4 ion - CHARMM",
+    "residue_name": "HPO4",
+    "atom_names": [
+      "P",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H"
+    ]
+  },
+  {
+    "description": "H2SO4 ion - CHARMM",
+    "residue_name": "H2SO",
+    "atom_names": [
+      "S",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H1",
+      "H2"
+    ]
+  },
+  {
+    "description": "HSO4 ion - CHARMM",
+    "residue_name": "HSO4",
+    "atom_names": [
+      "S",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "H"
+    ]
+  },
+  {
+    "description": "hydrogen peroxide - CHARMM",
+    "residue_name": "H2O2",
+    "atom_names": [
+      "HP1",
+      "OP1",
+      "OP2",
+      "HP2"
+    ]
+  },
+  {
+    "description": "iodide ion",
+    "residue_name": "I",
+    "atom_names": [
+      "I"
+    ]
+  },
+  {
+    "description": "iodide ion",
+    "residue_name": "I-",
+    "atom_names": [
+      "I"
+    ]
+  },
+  {
+    "description": "big positive ion",
+    "residue_name": "IB+",
+    "atom_names": [
+      "IB"
+    ]
+  },
+  {
+    "description": "potassium ion",
+    "residue_name": "K",
+    "atom_names": [
+      "K"
+    ]
+  },
+  {
+    "description": "potassium ion",
+    "residue_name": "K+",
+    "atom_names": [
+      "K"
+    ]
+  },
+  {
+    "description": "lithium ion",
+    "residue_name": "LI",
+    "atom_names": [
+      "LI"
+    ]
+  },
+  {
+    "description": "lithium ion",
+    "residue_name": "LI+",
+    "atom_names": [
+      "LI"
+    ]
+  },
+  {
+    "description": "lithium ion",
+    "residue_name": "LIT",
+    "atom_names": [
+      "LIT"
+    ]
+  },
+  {
+    "description": "magnesium ion",
+    "residue_name": "MG",
+    "atom_names": [
+      "MG"
+    ]
+  },
+  {
+    "description": "magnesium ion",
+    "residue_name": "MG2+",
+    "atom_names": [
+      "MG"
+    ]
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "NA",
+    "atom_names": [
+      "NA"
+    ]
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "NAs",
+    "atom_names": [
+      "NA"
+    ]
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "NA+",
+    "atom_names": [
+      "NA"
+    ]
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "Na+",
+    "atom_names": [
+      "Na+"
+    ]
+  },
+  {
+    "description": "ammonium",
+    "residue_name": "NH4",
+    "atom_names": [
+      "HZ1",
+      "NZ",
+      "HZ2",
+      "HZ3",
+      "HZ4"
+    ]
+  },
+  {
+    "description": "hydroxide ion",
+    "residue_name": "OH",
+    "atom_names": [
+      "O1",
+      "H1"
+    ]
+  },
+  {
+    "description": "plutonium ion",
+    "residue_name": "PU3P",
+    "atom_names": [
+      "PU3P"
+    ]
+  },
+  {
+    "description": "potassium ion",
+    "residue_name": "POT",
+    "atom_names": [
+      "POT"
+    ]
+  },
+  {
+    "description": "pO4 ion - CHARMM",
+    "residue_name": "PO4",
+    "atom_names": [
+      "P",
+      "O1",
+      "O2",
+      "O3",
+      "O4"
+    ]
+  },
+  {
+    "description": "rubidium ion",
+    "residue_name": "RB",
+    "atom_names": [
+      "RB"
+    ]
+  },
+  {
+    "description": "rubidium ion - CHARMM",
+    "residue_name": "RUB",
+    "atom_names": [
+      "RUB"
+    ]
+  },
+  {
+    "description": "rubidium ion",
+    "residue_name": "Rb+",
+    "atom_names": [
+      "Rb"
+    ]
+  },
+  {
+    "description": "sodium ion",
+    "residue_name": "SOD",
+    "atom_names": [
+      "SOD"
+    ]
+  },
+  {
+    "description": "SO4 ion - CHARMM",
+    "residue_name": "SO4",
+    "atom_names": [
+      "S",
+      "O1",
+      "O2",
+      "O3",
+      "O4"
+    ]
+  },
+  {
+    "description": "zinc ion",
+    "residue_name": "ZN",
+    "atom_names": [
+      "ZN"
+    ]
+  },
+  {
+    "description": "zinc ion",
+    "residue_name": "ZN2",
+    "atom_names": [
+      "ZN"
+    ]
+  },
+  {
+    "description": "zinc ion",
+    "residue_name": "ZN2+",
+    "atom_names": [
+      "ZN"
+    ]
+  },
+  {
+    "description": "zinc ion - CHARMM",
+    "residue_name": "ZN2",
+    "atom_names": [
+      "ZN2"
+    ]
+  },
+  {
+    "description": "calcium ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "CA"
+    ]
+  },
+  {
+    "description": "chloride ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "CL-"
+    ]
+  },
+  {
+    "description": "chloride ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "CL"
+    ]
+  },
+  {
+    "description": "chloride ion - CG model with MARTINI",
+    "residue_name": "Cl_s",
+    "atom_names": [
+      "Cl_s"
+    ]
+  },
+  {
+    "description": "potassium ion - CG model with MARTINI",
+    "residue_name": "K_s",
+    "atom_names": [
+      "K_s"
+    ]
+  },
+  {
+    "description": "sodium ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "NA+"
+    ]
+  },
+  {
+    "description": "sodium ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "NA"
+    ]
+  },
+  {
+    "description": "choloneion ion - CG model with MARTINI",
+    "residue_name": "ION",
+    "atom_names": [
+      "NC3"
+    ]
+  }
+]

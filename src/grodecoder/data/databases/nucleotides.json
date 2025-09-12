@@ -1,0 +1,142 @@
+[
+  {
+    "description": "adenine",
+    "residue_name": "DA",
+    "short_name": "A"
+  },
+  {
+    "description": "thymine",
+    "residue_name": "DT",
+    "short_name": "T"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "DC",
+    "short_name": "C"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "DG",
+    "short_name": "G"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "A",
+    "short_name": "A"
+  },
+  {
+    "description": "thymine",
+    "residue_name": "T",
+    "short_name": "T"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "C",
+    "short_name": "C"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "G",
+    "short_name": "G"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "DA5",
+    "short_name": "A"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "DA3",
+    "short_name": "A"
+  },
+  {
+    "description": "thymine",
+    "residue_name": "DT5",
+    "short_name": "T"
+  },
+  {
+    "description": "thymine",
+    "residue_name": "DT3",
+    "short_name": "T"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "DC5",
+    "short_name": "C"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "DC3",
+    "short_name": "C"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "DG5",
+    "short_name": "G"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "DG3",
+    "short_name": "G"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "RA",
+    "short_name": "A"
+  },
+  {
+    "description": "uracil",
+    "residue_name": "RU",
+    "short_name": "U"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "RC",
+    "short_name": "C"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "RG",
+    "short_name": "G"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "RA5",
+    "short_name": "A"
+  },
+  {
+    "description": "adenine",
+    "residue_name": "RA3",
+    "short_name": "A"
+  },
+  {
+    "description": "uracil",
+    "residue_name": "RU5",
+    "short_name": "U"
+  },
+  {
+    "description": "uracil",
+    "residue_name": "RU3",
+    "short_name": "U"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "RC5",
+    "short_name": "C"
+  },
+  {
+    "description": "cytosine",
+    "residue_name": "RC3",
+    "short_name": "C"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "RG5",
+    "short_name": "G"
+  },
+  {
+    "description": "guanine",
+    "residue_name": "RG3",
+    "short_name": "G"
+  }
+]

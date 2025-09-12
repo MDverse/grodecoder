@@ -1,0 +1,202 @@
+[
+  {
+    "description": "alanine",
+    "long_name": "ALA",
+    "short_name": "A"
+  },
+  {
+    "description": "cysteine",
+    "long_name": "CYS",
+    "short_name": "C"
+  },
+  {
+    "description": "aspartic acid",
+    "long_name": "ASP",
+    "short_name": "D"
+  },
+  {
+    "description": "glutamic acid",
+    "long_name": "GLU",
+    "short_name": "E"
+  },
+  {
+    "description": "phenylalanine",
+    "long_name": "PHE",
+    "short_name": "F"
+  },
+  {
+    "description": "glycine",
+    "long_name": "GLY",
+    "short_name": "G"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HIS",
+    "short_name": "H"
+  },
+  {
+    "description": "isoleucine",
+    "long_name": "ILE",
+    "short_name": "I"
+  },
+  {
+    "description": "lysine",
+    "long_name": "LYS",
+    "short_name": "K"
+  },
+  {
+    "description": "leucine",
+    "long_name": "LEU",
+    "short_name": "L"
+  },
+  {
+    "description": "methionine",
+    "long_name": "MET",
+    "short_name": "M"
+  },
+  {
+    "description": "asparagine",
+    "long_name": "ASN",
+    "short_name": "N"
+  },
+  {
+    "description": "proline",
+    "long_name": "PRO",
+    "short_name": "P"
+  },
+  {
+    "description": "glutamine",
+    "long_name": "GLN",
+    "short_name": "Q"
+  },
+  {
+    "description": "arginine",
+    "long_name": "ARG",
+    "short_name": "R"
+  },
+  {
+    "description": "serine",
+    "long_name": "SER",
+    "short_name": "S"
+  },
+  {
+    "description": "threonine",
+    "long_name": "THR",
+    "short_name": "T"
+  },
+  {
+    "description": "valine",
+    "long_name": "VAL",
+    "short_name": "V"
+  },
+  {
+    "description": "tryptophan",
+    "long_name": "TRP",
+    "short_name": "W"
+  },
+  {
+    "description": "tyrosine",
+    "long_name": "TYR",
+    "short_name": "Y"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HISA",
+    "short_name": "H"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HISB",
+    "short_name": "H"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HSE",
+    "short_name": "H"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HSD",
+    "short_name": "H"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HID",
+    "short_name": "H"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HIE",
+    "short_name": "H"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HIS1",
+    "short_name": "H"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HIS2",
+    "short_name": "H"
+  },
+  {
+    "description": "aspartic acid",
+    "long_name": "ASPH",
+    "short_name": "D"
+  },
+  {
+    "description": "aspartic acid",
+    "long_name": "ASH",
+    "short_name": "D"
+  },
+  {
+    "description": "glutamic acid",
+    "long_name": "GLUH",
+    "short_name": "E"
+  },
+  {
+    "description": "glutamic acid",
+    "long_name": "GLH",
+    "short_name": "E"
+  },
+  {
+    "description": "lysine",
+    "long_name": "LYSH",
+    "short_name": "K"
+  },
+  {
+    "description": "lysine",
+    "long_name": "LYN",
+    "short_name": "K"
+  },
+  {
+    "description": "arginine",
+    "long_name": "ARGN",
+    "short_name": "R"
+  },
+  {
+    "description": "cysteine",
+    "long_name": "CYSH",
+    "short_name": "C"
+  },
+  {
+    "description": "cysteine",
+    "long_name": "CYS1",
+    "short_name": "C"
+  },
+  {
+    "description": "cysteine",
+    "long_name": "CYS2",
+    "short_name": "C"
+  },
+  {
+    "description": "histidine",
+    "long_name": "HSP",
+    "short_name": "H"
+  },
+  {
+    "description": "cysteine",
+    "long_name": "CYSP",
+    "short_name": "C"
+  }
+]
