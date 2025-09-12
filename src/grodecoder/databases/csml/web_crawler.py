@@ -1,60 +1,12 @@
-"""CHARMM Small Molecule Library (CSML) residues."""
-
-import json
-from enum import StrEnum
-from pathlib import Path
-
 import bs4
 import requests
-from pydantic import BaseModel
+
+from .models import Links, Residue, ResidueFamily
 
 CHARMM_GUI_BASE_URL = "https://www.charmm-gui.org"
 CHARMM_CSML_URL = CHARMM_GUI_BASE_URL + "/?doc=archive&lib=csml"
 CHARMM_CSML_VIEW_URL_FORMAT = CHARMM_GUI_BASE_URL + "/?doc=visualization.ngl.archive&pdb_id={}&arg=csml"
 CHARMM_CSML_DOWNLOAD_URL_FORMAT = CHARMM_GUI_BASE_URL + "/{}"
-
-
-class ResidueFamily(StrEnum):
-    """Types of residues expected in CSML."""
-
-    PROTEIN = "PROTEIN"
-    NUCLEIC_ACID = "NUCLEIC_ACID"
-    CARBOHYDRATE = "CARBOHYDRATE"
-    LIPID = "MEMBRANE"
-    SMALL_MOLECULE = "SMALL MOLECULE"
-    ION = "ION"
-    SOLVENT = "SOLVENT"
-    DETERGENT = "DETERGENT"
-
-
-class Links(BaseModel):
-    """Model for CSML links."""
-
-    view: str
-    download: str | None = None
-
-
-class Residue(BaseModel):
-    """Model for a CSML residue.
-
-    Attributes:
-        name (str): The residue name expected in topology files.
-        description (str): The full name of the residue.
-        charge (int): The charge of the residue.
-        links (CSMLLinks): Links to the CSML residue visualization and download.
-        source (str): The name of the topology file from which the residue is taken.
-        family (str): The family of the residue (e.g., protein, nucleic acid, etc.).
-    """
-
-    name: str
-    description: str
-    charge: int
-    links: Links
-    source: str
-    family: ResidueFamily
-
-    def __hash__(self):
-        return hash((self.name, self.description, self.charge, self.family))
 
 
 # Maps topology file names to molecule families.
@@ -70,7 +22,8 @@ TOPOLOGY_FILES = {
     "toppar_all36_synthetic_polymer.str": ResidueFamily.SMALL_MOLECULE,
     "toppar_all36_synthetic_polymer_patch.str": ResidueFamily.SMALL_MOLECULE,
     "toppar_all36_polymer_solvent.str": ResidueFamily.SOLVENT,
-    "toppar_water_ions.str": ResidueFamily.ION,  # !! To be hacked to get the water molecules.
+    # !! To be hacked to get the water molecules.
+    "toppar_water_ions.str": ResidueFamily.ION,
     "toppar_all36_prot_arg0.str": ResidueFamily.PROTEIN,
     "toppar_all36_prot_c36m_d_aminoacids.str": ResidueFamily.PROTEIN,
     "toppar_all36_prot_fluoro_alkanes.str": ResidueFamily.SMALL_MOLECULE,
@@ -97,7 +50,8 @@ TOPOLOGY_FILES = {
     "toppar_all36_lipid_tag.str": ResidueFamily.LIPID,
     "toppar_all36_lipid_yeast.str": ResidueFamily.LIPID,
     "toppar_all36_lipid_hmmm.str": ResidueFamily.LIPID,
-    "toppar_all36_lipid_detergent.str": ResidueFamily.LIPID,  # !! NOPE: contains detergents as well.
+    # !! NOPE: contains detergents as well.
+    "toppar_all36_lipid_detergent.str": ResidueFamily.LIPID,
     "toppar_all36_lipid_ether.str": ResidueFamily.LIPID,
     "toppar_all36_carb_glycolipid.str": ResidueFamily.LIPID,
     "toppar_all36_carb_glycopeptide.str": ResidueFamily.LIPID,
@@ -252,12 +206,3 @@ def fetch() -> list[Residue]:
     residues = _parse_csml_html(source)
     residues = _fix_database(residues)
     return residues
-
-
-def read_database(path: Path | str) -> list[Residue]:
-    """Reads the CSML database from a JSON file."""
-    with open(path, "r") as f:
-        data = json.load(f)
-        db = [Residue.model_validate(entry) for entry in data]
-    assert len(db) == len(set(residue.name for residue in db)), f"{path}: Duplicate residues found in the database"
-    return db

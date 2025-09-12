@@ -10,13 +10,14 @@ from pathlib import Path
 import click
 from loguru import logger
 
-import grodecoder
+from grodecoder.databases.mad.web_crawler import fetch as fetch_mad
+from grodecoder.databases.csml.web_crawler import fetch as fetch_csml
 
 
 def build_mad_database(output_path: Path):
     """Creates the MAD database for grodecoder by scrapping the source available at mad.ibcp.fr."""
     logger.info("Building MAD database...")
-    db = grodecoder.databases.mad.fetch()
+    db = fetch_mad()
     with open(output_path, "w") as f:
         json.dump([residue.model_dump() for residue in db], f, indent=2)
     logger.info(f"Wrote MAD database with {len(db)} elements to {output_path}")
@@ -25,7 +26,7 @@ def build_mad_database(output_path: Path):
 def build_csml_database(output_path: Path):
     """Creates the CHARMM database for grodecoder by scrapping the source available at charmm-gui.org."""
     logger.info("Building CHARMM database...")
-    db = grodecoder.databases.csml.fetch()
+    db = fetch_csml()
     with open(output_path, "w") as f:
         json.dump([residue.model_dump() for residue in db], f, indent=2)
     logger.info(f"Wrote CHARMM database with {len(db)} elements to {output_path}")

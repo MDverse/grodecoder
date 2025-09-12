@@ -1,29 +1,12 @@
-"""MAD database."""
-
-import json
-from enum import StrEnum
-from pathlib import Path
+"""Crawls the MAD website and extracts the list of residues."""
 
 import bs4
 from playwright.sync_api import sync_playwright
-from pydantic import BaseModel
+
+from .models import Residue, ResidueFamily
 
 MAD_BASE_URL = "https://mad.ibcp.fr"
 MAD_EXPLORE_URL = f"{MAD_BASE_URL}/explore"
-
-
-class ResidueFamily(StrEnum):
-    """Types of residues expected in CSML."""
-
-    DETERGENT = "DETERGENT"
-    ION = "ION"
-    CARBOHYDRATE = "CARBOHYDRATE"
-    LIPID = "LIPID"
-    POLYMER = "POLYMER"
-    PROTEIN = "PROTEIN"
-    SMALL_MOLECULE = "SMALL MOLECULE"
-    SOLVENT = "SOLVENT"
-
 
 # Family to actual name as read on MAD's website
 FAMILY_TO_MAD = {
@@ -46,18 +29,6 @@ FAMILY_TO_MAD = {
 }
 
 MAD_TO_FAMILY = {name: key for key, value in FAMILY_TO_MAD.items() for name in value}
-
-
-class Residue(BaseModel):
-    """Model for a MAD residue."""
-
-    name: str
-    alias: str
-    family: ResidueFamily
-    link: str
-
-    def __hash__(self):
-        return hash((self.name, self.alias, self.family, self.link))
 
 
 class Progress:
@@ -139,6 +110,7 @@ def _parse_residue(row: bs4.Tag) -> Residue:
         link=link,
     )
 
+
 def _fix_database(residues: list[Residue]) -> list[Residue]:
     """Fixes the family of the residues known to beeing assigned the wrong one in the first place."""
     assert len(residues) == len(set(residue.name for residue in residues)), "Duplicate residues found"
@@ -151,16 +123,3 @@ def fetch() -> list[Residue]:
     residues = parser.parse()
     residues = _fix_database(residues)
     return residues
-
-
-def read_database(path: Path | str) -> list[Residue]:
-    """Reads the CSML database from a JSON file."""
-    with open(path, "r") as f:
-        data = json.load(f)
-        db = [Residue.model_validate(entry) for entry in data]
-    assert len(db) == len(set(residue.name for residue in db)), f"{path}: Duplicate residues found in the database"
-    return db
-
-
-if __name__ == "__main__":
-    fetch()
