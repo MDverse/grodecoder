@@ -1,0 +1,7 @@
+35d171b 2025-09-12 benoistlaurent merge  (HEAD -> new_streamlit_app)
+db12d81 2025-09-12 arkdot new streamlit app  (origin/new_streamlit_app)
+5e845d8 2025-09-12 GitHub Merge pull request #100 from pierrepo/v2  (origin/main, origin/HEAD, main)
+70b8801 2025-09-12 arkdot move not "core-grodecoder" dependencies to "dev" group 
+83726d8 2025-09-12 arkdot switch to src layout 
+91ecbec 2025-09-12 arkdot --compact -> --no-atom-ids 
+71982b7 2025-09-01 benoistlaurent update README 
