@@ -262,14 +262,6 @@ class ResidueDatabase:
                 )
 
 
-# RESIDUE_DATABASE = ResidueDatabase(
-#     ions=ION_DB,
-#     solvents=SOLVENT_DB,
-#     amino_acids=AMINO_ACIDS_DB,
-#     nucleotides=NUCLEOTIDES_DB,
-# )
-
-
 class ResidueNotFound(Exception):
     """Raised when a residue with a given name and atom names is not found in the database."""
 
@@ -297,11 +289,3 @@ def _find_using_atom_names(
         )
 
     return matching_residues[0]
-
-
-# def find_ion_or_solvent(residue_name: str, atom_names: Iterable[str]) -> Ion:
-#     """Find the definitions of a given ion in the database."""
-#     match = _find_using_atom_names(residue_name, atom_names, RESIDUE_DATABASE.ions)
-#     if match is not None:
-#         return match
-#     return _find_using_atom_names(residue_name, atom_names, RESIDUE_DATABASE.solvents)

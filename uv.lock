@@ -354,8 +354,14 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
 <<<<<<< HEAD
+<<<<<<< HEAD
     { name = "beautifulsoup4" },
     { name = "biopython" },
+||||||| parent of 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
+    { name = "beautifulsoup4" },
+    { name = "biopython" },
+=======
+>>>>>>> 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
     { name = "click" },
 ||||||| parent of db12d81 (new streamlit app)
     { name = "beautifulsoup4" },
@@ -366,8 +372,14 @@ dependencies = [
     { name = "loguru" },
     { name = "mdanalysis" },
 <<<<<<< HEAD
+<<<<<<< HEAD
     { name = "playwright" },
+||||||| parent of 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
+    { name = "playwright" },
+=======
+>>>>>>> 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
     { name = "pydantic" },
+<<<<<<< HEAD
     { name = "requests" },
     { name = "streamlit" },
 ||||||| parent of db12d81 (new streamlit app)
@@ -382,14 +394,27 @@ dependencies = [
 =======
     { name = "pydantic" },
 >>>>>>> db12d81 (new streamlit app)
+||||||| parent of 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
+    { name = "requests" },
+    { name = "streamlit" },
+=======
+>>>>>>> 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
 ]
 
 [package.dev-dependencies]
 dev = [
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| parent of 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
+=======
+    { name = "beautifulsoup4" },
+    { name = "biopython" },
+>>>>>>> 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
     { name = "icecream" },
     { name = "mypy" },
+    { name = "playwright" },
     { name = "pytest" },
+<<<<<<< HEAD
 ||||||| parent of db12d81 (new streamlit app)
 =======
     { name = "beautifulsoup4" },
@@ -400,8 +425,17 @@ dev = [
     { name = "pytest" },
     { name = "requests" },
 >>>>>>> db12d81 (new streamlit app)
+||||||| parent of 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
+=======
+    { name = "requests" },
+>>>>>>> 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
     { name = "ruff" },
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| parent of 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
+=======
+    { name = "streamlit" },
+>>>>>>> 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
     { name = "types-requests" },
 ||||||| parent of db12d81 (new streamlit app)
 =======
@@ -414,8 +448,14 @@ dev = [
 [package.metadata]
 requires-dist = [
 <<<<<<< HEAD
+<<<<<<< HEAD
     { name = "beautifulsoup4", specifier = ">=4.13.3" },
     { name = "biopython", specifier = ">=1.85" },
+||||||| parent of 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
+    { name = "beautifulsoup4", specifier = ">=4.13.3" },
+    { name = "biopython", specifier = ">=1.85" },
+=======
+>>>>>>> 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
     { name = "click", specifier = ">=8.1.8" },
 ||||||| parent of db12d81 (new streamlit app)
     { name = "beautifulsoup4", specifier = ">=4.13.3" },
@@ -426,8 +466,14 @@ requires-dist = [
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "mdanalysis", specifier = ">=2.9.0" },
 <<<<<<< HEAD
+<<<<<<< HEAD
     { name = "playwright", specifier = ">=1.51.0" },
+||||||| parent of 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
+    { name = "playwright", specifier = ">=1.51.0" },
+=======
+>>>>>>> 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
     { name = "pydantic", specifier = ">=2.11.3" },
+<<<<<<< HEAD
     { name = "requests", specifier = ">=2.32.3" },
     { name = "streamlit", specifier = ">=1.44.0" },
 ||||||| parent of db12d81 (new streamlit app)
@@ -442,15 +488,25 @@ requires-dist = [
 =======
     { name = "pydantic", specifier = ">=2.11.3" },
 >>>>>>> db12d81 (new streamlit app)
+||||||| parent of 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
+    { name = "requests", specifier = ">=2.32.3" },
+    { name = "streamlit", specifier = ">=1.44.0" },
+=======
+>>>>>>> 70b8801 (move not "core-grodecoder" dependencies to "dev" group)
 ]
 
 [package.metadata.requires-dev]
 <<<<<<< HEAD
 dev = [
+    { name = "beautifulsoup4", specifier = ">=4.13.3" },
+    { name = "biopython", specifier = ">=1.85" },
     { name = "icecream", specifier = ">=2.1.4" },
     { name = "mypy", specifier = ">=1.17.1" },
+    { name = "playwright", specifier = ">=1.51.0" },
     { name = "pytest", specifier = ">=8.3.5" },
+    { name = "requests", specifier = ">=2.32.3" },
     { name = "ruff", specifier = ">=0.11.2" },
+    { name = "streamlit", specifier = ">=1.44.0" },
     { name = "types-requests", specifier = ">=2.32.4.20250809" },
 ]
 
