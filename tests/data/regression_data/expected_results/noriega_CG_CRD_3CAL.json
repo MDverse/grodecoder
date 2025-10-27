@@ -2161,5 +2161,7 @@
       }
     ]
   },
-  "resolution": "coarse-grained"
+  "resolution": "coarse-grained",
+  "database_version": "2025-08-26_150000",
+  "topology_checksum": "489cbdb4b2a951033d26e01517f2c3ca"
 }

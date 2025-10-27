@@ -68010,5 +68010,7 @@
       }
     ]
   },
-  "resolution": "all-atom"
+  "resolution": "all-atom",
+  "database_version": "2025-08-26_150000",
+  "topology_checksum": "0d6322fe38121b47aad1a94e40ef3d0f"
 }

@@ -7240,5 +7240,7 @@
       }
     ]
   },
-  "resolution": "all-atom"
+  "resolution": "all-atom",
+  "database_version": "2025-08-26_150000",
+  "topology_checksum": "a9ac84cf0f98261c9fa9ff4fed8cd0ea"
 }

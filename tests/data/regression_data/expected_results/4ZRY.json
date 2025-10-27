@@ -200839,5 +200839,7 @@
       }
     ]
   },
-  "resolution": "all-atom"
+  "resolution": "all-atom",
+  "database_version": "2025-08-26_150000",
+  "topology_checksum": "2e4cd6da66752987b5c41173c0c394c5"
 }

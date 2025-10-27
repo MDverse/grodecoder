@@ -70583,5 +70583,7 @@
     ],
     "segments": []
   },
-  "resolution": "all-atom"
+  "resolution": "all-atom",
+  "database_version": "2025-08-26_150000",
+  "topology_checksum": "17e49e893431728d5151f7ebb3709ef2"
 }

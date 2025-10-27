@@ -24,7 +24,7 @@ def expected_results_file(topology_file: Path) -> Path:
     return TEST_DATA_EXPECTED_RESULTS_DIR / topology_file.with_suffix(".json").name
 
 
-def read_json_file(file_path: Path) -> DecodedRead:
+def read_expected_json_file(file_path: Path) -> DecodedRead:
     """Reads a JSON file and returns its content."""
     with open(file_path, "r") as file:
         return DecodedRead.model_validate_json(file.read())
@@ -56,6 +56,6 @@ def test_regression(topology_file: Path):
     result = gd.decode_topology(topology_file)
 
     actual = gd.models.DecodedRead.from_decoded(result)
-    expected = read_json_file(expected_results_json)
+    expected = read_expected_json_file(expected_results_json)
 
     assert actual == expected, f"Decoded result does not match expected for {topology_file.name}"

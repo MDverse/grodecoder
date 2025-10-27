@@ -118,6 +118,7 @@ class Decoded(FrozenModel):
     inventory: Inventory
     resolution: MolecularResolution
     database_version: str
+    topology_checksum: str
 
 
 # =========================================================================================================
@@ -149,6 +150,7 @@ class InventoryRead(FrozenModel):
 class DecodedRead(FrozenModel):
     inventory: InventoryRead
     resolution: MolecularResolution
+    topology_checksum: str
 
     @classmethod
     def from_decoded(cls, decoded: Decoded) -> DecodedRead:
@@ -178,4 +180,8 @@ class DecodedRead(FrozenModel):
 
         inventory_read = InventoryRead(small_molecules=small_molecules_read, segments=segments_read)
 
-        return cls(inventory=inventory_read, resolution=decoded.resolution)
+        return cls(
+            inventory=inventory_read,
+            resolution=decoded.resolution,
+            topology_checksum=decoded.topology_checksum,
+        )
