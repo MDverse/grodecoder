@@ -1,3 +1,10 @@
+# input/output files
+*.pdb
+*.gro
+*.coor
+*.crd
+*.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
