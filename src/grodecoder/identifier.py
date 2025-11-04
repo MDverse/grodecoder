@@ -128,35 +128,79 @@ def _remove_identified_atoms(universe: AtomGroup, molecules: list[AtomGroup]) ->
     return universe
 
 
+def _trim_sequence(sequence: str) -> str:
+    """Trims the sequence to a maximum length for logging."""
+    max_length = 10
+    if len(sequence) > max_length:
+        return sequence[: max_length // 2] + "..." + sequence[-max_length // 2 :]
+    return sequence
+
+
 def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     """Identifies the molecules in the universe."""
 
     # Ensure the universe is an AtomGroup.
     universe = universe.select_atoms("all")
+    total_number_of_atoms = len(universe)
 
     # Remove identified atoms from the universe along the way to avoid double counting (e.g.
     # 'MET' residues are counted first in the protein, then removed so not counted elsewhere).
 
     protein = _get_protein_segments(universe, bond_threshold=bond_threshold)
+    logger.debug(f"Identified {len(protein)} protein segments:")
+    for seg in protein:
+        logger.debug(
+            f"  - Segment with {seg.number_of_residues:,d} residues {seg.number_of_atoms:,d} "
+            f"atoms and sequence: {_trim_sequence(seg.sequence)}"
+        )
     universe = _remove_identified_atoms(universe, protein)
 
     nucleic = _get_nucleic_segments(universe, bond_threshold=bond_threshold)
+    logger.debug(f"Identified {len(nucleic)} nucleic acid segments")
+    for seg in nucleic:
+        logger.debug(
+            f"  - Segment with {seg.number_of_residues:,d} residues {seg.number_of_atoms:,d} "
+            f"atoms and sequence: {_trim_sequence(seg.sequence)}"
+        )
     universe = _remove_identified_atoms(universe, nucleic)
 
     ions = identify_small_molecule(universe, DB.get_ion_definitions(), molecular_type=MolecularType.ION)
+    logger.debug(f"Identified {len(ions)} ion types")
+    for ion in ions:
+        logger.debug(
+            f"  - Ion {ion.name!r}, {ion.number_of_atoms:,d} atoms, identified as {ion.description!r}"
+        )
     universe = _remove_identified_atoms(universe, ions)
 
     solvents = identify_small_molecule(
         universe, DB.get_solvent_definitions(), molecular_type=MolecularType.SOLVENT
     )
+    logger.debug(f"Identified {len(solvents)} solvent types")
+    for solvent in solvents:
+        logger.debug(
+            f"  - Solvent {solvent.name!r}, {solvent.number_of_residues:,d} residues, "
+            f"{solvent.number_of_atoms:,d} atoms, identified as {solvent.description!r}"
+        )
     universe = _remove_identified_atoms(universe, solvents)
 
     lipids = identify_small_molecule(universe, DB.get_lipid_definitions(), molecular_type=MolecularType.LIPID)
+    logger.debug(f"Identified {len(lipids)} lipid types")
+    for lipid in lipids:
+        logger.debug(
+            f"  - Lipid {lipid.name!r}, {lipid.number_of_residues:,d} residues, "
+            f"{lipid.number_of_atoms:,d} atoms, identified as {lipid.description!r}"
+        )
     universe = _remove_identified_atoms(universe, lipids)
 
     others = identify_small_molecule(
         universe, DB.get_other_definitions(), molecular_type=MolecularType.UNKNOWN
     )
+    logger.debug(f"Identified {len(others)} other small molecule types")
+    for other in others:
+        logger.debug(
+            f"  - Other molecule {other.name!r}, {other.number_of_residues:,d} residues, "
+            f"{other.number_of_atoms:,d} atoms, identified as {other.description!r}"
+        )
     universe = _remove_identified_atoms(universe, others)
 
     # Collecting unknown small molecules that are not defined in the database.
@@ -177,4 +221,5 @@ def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     return Inventory(
         segments=protein + nucleic,
         small_molecules=ions + solvents + lipids + others + unknown_molecules,
+        total_number_of_atoms=total_number_of_atoms
     )

@@ -29,7 +29,7 @@ class PathToTopologyFile(click.ParamType):
 
 def setup_logging(debug: bool = False):
     """Sets up logging configuration."""
-    fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{message}</level>"
+    fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> <level>{level}: {message}</level>"
     level = "DEBUG" if debug else "INFO"
     logger.remove()
     logger.add(sys.stderr, level=level, format=fmt, colorize=True, backtrace=True, diagnose=True)
