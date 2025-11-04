@@ -110,6 +110,7 @@ class Inventory(FrozenModel):
 
     small_molecules: list[SmallMolecule]
     segments: list[Segment]
+    total_number_of_atoms: int
 
 
 class Decoded(FrozenModel):
@@ -147,6 +148,7 @@ class SegmentRead(BaseModelWithAtomsRead):
 class InventoryRead(FrozenModel):
     small_molecules: list[SmallMoleculeRead]
     segments: list[SegmentRead]
+    total_number_of_atoms: int
 
 
 class DecodedRead(FrozenModel):
@@ -183,7 +185,11 @@ class DecodedRead(FrozenModel):
             for seg in decoded.inventory.segments
         ]
 
-        inventory_read = InventoryRead(small_molecules=small_molecules_read, segments=segments_read)
+        inventory_read = InventoryRead(
+            small_molecules=small_molecules_read,
+            segments=segments_read,
+            total_number_of_atoms=decoded.inventory.total_number_of_atoms,
+        )
 
         return cls(
             inventory=inventory_read,

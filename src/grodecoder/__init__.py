@@ -27,8 +27,8 @@ __version__ = "0.0.1"
 
 
 def _now()  -> str:
-    """Returns the current date and time as an ISO 8601 formatted string."""
-    return datetime.now().isoformat()
+    """Returns the current date and time formatted string."""
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
 def read_topology(path: PathLike, psf_path: PathLike | None = None) -> Universe:
