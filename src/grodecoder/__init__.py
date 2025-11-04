@@ -59,5 +59,5 @@ def _get_checksum(structure_path: PathLike) -> str:
 def decode_structure(path: PathLike, psf_path: PathLike | None = None, bond_threshold: float = 5.0) -> Decoded:
     """Reads a structure file and decodes it into an inventory of segments."""
     universe = read_structure(path, psf_path)
-    logger.debug(f"{path}: {len(universe.atoms):,d} atoms")
+    logger.info(f"{path}: {len(universe.atoms):,d} atoms")
     return decode(universe, structure_file_checksum=_get_checksum(path), bond_threshold=bond_threshold)

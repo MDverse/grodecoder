@@ -73,8 +73,7 @@ def main(structure_path: Path, bond_threshold: float, compact_serialization: boo
 )
 @click.option("--no-atom-ids", is_flag=True, help="do not output the atom indice array")
 @click.option("-s", "--stdout", is_flag=True, help="Output the results to stdout in JSON format")
-@click.option("--debug", is_flag=True, help="Enable debug mode for detailed logging")
-def cli(structure_path, bond_threshold, no_atom_ids, stdout, debug):
+def cli(structure_path, bond_threshold, no_atom_ids, stdout):
     """Command-line interface for processing structure files."""
-    setup_logging(debug)
+    setup_logging()
     main(structure_path, bond_threshold, no_atom_ids, stdout)
