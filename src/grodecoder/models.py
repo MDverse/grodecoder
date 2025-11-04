@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 from enum import StrEnum
+from typing import Annotated
 
 from MDAnalysis import AtomGroup
 from pydantic import (
     BaseModel,
     ConfigDict,
+    Field,
     SerializationInfo,
     SerializerFunctionWrapHandler,
     computed_field,
@@ -70,8 +72,8 @@ class FrozenWithAtoms(FrozenModel):
         """Serializes the small molecule, optionally excluding the atoms.
 
         Example:
-            >>> topology_file = Path("tests/data/barstar.gro")
-            >>> decoded = decode_topology(topology_file)
+            >>> structure_file = Path("tests/data/barstar.gro")
+            >>> decoded = decode_structure(structure_file)
             >>> seg = decoded.inventory.segments[0]
             >>> seg.model_dump()
             {"atoms": [0, 1, 2, ...], "sequence": "KKAVI...", "number_of_atoms": 1434, "number_of_residues": 89}
@@ -118,7 +120,7 @@ class Decoded(FrozenModel):
 
     inventory: Inventory
     resolution: MolecularResolution
-    topology_checksum: str
+    structure_file_checksum: str
     database_version: str
     grodecoder_version: str
     grodecoder_run_date: str
@@ -154,10 +156,20 @@ class InventoryRead(FrozenModel):
 class DecodedRead(FrozenModel):
     inventory: InventoryRead
     resolution: MolecularResolution
-    topology_checksum: str
+    structure_file_checksum: str
     database_version: str
     grodecoder_version: str
-    grodecoder_run_date: str
+    grodecoder_run_date: Annotated[str, Field(json_schema_extra={"compare": False})]
+
+    def __eq__(self, other):
+        """Custom equality comparison that only compares fields marked for comparison."""
+        comparable_fields = {
+            field
+            for field, field_info in self.__class__.model_fields.items()
+            if (getattr(field_info, "json_schema_extra") or {}).get("compare", True)
+        }
+        return all(getattr(self, field) == getattr(other, field) for field in comparable_fields)
+
 
     @classmethod
     def from_decoded(cls, decoded: Decoded) -> DecodedRead:
@@ -194,7 +206,7 @@ class DecodedRead(FrozenModel):
         return cls(
             inventory=inventory_read,
             resolution=decoded.resolution,
-            topology_checksum=decoded.topology_checksum,
+            structure_file_checksum=decoded.structure_file_checksum,
             database_version=decoded.database_version,
             grodecoder_version=decoded.grodecoder_version,
             grodecoder_run_date=decoded.grodecoder_run_date,

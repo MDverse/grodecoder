@@ -43,7 +43,7 @@ def main():
     for file in test_data_files:
         output_file = OUTPUT_DIR / file.with_suffix(".json").name
         logger.info(f"Processing {file} -> {output_file}")
-        decoded = gd.decode_topology(file)
+        decoded = gd.decode_structure(file)
         with open(output_file, "w") as f:
             f.write(decoded.model_dump_json(indent=2))
     logger.info("Migration completed.")

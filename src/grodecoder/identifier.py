@@ -33,11 +33,11 @@ def identify_small_molecule(
 
 
 def identify(universe: UniverseLike, bond_threshold: float = 5.0, measure_perf: bool = False) -> Inventory:
-    """Identifies the molecules in a topology file.
+    """Identifies the molecules in a structure file.
 
     Optionally measures the performance of the identification process and logs the time taken at debug level.
     """
-    timer_start = time.perf_counter()  # do not include topology reading time in the performance measurement
+    timer_start = time.perf_counter()  # do not include structure reading time in the performance measurement
     inventory = _identify(universe, bond_threshold)
     elapsed = time.perf_counter() - timer_start
     logger.debug(f"{len(universe.atoms):,d} atoms processed in {elapsed:.2f} seconds")

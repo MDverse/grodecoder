@@ -7014,9 +7014,12 @@
         "number_of_atoms": 1158,
         "number_of_residues": 148
       }
-    ]
+    ],
+    "total_number_of_atoms": 6958
   },
   "resolution": "all-atom",
-  "database_version": "2025-08-26_150000",
-  "topology_checksum": "928208afaebf97f45d4d8096b7c9ab41"
+  "structure_file_checksum": "928208afaebf97f45d4d8096b7c9ab41",
+  "database_version": "2025-08-26_15:00:00",
+  "grodecoder_version": "0.0.1",
+  "grodecoder_run_date": "2025-11-04 13:43:08"
 }

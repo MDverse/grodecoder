@@ -14,14 +14,14 @@ assert TEST_DATA_ROOT_DIR.exists()
 assert TEST_DATA_INPUT_FILES_DIR.exists()
 assert TEST_DATA_EXPECTED_RESULTS_DIR.exists()
 
-TEST_TOPOLOGY_FILES = list(TEST_DATA_INPUT_FILES_DIR.glob("*.gro")) + list(
+TEST_STRUCTURE_FILES = list(TEST_DATA_INPUT_FILES_DIR.glob("*.gro")) + list(
     TEST_DATA_INPUT_FILES_DIR.glob("*.pdb")
 )
 
 
-def expected_results_file(topology_file: Path) -> Path:
-    """Returns the expected results file path for a given topology file."""
-    return TEST_DATA_EXPECTED_RESULTS_DIR / topology_file.with_suffix(".json").name
+def expected_results_file(structure_file: Path) -> Path:
+    """Returns the expected results file path for a given structure file."""
+    return TEST_DATA_EXPECTED_RESULTS_DIR / structure_file.with_suffix(".json").name
 
 
 def read_expected_json_file(file_path: Path) -> DecodedRead:
@@ -46,16 +46,16 @@ def assert_equal_molecules(result: dict, expected: dict) -> None:
         assert molecule == expected_molecule, f"Molecule {molecule_name} does not match expected results."
 
 
-@pytest.mark.parametrize("topology_file", TEST_TOPOLOGY_FILES)
-def test_regression(topology_file: Path):
-    expected_results_json = expected_results_file(topology_file)
+@pytest.mark.parametrize("structure_file", TEST_STRUCTURE_FILES)
+def test_regression(structure_file: Path):
+    expected_results_json = expected_results_file(structure_file)
 
-    assert topology_file.exists()
+    assert structure_file.exists()
     assert expected_results_json.exists()
 
-    result = gd.decode_topology(topology_file)
+    result = gd.decode_structure(structure_file)
 
     actual = gd.models.DecodedRead.from_decoded(result)
     expected = read_expected_json_file(expected_results_json)
 
-    assert actual == expected, f"Decoded result does not match expected for {topology_file.name}"
+    assert actual == expected, f"Decoded result does not match expected for {structure_file.name}"

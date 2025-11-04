@@ -47,7 +47,7 @@ uv run grodecoder structure.gro --bond-threshold 3.5
 import grodecoder as gd
 
 # Decode a structure file
-decoded = gd.decode_topology("structure.gro")
+decoded = gd.decode_structure("structure.gro")
 
 # Access the molecular inventory
 inventory = decoded.inventory
@@ -106,7 +106,7 @@ GROdecoder uses sophisticated distance-based algorithms to detect protein and nu
 
 ```python
 # Detect chains with custom cutoff
-decoded = gd.decode_topology("multi_chain.pdb", bond_threshold=4.0)
+decoded = gd.decode_structure("multi_chain.pdb", bond_threshold=4.0)
 
 # Access individual chains
 for i, chain in enumerate(decoded.inventory.segments):
