@@ -9,6 +9,7 @@ dependencies = [
     "loguru>=0.7.3",
     "mdanalysis>=2.9.0",
     "pydantic>=2.11.3",
+    "streamlit>=1.50.0",
 ]
 
 [build-system]

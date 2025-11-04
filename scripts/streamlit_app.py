@@ -122,6 +122,9 @@ if uploaded_file:
     st.info(f"Processing file: `{uploaded_file.name}`")
     try:
         decoded = gd.decode_topology(tmp_path, bond_threshold=bond_threshold)
+    except Exception as e:
+        st.error(f"Error decoding file: {e}")
+    else:
         serialization_mode = "compact" if compact_serialization else "full"
         json_data = decoded.model_dump_json(indent=2, context={"serialization_mode": serialization_mode})
 
@@ -135,8 +138,6 @@ if uploaded_file:
 
         show_inventory(decoded)
 
-    except Exception as e:
-        st.error(f"Error decoding file: {e}")
 
     finally:
         tmp_path.unlink(missing_ok=True)
