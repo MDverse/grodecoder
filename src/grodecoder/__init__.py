@@ -1,4 +1,5 @@
 import hashlib
+from datetime import datetime
 
 import MDAnalysis as mda
 from loguru import logger
@@ -22,6 +23,13 @@ __all__ = [
     "UniverseLike",
 ]
 
+__version__ = "0.0.1"
+
+
+def _now()  -> str:
+    """Returns the current date and time as an ISO 8601 formatted string."""
+    return datetime.now().isoformat()
+
 
 def read_topology(path: PathLike, psf_path: PathLike | None = None) -> Universe:
     """Reads a topology file."""
@@ -35,8 +43,10 @@ def decode(universe: UniverseLike, topology_checksum: str, bond_threshold: float
     return Decoded(
         inventory=identify(universe, bond_threshold=bond_threshold),
         resolution=toputils.guess_resolution(universe),
-        database_version=databases.__version__,
         topology_checksum=topology_checksum,
+        database_version=databases.__version__,
+        grodecoder_version=__version__,
+        grodecoder_run_date=_now(),
     )
 
 

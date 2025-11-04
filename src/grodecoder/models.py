@@ -117,8 +117,10 @@ class Decoded(FrozenModel):
 
     inventory: Inventory
     resolution: MolecularResolution
-    database_version: str
     topology_checksum: str
+    database_version: str
+    grodecoder_version: str
+    grodecoder_run_date: str
 
 
 # =========================================================================================================
@@ -151,6 +153,9 @@ class DecodedRead(FrozenModel):
     inventory: InventoryRead
     resolution: MolecularResolution
     topology_checksum: str
+    database_version: str
+    grodecoder_version: str
+    grodecoder_run_date: str
 
     @classmethod
     def from_decoded(cls, decoded: Decoded) -> DecodedRead:
@@ -184,4 +189,7 @@ class DecodedRead(FrozenModel):
             inventory=inventory_read,
             resolution=decoded.resolution,
             topology_checksum=decoded.topology_checksum,
+            database_version=decoded.database_version,
+            grodecoder_version=decoded.grodecoder_version,
+            grodecoder_run_date=decoded.grodecoder_run_date,
         )
