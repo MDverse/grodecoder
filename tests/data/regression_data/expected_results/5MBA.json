@@ -86037,7 +86037,12 @@
         "number_of_atoms": 2159,
         "number_of_residues": 146
       }
-    ]
+    ],
+    "total_number_of_atoms": 85864
   },
-  "resolution": "all-atom"
+  "resolution": "all-atom",
+  "structure_file_checksum": "377d1fa614707db6006e770b22d972be",
+  "database_version": "2025-08-26_15:00:00",
+  "grodecoder_version": "0.0.1",
+  "grodecoder_run_date": "2025-11-04 13:42:57"
 }

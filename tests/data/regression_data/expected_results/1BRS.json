@@ -147033,7 +147033,12 @@
         "number_of_atoms": 1432,
         "number_of_residues": 89
       }
-    ]
+    ],
+    "total_number_of_atoms": 146910
   },
-  "resolution": "all-atom"
+  "resolution": "all-atom",
+  "structure_file_checksum": "6347c1741dbbef7939bebfb7f0dbafce",
+  "database_version": "2025-08-26_15:00:00",
+  "grodecoder_version": "0.0.1",
+  "grodecoder_run_date": "2025-11-04 13:43:08"
 }

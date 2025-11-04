@@ -77,14 +77,14 @@ st.set_page_config(
 )
 
 """
-# 🧬 GroDecoder Topology Explorer
+# 🧬 GroDecoder  Structure Explorer
 """
 
 """
 """ # Adds a little vertical space
 
 """
-Upload a topology file (`.gro`, `.pdb`, `.coor`, `.crd`) and explore its decoded molecular structure.
+Upload a structure file (`.gro`, `.pdb`, `.coor`, `.crd`) and explore its decoded molecular structure.
 """
 
 # ========================================================
@@ -99,7 +99,7 @@ st.sidebar.markdown("[Source code](https://github.com/pierrepo/grodecoder)")
 # Main Interface
 # ========================================================
 uploaded_file = st.file_uploader(
-    "Choose a topology file",
+    "Choose a structure file",
     type=["gro", "pdb", "coor", "crd"],
     help="Supported formats: .gro, .pdb, .coor, .crd",
 )
@@ -121,7 +121,7 @@ if uploaded_file:
 
     st.info(f"Processing file: `{uploaded_file.name}`")
     try:
-        decoded = gd.decode_topology(tmp_path, bond_threshold=bond_threshold)
+        decoded = gd.decode_structure(tmp_path, bond_threshold=bond_threshold)
     except Exception as e:
         st.error(f"Error decoding file: {e}")
     else:
@@ -142,4 +142,4 @@ if uploaded_file:
     finally:
         tmp_path.unlink(missing_ok=True)
 else:
-    st.warning("Please upload a topology file to begin.")
+    st.warning("Please upload a structure file to begin.")

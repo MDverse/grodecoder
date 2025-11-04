@@ -1,4 +1,4 @@
-"""Defines utility functions for working with molecular topologies."""
+"""Defines utility functions for working with molecular structures."""
 
 import collections
 from typing import Iterable
@@ -83,8 +83,8 @@ def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int
     Example
     -------
 
-    >>> from grodecoder import read_topology
-    >>> universe = read_topology("3EAM.pdb")
+    >>> from grodecoder import read_structure
+    >>> universe = read_structure("3EAM.pdb")
     >>> protein = universe.select_atoms("protein")
     >>> chains = detect_chains(protein)
     >>> for start, end in chains:

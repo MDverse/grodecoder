@@ -1,4 +1,3 @@
-import json
 import sys
 from pathlib import Path
 
@@ -7,11 +6,13 @@ from loguru import logger
 
 import grodecoder as gd
 
+GRODECODER_STEM_SUFFIX = "_grodecoder"
 
-class PathToTopologyFile(click.ParamType):
-    """Custom click parameter type for validating topology files."""
 
-    name = "topology file"
+class PathToStructureFile(click.ParamType):
+    """Custom click parameter type for validating structure files."""
+
+    name = "structure file"
 
     def convert(self, value, param, ctx):
         """Convert the input value to a Path object."""
@@ -28,27 +29,48 @@ class PathToTopologyFile(click.ParamType):
         return path
 
 
-def setup_logging(debug: bool = False):
+def get_output_stem(structure_path: Path) -> str:
+    """Generates the output stem for log and result files based on the structure file name."""
+    return structure_path.stem + GRODECODER_STEM_SUFFIX
+
+
+def generate_output_filename(structure_path: Path, extension: str) -> Path:
+    """Generates the output filename with the given extension."""
+    return Path(get_output_stem(structure_path) + extension)
+
+
+def generate_output_inventory_filename(structure_path: Path) -> Path:
+    """Generates the output JSON filename."""
+    return generate_output_filename(structure_path, ".json")
+
+
+def generate_log_filename(structure_path: Path) -> Path:
+    """Generates the output log filename."""
+    return generate_output_filename(structure_path, ".log")
+
+
+def setup_logging(logfile: Path, debug: bool = False):
     """Sets up logging configuration."""
-    fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{message}</level>"
+    fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> <level>{level}: {message}</level>"
     level = "DEBUG" if debug else "INFO"
     logger.remove()
-    logger.add(sys.stderr, level=level, format=fmt, colorize=True, backtrace=True, diagnose=True)
+    logger.add(sys.stderr, level=level, format=fmt, colorize=True)
+    logger.add(logfile, level=level, format=fmt, colorize=False, mode="w")
 
 
-def main(topology_path: Path, bond_threshold: float, compact_serialization: bool, output_to_stdout: bool):
-    """Main function to process a topology file and count the molecules.
+def main(structure_path: Path, bond_threshold: float, compact_serialization: bool, output_to_stdout: bool):
+    """Main function to process a structure file and count the molecules.
 
     Args:
-        topology_path (Path): Path to the topology file.
+        structure_path (Path): Path to the structure file.
         bond_threshold (float): Threshold for interchain bond detection.
         compact_serialization (bool): If True, use compact serialization (no atom indices).
         output_to_stdout (bool): Whether to output results to stdout.
     """
-    logger.info(f"Processing topology file: {topology_path}")
+    logger.info(f"Processing structure file: {structure_path}")
 
     # Decoding.
-    decoded = gd.decode_topology(topology_path, bond_threshold=bond_threshold)
+    decoded = gd.decode_structure(structure_path, bond_threshold=bond_threshold)
 
     # Serialization.
     serialization_mode = "compact" if compact_serialization else "full"
@@ -58,14 +80,14 @@ def main(topology_path: Path, bond_threshold: float, compact_serialization: bool
     if output_to_stdout:
         print(json_string)
     else:
-        output_file = topology_path.with_suffix(".json").name
+        output_file = generate_output_inventory_filename(structure_path)
         with open(output_file, "w") as f:
             f.write(json_string)
         logger.info(f"Results written to {output_file}")
 
 
 @click.command()
-@click.argument("topology_path", type=PathToTopologyFile())
+@click.argument("structure_path", type=PathToStructureFile())
 @click.option(
     "--bond-threshold",
     default=5.0,
@@ -74,8 +96,8 @@ def main(topology_path: Path, bond_threshold: float, compact_serialization: bool
 )
 @click.option("--no-atom-ids", is_flag=True, help="do not output the atom indice array")
 @click.option("-s", "--stdout", is_flag=True, help="Output the results to stdout in JSON format")
-@click.option("--debug", is_flag=True, help="Enable debug mode for detailed logging")
-def cli(topology_path, bond_threshold, no_atom_ids, stdout, debug):
-    """Command-line interface for processing topology files."""
-    setup_logging(debug)
-    main(topology_path, bond_threshold, no_atom_ids, stdout)
+def cli(structure_path, bond_threshold, no_atom_ids, stdout):
+    """Command-line interface for processing structure files."""
+    logfile = generate_log_filename(structure_path)
+    setup_logging(logfile)
+    main(structure_path, bond_threshold, no_atom_ids, stdout)

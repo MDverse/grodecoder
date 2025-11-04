@@ -70581,7 +70581,12 @@
         "name": "SLPI"
       }
     ],
-    "segments": []
+    "segments": [],
+    "total_number_of_atoms": 70516
   },
-  "resolution": "all-atom"
+  "resolution": "all-atom",
+  "structure_file_checksum": "17e49e893431728d5151f7ebb3709ef2",
+  "database_version": "2025-08-26_15:00:00",
+  "grodecoder_version": "0.0.1",
+  "grodecoder_run_date": "2025-11-04 13:42:46"
 }
