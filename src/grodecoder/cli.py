@@ -6,6 +6,8 @@ from loguru import logger
 
 import grodecoder as gd
 
+GRODECODER_STEM_SUFFIX = "_grodecoder"
+
 
 class PathToStructureFile(click.ParamType):
     """Custom click parameter type for validating structure files."""
@@ -27,12 +29,33 @@ class PathToStructureFile(click.ParamType):
         return path
 
 
-def setup_logging(debug: bool = False):
+def get_output_stem(structure_path: Path) -> str:
+    """Generates the output stem for log and result files based on the structure file name."""
+    return structure_path.stem + GRODECODER_STEM_SUFFIX
+
+
+def generate_output_filename(structure_path: Path, extension: str) -> Path:
+    """Generates the output filename with the given extension."""
+    return Path(get_output_stem(structure_path) + extension)
+
+
+def generate_output_inventory_filename(structure_path: Path) -> Path:
+    """Generates the output JSON filename."""
+    return generate_output_filename(structure_path, ".json")
+
+
+def generate_log_filename(structure_path: Path) -> Path:
+    """Generates the output log filename."""
+    return generate_output_filename(structure_path, ".log")
+
+
+def setup_logging(logfile: Path, debug: bool = False):
     """Sets up logging configuration."""
     fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> <level>{level}: {message}</level>"
     level = "DEBUG" if debug else "INFO"
     logger.remove()
-    logger.add(sys.stderr, level=level, format=fmt, colorize=True, backtrace=True, diagnose=True)
+    logger.add(sys.stderr, level=level, format=fmt, colorize=True)
+    logger.add(logfile, level=level, format=fmt, colorize=False, mode="w")
 
 
 def main(structure_path: Path, bond_threshold: float, compact_serialization: bool, output_to_stdout: bool):
@@ -57,7 +80,7 @@ def main(structure_path: Path, bond_threshold: float, compact_serialization: boo
     if output_to_stdout:
         print(json_string)
     else:
-        output_file = structure_path.with_suffix(".json").name
+        output_file = generate_output_inventory_filename(structure_path)
         with open(output_file, "w") as f:
             f.write(json_string)
         logger.info(f"Results written to {output_file}")
@@ -75,5 +98,6 @@ def main(structure_path: Path, bond_threshold: float, compact_serialization: boo
 @click.option("-s", "--stdout", is_flag=True, help="Output the results to stdout in JSON format")
 def cli(structure_path, bond_threshold, no_atom_ids, stdout):
     """Command-line interface for processing structure files."""
-    setup_logging()
+    logfile = generate_log_filename(structure_path)
+    setup_logging(logfile)
     main(structure_path, bond_threshold, no_atom_ids, stdout)
