@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import StrEnum
-from typing import Annotated
+from typing import Annotated, Protocol
 
 from MDAnalysis import AtomGroup
 from pydantic import (
@@ -39,6 +39,22 @@ class FrozenModel(BaseModel):
     """Base model with frozen configuration to prevent modification."""
 
     model_config = ConfigDict(frozen=True)
+
+
+class HasAtoms(Protocol):
+    """Protocol for models that have an AtomGroup."""
+
+    atoms: AtomGroup
+
+    @property
+    def number_of_atoms(self) -> int:
+        """Returns the number of atoms."""
+        ...
+
+    @property
+    def number_of_residues(self) -> int:
+        """Returns the number of residues."""
+        ...
 
 
 class FrozenWithAtoms(FrozenModel):
@@ -93,7 +109,7 @@ class SmallMolecule(FrozenWithAtoms):
     description: str
     molecular_type: MolecularType
 
-    @computed_field  # type: ignore[prop-decorator]
+    @computed_field
     @property
     def name(self) -> str:
         """Returns the name of the residue."""
@@ -170,29 +186,33 @@ class DecodedRead(FrozenModel):
         }
         return all(getattr(self, field) == getattr(other, field) for field in comparable_fields)
 
-
     @classmethod
     def from_decoded(cls, decoded: Decoded) -> DecodedRead:
-        """Creates a DecodedRead instance from a Decoded instance."""
+        """Creates a DecodedRead instance from a Decoded instance.
+
+        Useful to compare a json-loaded DecodedRead with an in-memory Decoded instance
+        (e.g. for regression tests).
+        """
         small_molecules_read = [
             SmallMoleculeRead(
                 name=sm.name,
                 description=sm.description,
                 molecular_type=sm.molecular_type,
-                number_of_atoms=sm.number_of_atoms,
-                number_of_residues=sm.number_of_residues,
+                number_of_atoms=sm.number_of_atoms,  # ty: ignore[invalid-argument-type]
+                number_of_residues=sm.number_of_residues,  # ty: ignore[invalid-argument-type]
                 atoms=sm.atoms.indices.tolist(),
             )
             for sm in decoded.inventory.small_molecules
         ]
 
+        # ty: ignore[invalid-argument-type]
         segments_read = [
             SegmentRead(
                 sequence=seg.sequence,
                 molecular_type=seg.molecular_type,
                 atoms=seg.atoms.indices.tolist(),
-                number_of_atoms=seg.number_of_atoms,
-                number_of_residues=seg.number_of_residues,
+                number_of_atoms=seg.number_of_atoms,  # ty: ignore[invalid-argument-type]
+                number_of_residues=seg.number_of_residues,  # ty: ignore[invalid-argument-type]
             )
             for seg in decoded.inventory.segments
         ]

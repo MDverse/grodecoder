@@ -7,7 +7,7 @@ from MDAnalysis import AtomGroup
 from . import databases as DB
 from . import toputils
 from ._typing import UniverseLike
-from .models import Inventory, MolecularType, SmallMolecule, Segment
+from .models import HasAtoms, Inventory, MolecularType, Segment, SmallMolecule
 
 
 def identify_small_molecule(
@@ -118,7 +118,7 @@ def _unique_definitions(definitions: Iterable[DB.ResidueDefinition]) -> dict[str
     return unique_items
 
 
-def _remove_identified_atoms(universe: AtomGroup, molecules: list[AtomGroup]) -> AtomGroup:
+def _remove_identified_atoms(universe: AtomGroup, molecules: list[HasAtoms]) -> AtomGroup:
     """Removes the atoms of the identified molecules from the universe."""
     for molecule in molecules:
         universe -= molecule.atoms
@@ -133,6 +133,24 @@ def _trim_sequence(sequence: str) -> str:
     return sequence
 
 
+def _log_identified_segments(segments: list[Segment], label: str) -> None:
+    """Logs the identified segments."""
+    msg = f"Identified {len(segments)} {label} segments{':' if len(segments) > 0 else ''}"
+    logger.info(msg)
+    for seg in segments:
+        logger.info(
+            f"  - Segment with {seg.number_of_residues:,d} residues {seg.number_of_atoms:,d} "
+            f"atoms and sequence: {_trim_sequence(seg.sequence)}"
+        )
+
+def _log_identified_molecules(molecules: list[SmallMolecule], label: str) -> None:
+    """Logs the identified small molecules."""
+    logger.info(f"Identified {len(molecules)} {label} types{':' if len(molecules) > 0 else ''}")
+    for mol in molecules:
+        logger.info(
+            f"  - {label} {mol.name!r}, {mol.number_of_atoms:,d} atoms, identified as {mol.description!r}"
+        )
+
 def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     """Identifies the molecules in the universe."""
 
@@ -144,61 +162,32 @@ def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     # 'MET' residues are counted first in the protein, then removed so not counted elsewhere).
 
     protein = _get_protein_segments(universe, bond_threshold=bond_threshold)
-    logger.info(f"Identified {len(protein)} protein segments:")
-    for seg in protein:
-        logger.info(
-            f"  - Segment with {seg.number_of_residues:,d} residues {seg.number_of_atoms:,d} "
-            f"atoms and sequence: {_trim_sequence(seg.sequence)}"
-        )
-    universe = _remove_identified_atoms(universe, protein)
+    _log_identified_segments(protein, "protein")
+    universe = _remove_identified_atoms(universe, protein)  # ty: ignore[invalid-argument-type]
 
     nucleic = _get_nucleic_segments(universe, bond_threshold=bond_threshold)
-    logger.info(f"Identified {len(nucleic)} nucleic acid segments")
-    for seg in nucleic:
-        logger.info(
-            f"  - Segment with {seg.number_of_residues:,d} residues {seg.number_of_atoms:,d} "
-            f"atoms and sequence: {_trim_sequence(seg.sequence)}"
-        )
-    universe = _remove_identified_atoms(universe, nucleic)
+    _log_identified_segments(nucleic, "nucleic acid")
+    universe = _remove_identified_atoms(universe, nucleic)  # ty: ignore[invalid-argument-type]
 
     ions = identify_small_molecule(universe, DB.get_ion_definitions(), molecular_type=MolecularType.ION)
-    logger.info(f"Identified {len(ions)} ion types")
-    for ion in ions:
-        logger.info(
-            f"  - Ion {ion.name!r}, {ion.number_of_atoms:,d} atoms, identified as {ion.description!r}"
-        )
-    universe = _remove_identified_atoms(universe, ions)
+    _log_identified_molecules(ions, "ion")
+    universe = _remove_identified_atoms(universe, ions)  # ty: ignore[invalid-argument-type]
 
     solvents = identify_small_molecule(
         universe, DB.get_solvent_definitions(), molecular_type=MolecularType.SOLVENT
     )
-    logger.info(f"Identified {len(solvents)} solvent types")
-    for solvent in solvents:
-        logger.info(
-            f"  - Solvent {solvent.name!r}, {solvent.number_of_residues:,d} residues, "
-            f"{solvent.number_of_atoms:,d} atoms, identified as {solvent.description!r}"
-        )
-    universe = _remove_identified_atoms(universe, solvents)
+    _log_identified_molecules(solvents, "solvent")
+    universe = _remove_identified_atoms(universe, solvents)  # ty: ignore[invalid-argument-type]
 
     lipids = identify_small_molecule(universe, DB.get_lipid_definitions(), molecular_type=MolecularType.LIPID)
-    logger.info(f"Identified {len(lipids)} lipid types")
-    for lipid in lipids:
-        logger.info(
-            f"  - Lipid {lipid.name!r}, {lipid.number_of_residues:,d} residues, "
-            f"{lipid.number_of_atoms:,d} atoms, identified as {lipid.description!r}"
-        )
-    universe = _remove_identified_atoms(universe, lipids)
+    _log_identified_molecules(lipids, "lipid")
+    universe = _remove_identified_atoms(universe, lipids)  # ty: ignore[invalid-argument-type]
 
     others = identify_small_molecule(
         universe, DB.get_other_definitions(), molecular_type=MolecularType.UNKNOWN
     )
-    logger.info(f"Identified {len(others)} other small molecule types")
-    for other in others:
-        logger.info(
-            f"  - Other molecule {other.name!r}, {other.number_of_residues:,d} residues, "
-            f"{other.number_of_atoms:,d} atoms, identified as {other.description!r}"
-        )
-    universe = _remove_identified_atoms(universe, others)
+    _log_identified_molecules(others, "other small molecule")
+    universe = _remove_identified_atoms(universe, others)  # ty: ignore[invalid-argument-type]
 
     # Collecting unknown small molecules that are not defined in the database.
     unknown_molecules = []

@@ -69,13 +69,13 @@ def _get_page_source(url: str) -> str:
     return response.text
 
 
-def _parse_residue(row: bs4.Tag, source: str, family: str) -> Residue:
+def _parse_residue(row: bs4.Tag, source: str, family: ResidueFamily) -> Residue:
     """Parses a residue entry from a table row.
 
     Args:
         row (bs4.Tag): The table row containing the residue information.
         source (str): The name of the topology file from which the residue is taken.
-        family (str): The family of the residue (e.g., protein, nucleic acid, etc.).
+        family (ResidueFamily): The family of the residue (e.g., protein, nucleic acid, etc.).
     """
 
     def get_download_link() -> str:
