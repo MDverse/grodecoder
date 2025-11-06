@@ -240,7 +240,6 @@ class DecodedRead(FrozenModel):
 
 
 class GrodecoderRunOutputRead(FrozenModel):
-
     decoded: DecodedRead
     structure_file_checksum: str
     database_version: str

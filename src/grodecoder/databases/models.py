@@ -12,7 +12,6 @@ class ResidueDefinition(Protocol):
         pass
 
 
-
 class Residue(BaseModel):
     """Model for a residue."""
 
@@ -62,7 +61,7 @@ class AminoAcid(BaseModel):
     description: str
     long_name: str
     short_name: str
-    
+
     def __hash__(self):
         return hash(self.long_name)
 

@@ -143,6 +143,7 @@ def _log_identified_segments(segments: list[Segment], label: str) -> None:
             f"atoms and sequence: {_trim_sequence(seg.sequence)}"
         )
 
+
 def _log_identified_molecules(molecules: list[SmallMolecule], label: str) -> None:
     """Logs the identified small molecules."""
     logger.info(f"Identified {len(molecules)} {label} types{':' if len(molecules) > 0 else ''}")
@@ -150,6 +151,7 @@ def _log_identified_molecules(molecules: list[SmallMolecule], label: str) -> Non
         logger.info(
             f"  - {label} {mol.name!r}, {mol.number_of_atoms:,d} atoms, identified as {mol.description!r}"
         )
+
 
 def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     """Identifies the molecules in the universe."""
@@ -207,5 +209,5 @@ def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     return Inventory(
         segments=protein + nucleic,
         small_molecules=ions + solvents + lipids + others + unknown_molecules,
-        total_number_of_atoms=total_number_of_atoms
+        total_number_of_atoms=total_number_of_atoms,
     )
