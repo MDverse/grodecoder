@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import StrEnum
-from typing import Annotated, Protocol
+from typing import Protocol
 
 from MDAnalysis import AtomGroup
 from pydantic import (
@@ -36,9 +36,15 @@ class SerializationMode(StrEnum):
 
 
 class FrozenModel(BaseModel):
-    """Base model with frozen configuration to prevent modification."""
+    """Base model with frozen configuration to prevent modification.
 
-    model_config = ConfigDict(frozen=True)
+    Extra attributes are forbidden for more safety.
+    """
+
+    model_config = ConfigDict(
+        frozen=True,
+        extra="forbid",  # forbid extra attributes
+    )
 
 
 class HasAtoms(Protocol):
@@ -68,11 +74,13 @@ class FrozenWithAtoms(FrozenModel):
         return value.indices.tolist()
 
     @computed_field
+    @property
     def number_of_atoms(self) -> int:
         """Returns the number of atoms in the small molecule."""
         return len(self.atoms)
 
     @computed_field
+    @property
     def number_of_residues(self) -> int:
         """Returns the number of residues in the small molecule."""
         return len(self.atoms.residues)
@@ -136,10 +144,26 @@ class Decoded(FrozenModel):
 
     inventory: Inventory
     resolution: MolecularResolution
+
+
+class GrodecoderRunOutput(BaseModel):
+    """Output model for grodecoder results.
+
+    This class is used to store data which will be part of grodecoder json output file.
+
+    `runtime_in_seconds`.
+    The program run time in seconds, that appears in grodecoder output files, is added to the json
+    model by hand, at the last moment, for better accuracy.
+
+    Comparison.
+    To compare two grodecoder runs, only the `decoded` attribute.
+    Other attributes, such as database version, grodecoder version, run time, etc. are ignored.
+    """
+
+    decoded: Decoded = Field(frozen=True)
     structure_file_checksum: str
     database_version: str
     grodecoder_version: str
-    grodecoder_run_date: str
 
 
 # =========================================================================================================
@@ -172,19 +196,6 @@ class InventoryRead(FrozenModel):
 class DecodedRead(FrozenModel):
     inventory: InventoryRead
     resolution: MolecularResolution
-    structure_file_checksum: str
-    database_version: str
-    grodecoder_version: str
-    grodecoder_run_date: Annotated[str, Field(json_schema_extra={"compare": False})]
-
-    def __eq__(self, other):
-        """Custom equality comparison that only compares fields marked for comparison."""
-        comparable_fields = {
-            field
-            for field, field_info in self.__class__.model_fields.items()
-            if (getattr(field_info, "json_schema_extra") or {}).get("compare", True)
-        }
-        return all(getattr(self, field) == getattr(other, field) for field in comparable_fields)
 
     @classmethod
     def from_decoded(cls, decoded: Decoded) -> DecodedRead:
@@ -198,21 +209,20 @@ class DecodedRead(FrozenModel):
                 name=sm.name,
                 description=sm.description,
                 molecular_type=sm.molecular_type,
-                number_of_atoms=sm.number_of_atoms,  # ty: ignore[invalid-argument-type]
-                number_of_residues=sm.number_of_residues,  # ty: ignore[invalid-argument-type]
+                number_of_atoms=sm.number_of_atoms,
+                number_of_residues=sm.number_of_residues,
                 atoms=sm.atoms.indices.tolist(),
             )
             for sm in decoded.inventory.small_molecules
         ]
 
-        # ty: ignore[invalid-argument-type]
         segments_read = [
             SegmentRead(
                 sequence=seg.sequence,
                 molecular_type=seg.molecular_type,
                 atoms=seg.atoms.indices.tolist(),
-                number_of_atoms=seg.number_of_atoms,  # ty: ignore[invalid-argument-type]
-                number_of_residues=seg.number_of_residues,  # ty: ignore[invalid-argument-type]
+                number_of_atoms=seg.number_of_atoms,
+                number_of_residues=seg.number_of_residues,
             )
             for seg in decoded.inventory.segments
         ]
@@ -226,8 +236,13 @@ class DecodedRead(FrozenModel):
         return cls(
             inventory=inventory_read,
             resolution=decoded.resolution,
-            structure_file_checksum=decoded.structure_file_checksum,
-            database_version=decoded.database_version,
-            grodecoder_version=decoded.grodecoder_version,
-            grodecoder_run_date=decoded.grodecoder_run_date,
         )
+
+
+class GrodecoderRunOutputRead(FrozenModel):
+
+    decoded: DecodedRead
+    structure_file_checksum: str
+    database_version: str
+    grodecoder_version: str
+    runtime_in_seconds: float

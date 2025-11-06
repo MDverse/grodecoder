@@ -105346,9 +105346,5 @@
     ],
     "total_number_of_atoms": 105197
   },
-  "resolution": "all-atom",
-  "structure_file_checksum": "79d17916c911139ed2865b1c1311a13e",
-  "database_version": "2025-08-26_15:00:00",
-  "grodecoder_version": "0.0.1",
-  "grodecoder_run_date": "2025-11-04 13:43:00"
+  "resolution": "all-atom"
 }

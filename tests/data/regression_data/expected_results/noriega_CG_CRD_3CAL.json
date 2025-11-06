@@ -2162,9 +2162,5 @@
     ],
     "total_number_of_atoms": 2122
   },
-  "resolution": "coarse-grained",
-  "structure_file_checksum": "489cbdb4b2a951033d26e01517f2c3ca",
-  "database_version": "2025-08-26_15:00:00",
-  "grodecoder_version": "0.0.1",
-  "grodecoder_run_date": "2025-11-04 13:42:44"
+  "resolution": "coarse-grained"
 }

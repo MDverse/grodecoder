@@ -1,4 +1,7 @@
+import hashlib
+import json
 import sys
+import time
 from pathlib import Path
 
 import click
@@ -61,6 +64,12 @@ def setup_logging(logfile: Path, debug: bool = False):
     logger.add(logfile, level=level, format=fmt, colorize=False, mode="w")
 
 
+def _get_checksum(structure_path: gd.PathLike) -> str:
+    """Computes a checksum for the structure file."""
+    with open(structure_path, "rb") as f:
+        return hashlib.md5(f.read()).hexdigest()
+
+
 def main(structure_path: Path, bond_threshold: float, compact_serialization: bool, output_to_stdout: bool):
     """Main function to process a structure file and count the molecules.
 
@@ -70,22 +79,33 @@ def main(structure_path: Path, bond_threshold: float, compact_serialization: boo
         compact_serialization (bool): If True, use compact serialization (no atom indices).
         output_to_stdout (bool): Whether to output results to stdout.
     """
+    start_time = time.perf_counter_ns()
     logger.info(f"Processing structure file: {structure_path}")
 
     # Decoding.
     decoded = gd.decode_structure(structure_path, bond_threshold=bond_threshold)
 
+    output = gd.GrodecoderRunOutput(
+        decoded=decoded,
+        structure_file_checksum=_get_checksum(structure_path),
+        database_version=gd.databases.__version__,
+        grodecoder_version=gd.__version__,
+    )
+
     # Serialization.
     serialization_mode = "compact" if compact_serialization else "full"
-    json_string = decoded.model_dump_json(indent=2, context={"serialization_mode": serialization_mode})
+
+    # Updates run time as late as possible.
+    output_json = output.model_dump(context={"serialization_mode": serialization_mode})
+    output_json["runtime_in_seconds"] = (time.perf_counter_ns() - start_time) / 1e9
 
     # Output results: to stdout or writes to a file.
     if output_to_stdout:
-        print(json_string)
+        print(json.dumps(output_json, indent=2))
     else:
         inventory_filename = DefaultFilenameGenerator(structure_path).inventory_filename
         with open(inventory_filename, "w") as f:
-            f.write(json_string)
+            f.write(json.dumps(output_json, indent=2))
         logger.info(f"Results written to {inventory_filename}")
 
 
