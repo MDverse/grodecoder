@@ -80298,9 +80298,5 @@
     ],
     "total_number_of_atoms": 80257
   },
-  "resolution": "all-atom",
-  "structure_file_checksum": "d772ec28a28b4f4a8ea764c3d68b264a",
-  "database_version": "2025-08-26_15:00:00",
-  "grodecoder_version": "0.0.1",
-  "grodecoder_run_date": "2025-11-04 13:42:41"
+  "resolution": "all-atom"
 }
