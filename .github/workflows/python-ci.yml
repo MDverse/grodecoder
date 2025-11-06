@@ -1,0 +1,27 @@
+name: Python CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.9.6"
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: make update
+
+      - name: Run tests
+        run: make test
+
+      - name: Lint
+        run: make lint
