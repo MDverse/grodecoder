@@ -34,6 +34,7 @@ def identify_small_molecule(
 
 def identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     """Identifies the molecules in a structure file."""
+    assert universe.atoms is not None  # avoids ty error "Expect Sized"
     timer_start = time.perf_counter()  # do not include structure reading time in the performance measurement
     inventory = _identify(universe, bond_threshold)
     elapsed = time.perf_counter() - timer_start

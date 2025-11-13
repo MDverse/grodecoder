@@ -22,7 +22,6 @@ grodecoder = "grodecoder.cli:cli"
 [dependency-groups]
 dev = [
     "icecream>=2.1.4",
-    "mypy>=1.17.1",
     "pytest>=8.3.5",
     "ruff>=0.11.2",
     "types-requests>=2.32.4.20250809",
@@ -32,6 +31,7 @@ dev = [
     "requests>=2.32.3",
     "streamlit>=1.44.0",
     "watchdog>=6.0.0",
+    "ty==0.0.1a26",
 ]
 
 [tool.ruff]
