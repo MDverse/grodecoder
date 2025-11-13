@@ -23,5 +23,5 @@ jobs:
       - name: Run tests
         run: make test
 
-      - name: Lint format
-        run: make lint-format
+      - name: Lint check
+        run: make lint-check
