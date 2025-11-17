@@ -96,7 +96,7 @@ def _get_protein_segments(atoms: AtomGroup, bond_threshold: float = 5.0) -> list
     """Returns the protein segments in the universe."""
     protein = _select_protein(atoms)
     return [
-        Segment(atoms=atoms, sequence=toputils.sequence(atoms), molecular_type=MolecularType.PROTEIN)
+        Segment(atoms=atoms, molecular_type=MolecularType.PROTEIN)
         for atoms in _iter_chains(protein, bond_threshold)
     ]
 
@@ -105,7 +105,7 @@ def _get_nucleic_segments(atoms: AtomGroup, bond_threshold: float = 5.0) -> list
     """Returns the nucleic acid segments in the universe."""
     nucleic = _select_nucleic(atoms)
     return [
-        Segment(atoms=atoms, sequence=toputils.sequence(atoms), molecular_type=MolecularType.NUCLEIC)
+        Segment(atoms=atoms, molecular_type=MolecularType.NUCLEIC)
         for atoms in _iter_chains(nucleic, bond_threshold)
     ]
 

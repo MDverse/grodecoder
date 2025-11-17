@@ -1,4 +1,5 @@
 from __future__ import annotations
+from pydantic import model_validator
 
 from enum import StrEnum
 from typing import Protocol
@@ -14,6 +15,8 @@ from pydantic import (
     field_serializer,
     model_serializer,
 )
+
+from . import toputils
 
 
 class MolecularResolution(StrEnum):
@@ -127,8 +130,12 @@ class SmallMolecule(FrozenWithAtoms):
 class Segment(FrozenWithAtoms):
     """A segment is a group of atoms that are connected."""
 
-    sequence: str
     molecular_type: MolecularType  # likely to be protein or nucleic acid
+
+    @computed_field
+    @property
+    def sequence(self) -> str:
+        return toputils.sequence(self.atoms)
 
 
 class Inventory(FrozenModel):
@@ -175,6 +182,14 @@ class BaseModelWithAtomsRead(FrozenModel):
     number_of_atoms: int
     number_of_residues: int
 
+    @model_validator(mode="after")
+    def check_number_of_atoms_is_valid(self):
+        if len(self.atoms) != self.number_of_atoms:
+            raise ValueError(
+                f"field `number_of_atoms` ({self.number_of_atoms}) does not match number of atom ids ({len(self.atoms)})"
+            )
+        return self
+
 
 class SmallMoleculeRead(BaseModelWithAtomsRead):
     name: str
@@ -191,6 +206,15 @@ class InventoryRead(FrozenModel):
     small_molecules: list[SmallMoleculeRead]
     segments: list[SegmentRead]
     total_number_of_atoms: int
+
+    @model_validator(mode="after")
+    def check_total_number_of_atoms(self):
+        n = sum(item.number_of_atoms for item in self.small_molecules + self.segments)
+        if self.total_number_of_atoms != n:
+            raise ValueError(
+                f"field `total_number_of_atoms` ({self.total_number_of_atoms}) does not add up with the rest of the inventory (found {n} atoms)"
+            )
+        return self
 
 
 class DecodedRead(FrozenModel):
