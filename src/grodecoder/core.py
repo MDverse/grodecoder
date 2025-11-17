@@ -14,11 +14,11 @@ def _now() -> str:
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
-def _read_structure(path: PathLike, psf_path: PathLike | None = None) -> mda.Universe:
+def _read_structure(structure_path: PathLike, coordinates_path: PathLike | None = None) -> mda.Universe:
     """Reads a structure file."""
-    if psf_path:
-        return mda.Universe(path, psf_path)
-    return mda.Universe(path)
+    if coordinates_path:
+        return mda.Universe(structure_path, coordinates_path)
+    return mda.Universe(structure_path)
 
 
 def decode(universe: UniverseLike, bond_threshold: float = 5.0) -> Decoded:
@@ -30,11 +30,12 @@ def decode(universe: UniverseLike, bond_threshold: float = 5.0) -> Decoded:
 
 
 def decode_structure(
-    path: PathLike, psf_path: PathLike | None = None, bond_threshold: float = 5.0
+    structure_path: PathLike, coordinates_path: PathLike | None = None,
+    bond_threshold: float = 5.0
 ) -> Decoded:
     """Reads a structure file and decodes it into an inventory of segments."""
-    universe = _read_structure(path, psf_path)
+    universe = _read_structure(structure_path, coordinates_path)
     assert universe.atoms is not None  # required by type checker for some reason
-    logger.info(f"{path}: {len(universe.atoms):,d} atoms")
+    logger.info(f"{structure_path}: {len(universe.atoms):,d} atoms")
     return decode(universe, bond_threshold=bond_threshold)
 

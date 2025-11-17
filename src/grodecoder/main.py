@@ -25,11 +25,14 @@ def main(args: "CliArgs"):
     """Main function to process a structure file and count the molecules."""
     start_time = time.perf_counter_ns()
     structure_path = args.structure_file.path
+    coordinates_path = args.coordinates_file.path if args.coordinates_file else None
 
     logger.info(f"Processing structure file: {structure_path}")
 
     # Decoding.
-    decoded = decode_structure(structure_path, bond_threshold=args.bond_threshold)
+    decoded = decode_structure(
+        structure_path, coordinates_path=coordinates_path, bond_threshold=args.bond_threshold
+    )
 
     output = GrodecoderRunOutput(
         decoded=decoded,
