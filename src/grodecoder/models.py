@@ -114,11 +114,36 @@ class FrozenWithAtoms(FrozenModel):
         return self_data
 
 
-class SmallMolecule(FrozenWithAtoms):
+class MolecularTypeMixin:
+    molecular_type: MolecularType
+
+    def is_ion(self) -> bool:
+        return self.molecular_type == MolecularType.ION
+
+    def is_lipid(self) -> bool:
+        return self.molecular_type == MolecularType.LIPID
+
+    def is_solvent(self) -> bool:
+        return self.molecular_type == MolecularType.SOLVENT
+
+    def is_unknown(self) -> bool:
+        return self.molecular_type == MolecularType.UNKNOWN
+
+    def is_other(self) -> bool:
+        """Alias for MolecularTypeMixin.is_unknown()"""
+        return self.is_unknown()
+
+    def is_protein(self) -> bool:
+        return self.molecular_type == MolecularType.PROTEIN
+
+    def is_nucleic(self) -> bool:
+        return self.molecular_type == MolecularType.NUCLEIC
+
+
+class SmallMolecule(MolecularTypeMixin, FrozenWithAtoms):
     """Small molecules are defined as residues with a single residue name."""
 
     description: str
-    molecular_type: MolecularType
 
     @computed_field
     @property
@@ -127,10 +152,8 @@ class SmallMolecule(FrozenWithAtoms):
         return self.atoms.residues[0].resname
 
 
-class Segment(FrozenWithAtoms):
+class Segment(MolecularTypeMixin, FrozenWithAtoms):
     """A segment is a group of atoms that are connected."""
-
-    molecular_type: MolecularType  # likely to be protein or nucleic acid
 
     @computed_field
     @property
@@ -191,15 +214,13 @@ class BaseModelWithAtomsRead(FrozenModel):
         return self
 
 
-class SmallMoleculeRead(BaseModelWithAtomsRead):
+class SmallMoleculeRead(MolecularTypeMixin, BaseModelWithAtomsRead):
     name: str
     description: str
-    molecular_type: MolecularType
 
 
-class SegmentRead(BaseModelWithAtomsRead):
+class SegmentRead(MolecularTypeMixin, BaseModelWithAtomsRead):
     sequence: str
-    molecular_type: MolecularType
 
 
 class InventoryRead(FrozenModel):
