@@ -1,9 +1,8 @@
-import itertools
 import json
 from collections import Counter
-from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
-from typing import Iterable, TypeVar
+from typing import TypeVar
 
 from loguru import logger
 
@@ -96,18 +95,32 @@ def read_csml_database() -> list[csml.Residue]:
     return _read_database(CSML_DB_PATH, csml.Residue)
 
 
-ION_DB: list[Ion] = read_ion_database()
-SOLVENT_DB: list[Solvent] = read_solvent_database()
-AMINO_ACIDS_DB: list[AminoAcid] = read_amino_acid_database()
-NUCLEOTIDES_DB: list[Nucleotide] = read_nucleotide_database()
+# ION_DB: list[Ion] = read_ion_database()
+# SOLVENT_DB: list[Solvent] = read_solvent_database()
+# AMINO_ACIDS_DB: list[AminoAcid] = read_amino_acid_database()
+# NUCLEOTIDES_DB: list[Nucleotide] = read_nucleotide_database()
+# MAD_DB: list[mad.Residue] = read_mad_database()
+# CSML_DB: list[csml.Residue] = read_csml_database()
+# LIPID_DB: list[Lipid] = _build_lipid_db()
+# OTHER_DB: list[Residue] = _build_other_db()
 
-MAD_DB: list[mad.Residue] = read_mad_database()
-CSML_DB: list[csml.Residue] = read_csml_database()
+
+@lru_cache(maxsize=1)
+def _get_csml_databse():
+    return read_csml_database()
+
+
+@lru_cache(maxsize=1)
+def _get_mad_databse():
+    return read_mad_database()
 
 
 def _build_lipid_db() -> list[Lipid]:
-    _mad_lipid_resnames = {item.alias for item in MAD_DB if item.family == mad.ResidueFamily.LIPID}
-    _csml_lipid_resnames = {residue.name for residue in CSML_DB if residue.family == csml.ResidueFamily.LIPID}
+    mad_db = _get_mad_databse()
+    csml_db = _get_csml_databse()
+
+    _mad_lipid_resnames = {item.alias for item in mad_db if item.family == mad.ResidueFamily.LIPID}
+    _csml_lipid_resnames = {residue.name for residue in csml_db if residue.family == csml.ResidueFamily.LIPID}
 
     if False:
         # IMPORTANT:
@@ -121,27 +134,27 @@ def _build_lipid_db() -> list[Lipid]:
 
     db = {
         item.alias: Lipid(description=item.name, residue_name=item.alias)
-        for item in MAD_DB
+        for item in mad_db
         if item.family == mad.ResidueFamily.LIPID
     }
     db.update(
         {
             residue.name: Lipid(description=residue.description, residue_name=residue.name)
-            for residue in CSML_DB
+            for residue in csml_db
             if residue.family == csml.ResidueFamily.LIPID
         }
     )
     return list(db.values())
 
 
-LIPID_DB: list[Lipid] = _build_lipid_db()
-
-
 def _build_other_db() -> list[Residue]:
     """Builds a database of other residues that are not ions, solvents, amino acids, or nucleotides."""
+    mad_db = _get_mad_databse()
+    csml_db = _get_csml_databse()
+
     csml_other = {
         residue.name: Residue(residue_name=residue.name, description=residue.description)
-        for residue in CSML_DB
+        for residue in csml_db
         if residue.family
         not in {
             csml.ResidueFamily.PROTEIN,
@@ -154,7 +167,7 @@ def _build_other_db() -> list[Residue]:
 
     mad_other = {
         residue.alias: Residue(residue_name=residue.alias, description=residue.name)
-        for residue in MAD_DB
+        for residue in mad_db
         if residue.family
         not in {
             mad.ResidueFamily.PROTEIN,
@@ -168,124 +181,72 @@ def _build_other_db() -> list[Residue]:
     return list(by_name.values())
 
 
-OTHER_DB: list[Residue] = _build_other_db()
-
-
-def get_other_definitions() -> list[Residue]:
-    """Returns the definitions of other residues in the database."""
-    return OTHER_DB
-
-
+@lru_cache(maxsize=1)
 def get_ion_definitions() -> list[Ion]:
     """Returns the definitions of the ions in the database."""
-    return ION_DB
+    return read_ion_database()
 
 
+@lru_cache(maxsize=1)
 def get_solvent_definitions() -> list[Solvent]:
     """Returns the definitions of the solvents in the database."""
-    return SOLVENT_DB
+    return read_solvent_database()
 
 
+@lru_cache(maxsize=1)
 def get_amino_acid_definitions() -> list[AminoAcid]:
     """Returns the definitions of the amino acids in the database."""
-    return AMINO_ACIDS_DB
+    return read_amino_acid_database()
+
+
+@lru_cache(maxsize=1)
+def get_nucleotide_definitions() -> list[Nucleotide]:
+    """Returns the definitions of the nucleotides in the database."""
+    return read_nucleotide_database()
+
+
+@lru_cache(maxsize=1)
+def get_lipid_definitions() -> list[Lipid]:
+    """Returns the definitions of the lipids in the database."""
+    return _build_lipid_db()
+
+
+@lru_cache(maxsize=1)
+def get_other_definitions() -> list[Residue]:
+    """Returns the definitions of other residues in the database."""
+    return _build_other_db()
 
 
 def get_amino_acid_name_map() -> dict[str, str]:
     """Returns a mapping of amino acid 3-letter names to 1-letter names."""
-    return {aa.long_name: aa.short_name for aa in AMINO_ACIDS_DB}
+    return {aa.long_name: aa.short_name for aa in get_amino_acid_definitions()}
 
 
 def get_nucleotide_name_map() -> dict[str, str]:
     """Returns a mapping of nucleotide 3-letter names to 1-letter names."""
-    return {nucleotide.residue_name: nucleotide.short_name for nucleotide in NUCLEOTIDES_DB}
-
-
-def get_nucleotide_definitions() -> list[Nucleotide]:
-    """Returns the definitions of the nucleotides in the database."""
-    return NUCLEOTIDES_DB
-
-
-def get_lipid_definitions() -> list[Lipid]:
-    """Returns the definitions of the lipids in the database."""
-    return LIPID_DB
+    return {nucleotide.residue_name: nucleotide.short_name for nucleotide in get_nucleotide_definitions()}
 
 
 def get_ion_names() -> set[str]:
     """Returns the names of the ions in the database."""
-    return set(ion.residue_name for ion in ION_DB)
+    return set(ion.residue_name for ion in get_ion_definitions())
 
 
 def get_solvent_names() -> set[str]:
     """Returns the names of the solvents in the database."""
-    return set(solvent.residue_name for solvent in SOLVENT_DB)
+    return set(solvent.residue_name for solvent in get_solvent_definitions())
 
 
 def get_amino_acid_names() -> set[str]:
     """Returns the names of the amino acids in the database."""
-    return set(aa.long_name for aa in AMINO_ACIDS_DB)
+    return set(aa.long_name for aa in get_amino_acid_definitions())
 
 
 def get_nucleotide_names() -> set[str]:
     """Returns the names of the nucleotides in the database."""
-    return set(nucleotide.residue_name for nucleotide in NUCLEOTIDES_DB)
+    return set(nucleotide.residue_name for nucleotide in get_nucleotide_definitions())
 
 
 def get_lipid_names() -> set[str]:
     """Returns the names of the lipids in the database."""
-    return set(lipid.residue_name for lipid in LIPID_DB)
-
-
-@dataclass(frozen=True)
-class ResidueDatabase:
-    """Database of residues."""
-
-    ions: list[Ion]
-    solvents: list[Solvent]
-    amino_acids: list[AminoAcid]
-    nucleotides: list[Nucleotide]
-
-    def __post_init__(self):
-        names = {
-            "ions": {ion.residue_name for ion in self.ions},
-            "solvents": {solvent.residue_name for solvent in self.solvents},
-            "amino_acids": {aa.long_name for aa in self.amino_acids},
-            "nucleotides": {nucleotide.residue_name for nucleotide in self.nucleotides},
-        }
-
-        combinations = itertools.combinations(names.keys(), 2)
-        for lhs, rhs in combinations:
-            duplicates = names[lhs].intersection(names[rhs])
-            if duplicates:
-                logger.warning(
-                    f"Residue names {duplicates} are defined in multiple families: {lhs} and {rhs}"
-                )
-
-
-class ResidueNotFound(Exception):
-    """Raised when a residue with a given name and atom names is not found in the database."""
-
-
-class DuplicateResidue(Exception):
-    """Raised when a residue with a given name and atom names is defined multiple times in the database."""
-
-
-def _find_using_atom_names(
-    residue_name: str, atom_names: Iterable[str], database: list[Ion | Solvent]
-) -> Ion | Solvent | None:
-    candidate_residues = [ion for ion in database if ion.residue_name == residue_name]
-    if not candidate_residues:
-        return None
-
-    actual_atom_names = set(atom_names)
-    matching_residues = [ion for ion in candidate_residues if set(ion.atom_names) == actual_atom_names]
-
-    if len(matching_residues) == 0:
-        raise ResidueNotFound(f"No residue '{residue_name}' found with atom names {actual_atom_names}")
-
-    elif len(matching_residues) > 1:
-        raise DuplicateResidue(
-            f"Multiple residues '{residue_name}' found with atom names {actual_atom_names}"
-        )
-
-    return matching_residues[0]
+    return set(lipid.residue_name for lipid in get_lipid_definitions())
