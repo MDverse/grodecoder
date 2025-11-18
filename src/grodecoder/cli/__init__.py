@@ -1,4 +1,5 @@
 import sys
+import warnings
 from pathlib import Path
 
 import click
@@ -17,6 +18,11 @@ def setup_logging(logfile: Path, debug: bool = False):
     logger.add(sys.stderr, level=level, format=fmt, colorize=True)
     logger.add(logfile, level=level, format=fmt, colorize=False, mode="w")
 
+    # Setup loguru to capture warnings (typically MDAnalysis warnings)
+    def showwarning(message, *args, **kwargs):
+        logger.opt(depth=2).warning(message)
+
+    warnings.showwarning = showwarning
 
 @click.command()
 @click.argument("structure_file", type=StructureFile)
