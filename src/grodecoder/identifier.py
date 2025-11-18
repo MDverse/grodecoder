@@ -164,6 +164,10 @@ def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     # Remove identified atoms from the universe along the way to avoid double counting (e.g.
     # 'MET' residues are counted first in the protein, then removed so not counted elsewhere).
 
+    # All ty: ignore[invalid-argument-type] in this block fix ty clear mistake:
+    # Expected `list[HasAtoms]`, found `list[Segment]`
+    # while `Segment` clearly satisfies the `HasAtoms` Protocol.
+
     protein = _get_protein_segments(universe, bond_threshold=bond_threshold)
     _log_identified_segments(protein, "protein")
     universe = _remove_identified_atoms(universe, protein)  # ty: ignore[invalid-argument-type]

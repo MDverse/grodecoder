@@ -22,7 +22,7 @@ def setup_logging(logfile: Path, debug: bool = False):
     def showwarning(message, *args, **kwargs):
         logger.opt(depth=2).warning(message)
 
-    warnings.showwarning = showwarning
+    warnings.showwarning = showwarning  # ty: ignore invalid-assignment
 
 
 @click.command()

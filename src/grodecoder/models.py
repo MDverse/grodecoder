@@ -114,7 +114,7 @@ class FrozenWithAtoms(FrozenModel):
         return self_data
 
 
-class MolecularTypeMixin:
+class MolecularTypeMixin(BaseModel):
     molecular_type: MolecularType
 
     def is_ion(self) -> bool:
