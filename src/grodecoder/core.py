@@ -28,5 +28,5 @@ def decode_structure(
     """Reads a structure file and decodes it into an inventory of segments."""
     universe = read_universe(structure_path, coordinates_path)
     assert universe.atoms is not None  # required by type checker for some reason
-    logger.info(f"{structure_path}: {len(universe.atoms):,d} atoms")
+    logger.debug(f"Universe has {len(universe.atoms):,d} atoms")
     return decode(universe, bond_threshold=bond_threshold)

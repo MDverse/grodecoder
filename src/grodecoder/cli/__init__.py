@@ -18,11 +18,12 @@ def setup_logging(logfile: Path, debug: bool = False):
     logger.add(sys.stderr, level=level, format=fmt, colorize=True)
     logger.add(logfile, level=level, format=fmt, colorize=False, mode="w")
 
-    # Setup loguru to capture warnings (typically MDAnalysis warnings)
+    # Sets up loguru to capture warnings (typically MDAnalysis warnings)
     def showwarning(message, *args, **kwargs):
         logger.opt(depth=2).warning(message)
 
     warnings.showwarning = showwarning
+
 
 @click.command()
 @click.argument("structure_file", type=StructureFile)
@@ -41,6 +42,7 @@ def setup_logging(logfile: Path, debug: bool = False):
     is_flag=True,
     help="Output the results to stdout in JSON format",
 )
+@click.option("-v", "--verbose", is_flag=True, help="show debug messages")
 def cli(**kwargs):
     """Command-line interface for processing structure files."""
     args = CliArgs(
@@ -51,7 +53,7 @@ def cli(**kwargs):
     )
 
     logfile = args.get_log_filename()
-    setup_logging(logfile)
+    setup_logging(logfile, kwargs["verbose"])
     grodecoder_main(args)
 
 
