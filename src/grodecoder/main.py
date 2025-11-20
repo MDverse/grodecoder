@@ -7,9 +7,9 @@ from loguru import logger
 
 from ._typing import PathLike
 from .core import decode_structure
-from .databases import __version__ as database_version
+from .databases import get_database_version
 from .models import GrodecoderRunOutput
-from .version import __version__ as grodecoder_version
+from .version import get_version
 
 if TYPE_CHECKING:
     from .cli.args import Arguments as CliArgs
@@ -37,8 +37,8 @@ def main(args: "CliArgs"):
     output = GrodecoderRunOutput(
         decoded=decoded,
         structure_file_checksum=_get_checksum(structure_path),
-        database_version=database_version,
-        grodecoder_version=grodecoder_version,
+        database_version=get_database_version(),
+        grodecoder_version=get_version(),
     )
 
     # Serialization.
