@@ -1,28 +1,9 @@
-import sys
-import warnings
-from pathlib import Path
-
 import click
-from loguru import logger
 
 from ..main import main as grodecoder_main
 from .args import Arguments as CliArgs
 from .args import CoordinatesFile, StructureFile
-
-
-def setup_logging(logfile: Path, debug: bool = False):
-    """Sets up logging configuration."""
-    fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> <level>{level}: {message}</level>"
-    level = "DEBUG" if debug else "INFO"
-    logger.remove()
-    logger.add(sys.stderr, level=level, format=fmt, colorize=True)
-    logger.add(logfile, level=level, format=fmt, colorize=False, mode="w")
-
-    # Sets up loguru to capture warnings (typically MDAnalysis warnings)
-    def showwarning(message, *args, **kwargs):
-        logger.opt(depth=2).warning(message)
-
-    warnings.showwarning = showwarning  # ty: ignore invalid-assignment
+from ..logging import setup_logging
 
 
 @click.command()
