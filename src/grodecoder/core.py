@@ -7,6 +7,7 @@ from .identifier import identify
 from .io import read_universe
 from .models import Decoded
 from .toputils import guess_resolution
+from .settings import Settings
 
 
 def _now() -> str:
@@ -23,10 +24,14 @@ def decode(universe: UniverseLike, bond_threshold: float = 5.0) -> Decoded:
 
 
 def decode_structure(
-    structure_path: PathLike, coordinates_path: PathLike | None = None, bond_threshold: float = 5.0
+    structure_path: PathLike,
+    settings: Settings,
+    coordinates_path: PathLike | None = None,
 ) -> Decoded:
     """Reads a structure file and decodes it into an inventory of segments."""
     universe = read_universe(structure_path, coordinates_path)
     assert universe.atoms is not None  # required by type checker for some reason
     logger.debug(f"Universe has {len(universe.atoms):,d} atoms")
-    return decode(universe, bond_threshold=bond_threshold)
+
+    cutoff = settings.chain_detection.distance_cutoff or settings.chain_detection.default_distance_cutoff
+    return decode(universe, bond_threshold=cutoff)

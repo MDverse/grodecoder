@@ -10,6 +10,7 @@ from .core import decode_structure
 from .databases import get_database_version
 from .models import GrodecoderRunOutput
 from .version import get_version
+from .settings import Settings
 
 if TYPE_CHECKING:
     from .cli.args import Arguments as CliArgs
@@ -27,11 +28,13 @@ def main(args: "CliArgs"):
     structure_path = args.structure_file.path
     coordinates_path = args.coordinates_file.path if args.coordinates_file else None
 
+    settings = Settings()
+
     logger.info(f"Processing structure file: {structure_path}")
 
     # Decoding.
     decoded = decode_structure(
-        structure_path, coordinates_path=coordinates_path, bond_threshold=args.bond_threshold
+        structure_path, coordinates_path=coordinates_path, settings = settings
     )
 
     output = GrodecoderRunOutput(
