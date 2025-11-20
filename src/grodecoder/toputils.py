@@ -4,8 +4,10 @@ import collections
 from typing import Iterable
 
 import numpy as np
+from loguru import logger
 
 from ._typing import Residue, UniverseLike
+from .logging import is_logging_debug
 from .databases import get_amino_acid_name_map, get_nucleotide_name_map
 from .models import MolecularResolution
 
@@ -42,15 +44,22 @@ def sequence(atoms: UniverseLike) -> str:
     return "".join(residue_names.get(residue.resname, "X") for residue in getattr(atoms, "residues", []))
 
 
-def has_bonds(residue: Residue, cutoff: float = 2.0):
+def has_bonds(residue: Residue, distance_cutoff: float = 2.0):
     """Returns True if the residue has any bonds."""
+    return bool(np.any(get_bonds(residue, distance_cutoff)))
+
+
+def get_bonds(residue: Residue, cutoff: float = 2.0):
+    """Returns the bonds between the atoms of a residue."""
     cutoff_squared = cutoff**2
     distances_squared = (
         np.linalg.norm(residue.atoms.positions[:, None] - residue.atoms.positions, axis=-1) ** 2
     )
-    np.fill_diagonal(distances_squared, np.inf)  # Ignore self-pairs
-    bonded = distances_squared < cutoff_squared
-    return bool(np.any(bonded))
+
+    # ignore self-pairs and permutations
+    distances_squared[np.tril_indices(distances_squared.shape[0])] = np.inf
+
+    return np.argwhere(distances_squared < cutoff_squared)
 
 
 def has_bonds_between(residue1: Residue, residue2: Residue, cutoff: float = 5.0):
@@ -116,7 +125,7 @@ def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int
     return segments
 
 
-def guess_resolution(universe: UniverseLike) -> MolecularResolution:
+def guess_resolution(universe: UniverseLike, cutoff_distance: float = 2.0) -> MolecularResolution:
     """Guesses the resolution (i.e. all-atom or coarse grain) of the universe.
 
     The resolution is considered coarse-grained if a residue has at least two atoms within a distance of 2.0 Å.
@@ -125,10 +134,36 @@ def guess_resolution(universe: UniverseLike) -> MolecularResolution:
     If any of them have bonds, the resolution is considered all-atom.
     If none of the first five residues have bonds, the resolution is considered coarse-grained.
     """
+
+    def debug(msg):
+        where = f"{__name__}.guess_resolution"
+        logger.debug(f"{where}: {msg}")
+
+    def print_bonds(residue):
+        """Print bonds between atoms inside a residue. Used for debug purposes."""
+
+        def distance(atom1, atom2):
+            return (np.linalg.norm(atom1.position - atom2.position) ** 2.0) ** 0.5
+
+        bonds = get_bonds(residue, cutoff_distance)
+        for bond in bonds:
+            left, right = residue.atoms[bond]
+            bond_str = f"residue {left.resname}:{left.resid}, atoms {left.name}-{right.name}"
+            debug(f"guess_resolution: Found bond: {bond_str} (distance={distance(left, right):.2f})")
+        pair_str = f"pair{'s' if len(bonds) > 1 else ''}"
+        debug(f"guess_resolution: detected {len(bonds)} {pair_str} with distance < {cutoff_distance=:.2f}")
+
     # Select the first five residues with at least two atoms.
     assert (residues := getattr(universe, "residues", [])) and len(residues) > 0
     residues = [residue for residue in residues if len(residue.atoms) >= 2][:5]
     for residue in residues:
-        if has_bonds(residue, cutoff=2.0):
+        if has_bonds(residue, cutoff_distance):
+            if is_logging_debug():
+                print_bonds(residue)
+            logger.debug("Detected resolution ALL_ATOM")
             return MolecularResolution.ALL_ATOM
+    debug(
+        f"No intra-atomic distance within {cutoff_distance:.2f} Å found in the first {len(residues)} residues"
+    )
+    debug("Detected resolution COARSE_GRAINED")
     return MolecularResolution.COARSE_GRAINED

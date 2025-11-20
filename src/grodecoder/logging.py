@@ -12,7 +12,11 @@ def setup_logging(logfile: Path, debug: bool = False):
     fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> <level>{level}: {message}</level>"
     level = "DEBUG" if debug else "INFO"
     logger.remove()
+
+    # Screen logger.
     logger.add(sys.stderr, level=level, format=fmt, colorize=True)
+
+    # File logger
     logger.add(logfile, level=level, format=fmt, colorize=False, mode="w")
 
     # Sets up loguru to capture warnings (typically MDAnalysis warnings)
