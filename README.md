@@ -35,6 +35,9 @@ uv sync
 # Analyze a structure file
 uv run grodecoder path/to/structure.gro
 
+# Analyze a pair topology file + coordinates
+uv run grodecoder path/to/topology.psf /path/to/coordinates.coor
+
 # Output to stdout with compact format
 uv run grodecoder structure.pdb --compact --stdout
 
@@ -100,6 +103,40 @@ GROdecoder produces detailed JSON inventories with the following structure:
 ```
 
 ## 🔧 Advanced Features
+
+### Read back a Grodecoder inventory file
+
+Reading a Grodecoder inventory file is essential to be able to access the different parts of a system
+without having to identify them again:
+
+```python
+from grodecoder import read_grodecoder_output
+
+gro_results = read_grodecoder_output("1BRS_grodecoder.json")
+
+# Print the sequence of protein segment only.
+for segment in gro_results.decoded.inventory.segments:
+    if segment.is_protein():
+        print(segment.sequence)
+```
+
+In conjunction with the structure file, we can use the grodecoder output file to access the different
+parts of the system, as identified by grodecoder:
+
+```python
+import MDAnalysis
+from grodecoder import read_grodecoder_output
+
+
+universe = MDAnalysis.Universe("tests/data/1BRS.pdb")
+gro_results = read_grodecoder_output("1BRS_grodecoder.json")
+
+# Prints the center of mass of each protein segment.
+for segment in gro_results.decoded.inventory.segments:
+    if segment.is_protein():
+        seg: MDAnalysis.AtomGroup = universe.atoms[segment.atoms]
+        print(seg.center_of_mass())
+```
 
 ### Chain Detection
 GROdecoder uses sophisticated distance-based algorithms to detect protein and nucleic acid chains:
