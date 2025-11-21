@@ -156,6 +156,7 @@ def _log_identified_molecules(molecules: list[SmallMolecule], label: str) -> Non
 
 def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     """Identifies the molecules in the universe."""
+    logger.debug("Residu identification: start")
 
     # Ensure the universe is an AtomGroup.
     universe = universe.select_atoms("all")
@@ -211,8 +212,12 @@ def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
             )
             unknown_molecules.append(molecule)
 
-    return Inventory(
+    logger.debug("Creating inventory")
+    inventory = Inventory(
         segments=protein + nucleic,
         small_molecules=ions + solvents + lipids + others + unknown_molecules,
         total_number_of_atoms=total_number_of_atoms,
     )
+
+    logger.debug("Residu identification: end")
+    return inventory

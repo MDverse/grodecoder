@@ -17,9 +17,11 @@ def _now() -> str:
 
 def decode(universe: UniverseLike, bond_threshold: float = 5.0) -> Decoded:
     """Decodes the universe into an inventory of segments."""
+    resolution = guess_resolution(universe, cutoff_distance=1.60)
+    logger.info(f"Guessed resolution: {resolution}")
     return Decoded(
         inventory=identify(universe, bond_threshold=bond_threshold),
-        resolution=guess_resolution(universe),
+        resolution=resolution,
     )
 
 

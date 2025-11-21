@@ -1,6 +1,7 @@
 """Defines utility functions for working with molecular structures."""
 
 import collections
+from itertools import islice
 from typing import Iterable
 
 import numpy as np
@@ -153,17 +154,22 @@ def guess_resolution(universe: UniverseLike, cutoff_distance: float = 2.0) -> Mo
         pair_str = f"pair{'s' if len(bonds) > 1 else ''}"
         debug(f"guess_resolution: detected {len(bonds)} {pair_str} with distance < {cutoff_distance=:.2f}")
 
-    # Select the first five residues with at least two atoms.
+    debug("start")
+
+    # Makes ty happy.
     assert (residues := getattr(universe, "residues", [])) and len(residues) > 0
-    residues = [residue for residue in residues if len(residue.atoms) >= 2][:5]
+
+    # Selects the first five residues with at least two atoms.
+    residues = list(islice((residue for residue in residues if len(residue.atoms) > 1), 5))
+
     for residue in residues:
         if has_bonds(residue, cutoff_distance):
             if is_logging_debug():
                 print_bonds(residue)
-            logger.debug("Detected resolution ALL_ATOM")
+            debug("end: detected resolution: ALL_ATOM")
             return MolecularResolution.ALL_ATOM
     debug(
         f"No intra-atomic distance within {cutoff_distance:.2f} Å found in the first {len(residues)} residues"
     )
-    debug("Detected resolution COARSE_GRAINED")
+    debug("end: detected resolution: COARSE_GRAINED")
     return MolecularResolution.COARSE_GRAINED
