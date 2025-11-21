@@ -29,5 +29,6 @@ def is_logging_debug() -> bool:
 
 def get_logging_level() -> list[str]:
     """Returns the list of logging level names (one value per handler)."""
-    level_dict = {level.no: level.name for level in logger._core.levels.values()}
-    return [level_dict[h.levelno] for h in logger._core.handlers.values()]
+    core_logger = logger._core  # ty: ignore unresolved-attribute
+    level_dict = {level.no: level.name for level in core_logger.levels.values()}
+    return [level_dict[h.levelno] for h in core_logger.handlers.values()]
