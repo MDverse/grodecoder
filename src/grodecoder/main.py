@@ -10,7 +10,7 @@ from .core import decode_structure
 from .databases import get_database_version
 from .models import GrodecoderRunOutput
 from .version import get_version
-from .settings import Settings
+from .settings import get_settings
 
 if TYPE_CHECKING:
     from .cli.args import Arguments as CliArgs
@@ -28,14 +28,14 @@ def main(args: "CliArgs"):
     structure_path = args.structure_file.path
     coordinates_path = args.coordinates_file.path if args.coordinates_file else None
 
-    settings = Settings()
+    # Storing cli arguments into settings.
+    s = get_settings()
+    s.chain_detection.distance_cutoff = args.bond_threshold
 
     logger.info(f"Processing structure file: {structure_path}")
 
     # Decoding.
-    decoded = decode_structure(
-        structure_path, coordinates_path=coordinates_path, settings = settings
-    )
+    decoded = decode_structure(structure_path, coordinates_path=coordinates_path)
 
     output = GrodecoderRunOutput(
         decoded=decoded,

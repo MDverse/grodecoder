@@ -160,7 +160,7 @@ def guess_resolution(universe: UniverseLike, cutoff_distance: float = 2.0) -> Mo
     assert (residues := getattr(universe, "residues", [])) and len(residues) > 0
 
     # Selects the first five residues with at least two atoms.
-    residues = list(islice((residue for residue in residues if len(residue.atoms) > 1), 5))
+    residues = list(islice((residue for residue in residues if len(residue.atoms) > 1), 10))
 
     for residue in residues:
         if has_bonds(residue, cutoff_distance):
