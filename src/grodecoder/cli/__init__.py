@@ -3,6 +3,7 @@ import click
 from ..main import main as grodecoder_main
 from .args import Arguments as CliArgs
 from .args import CoordinatesFile, StructureFile
+from ..settings import get_settings
 from ..logging import setup_logging
 
 
@@ -33,8 +34,10 @@ def cli(**kwargs):
         print_to_stdout=kwargs["stdout"],
     )
 
+    get_settings().debug = kwargs["verbose"]
+
     logfile = args.get_log_filename()
-    setup_logging(logfile, kwargs["verbose"])
+    setup_logging(logfile)
     grodecoder_main(args)
 
 

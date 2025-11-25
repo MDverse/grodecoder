@@ -17,7 +17,10 @@ def _now() -> str:
 
 def decode(universe: UniverseLike) -> Decoded:
     """Decodes the universe into an inventory of segments."""
-    resolution = guess_resolution(universe, cutoff_distance=1.60)
+
+    settings = get_settings()
+
+    resolution = guess_resolution(universe, cutoff_distance=settings.resolution_detection.distance_cutoff)
     logger.info(f"Guessed resolution: {resolution}")
 
     # Guesses the chain dection distance cutoff if not provided by the user.

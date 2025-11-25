@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from functools import lru_cache
-from typing import ClassVar
+from typing import ClassVar, TYPE_CHECKING
 
 from loguru import logger
 from pydantic import ConfigDict, Field, GetJsonSchemaHandler
@@ -9,12 +9,8 @@ from pydantic_core import core_schema
 from pydantic_settings import BaseSettings
 from typing_extensions import Annotated
 
-from .models import MolecularResolution
-
-
-class ResolutionDetectionSettings(BaseSettings):
-    default_distance_cutoff: ClassVar[float] = 2.0
-    distance_cutoff: float | None = None
+if TYPE_CHECKING:
+    from .models import MolecularResolution
 
 
 @dataclass(init=False)
@@ -50,8 +46,8 @@ class DistanceCutoff:
             self._guessed_distance_cutoff = None
         self._user_distance_cutoff = value
 
-    def guess(self, resolution: MolecularResolution):
-        if resolution == MolecularResolution.ALL_ATOM:
+    def guess(self, resolution: "MolecularResolution"):
+        if resolution == "ALL_ATOM":
             distance_cutoff = self.default_distance_cutoff_all_atom
             logger.debug(
                 f"chain detection: using default distance cutoff for all atom structures: {distance_cutoff:.2f}"
@@ -153,6 +149,10 @@ PydanticDistanceCutoff = Annotated[DistanceCutoff, _DistanceCutoffPydanticAnnota
 class ChainDetectionSettings(BaseSettings):
     model_config = ConfigDict(validate_assignment=True)
     distance_cutoff: PydanticDistanceCutoff = Field(default_factory=DistanceCutoff)
+
+
+class ResolutionDetectionSettings(BaseSettings):
+    distance_cutoff: float = 1.6
 
 
 class Settings(BaseSettings):

@@ -126,10 +126,11 @@ def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int
     return segments
 
 
-def guess_resolution(universe: UniverseLike, cutoff_distance: float = 2.0) -> MolecularResolution:
+def guess_resolution(universe: UniverseLike, cutoff_distance: float) -> MolecularResolution:
     """Guesses the resolution (i.e. all-atom or coarse grain) of the universe.
 
-    The resolution is considered coarse-grained if a residue has at least two atoms within a distance of 2.0 Å.
+    The resolution is considered coarse-grained if a residue has at least two atoms within a distance of 
+    `cutoff_distance` Å.
 
     Finds the first five residues with at least two atoms and checks if they have bonds.
     If any of them have bonds, the resolution is considered all-atom.
@@ -154,7 +155,7 @@ def guess_resolution(universe: UniverseLike, cutoff_distance: float = 2.0) -> Mo
         pair_str = f"pair{'s' if len(bonds) > 1 else ''}"
         debug(f"guess_resolution: detected {len(bonds)} {pair_str} with distance < {cutoff_distance=:.2f}")
 
-    debug("start")
+    debug(f"start ; {cutoff_distance=:.2f}")
 
     # Makes ty happy.
     assert (residues := getattr(universe, "residues", [])) and len(residues) > 0

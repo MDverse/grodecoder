@@ -42,6 +42,7 @@ def main(args: "CliArgs"):
         structure_file_checksum=_get_checksum(structure_path),
         database_version=get_database_version(),
         grodecoder_version=get_version(),
+        input_settings = s,
     )
 
     # Serialization.

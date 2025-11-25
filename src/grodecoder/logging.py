@@ -6,9 +6,13 @@ from pathlib import Path
 
 from loguru import logger
 
+from .settings import get_settings
 
-def setup_logging(logfile: Path, debug: bool = False):
+
+def setup_logging(logfile: Path):
     """Sets up logging configuration."""
+    debug = get_settings().debug
+
     fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> <level>{level}: {message}</level>"
     level = "DEBUG" if debug else "INFO"
     logger.remove()
