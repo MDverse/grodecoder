@@ -26,7 +26,7 @@ class DistanceCutoff:
 
     def is_defined(self) -> bool:
         """Returns True if the distance cutoff has been set or guessed."""
-        return self._user_distance_cutoff or self._guessed_distance_cutoff
+        return any((self._user_distance_cutoff, self._guessed_distance_cutoff))
 
     def is_set(self) -> bool:
         """Returns True if the distance cutoff has been set."""
@@ -39,7 +39,7 @@ class DistanceCutoff:
     def get(self) -> float:
         if not self.is_defined():
             raise ValueError("`distance_cutoff` must be set or guessed before it is used.")
-        return self._user_distance_cutoff or self._guessed_distance_cutoff
+        return self._user_distance_cutoff or self._guessed_distance_cutoff  # ty: ignore[invalid-return-type]
 
     def set(self, value: float):
         if self.is_guessed():

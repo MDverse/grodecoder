@@ -17,6 +17,7 @@ from pydantic import (
 )
 
 from . import toputils
+from .settings import Settings
 
 
 class MolecularResolution(StrEnum):
@@ -174,9 +175,6 @@ class Decoded(FrozenModel):
 
     inventory: Inventory
     resolution: MolecularResolution
-
-
-from .settings import Settings
 
 
 class GrodecoderRunOutput(BaseModel):
