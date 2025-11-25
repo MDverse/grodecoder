@@ -20,6 +20,7 @@ def decode(universe: UniverseLike) -> Decoded:
     resolution = guess_resolution(universe, cutoff_distance=1.60)
     logger.info(f"Guessed resolution: {resolution}")
 
+    # Guesses the chain dection distance cutoff if not provided by the user.
     chain_detection_settings = get_settings().chain_detection
 
     if chain_detection_settings.distance_cutoff.is_set():
