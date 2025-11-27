@@ -29,8 +29,9 @@ def main(args: "CliArgs"):
     coordinates_path = args.coordinates_file.path if args.coordinates_file else None
 
     # Storing cli arguments into settings.
-    s = get_settings()
-    s.chain_detection.distance_cutoff = args.bond_threshold
+    settings = get_settings()
+    settings.chain_detection.distance_cutoff = args.bond_threshold
+    settings.output.atom_ids = not args.no_atom_ids
 
     logger.info(f"Processing structure file: {structure_path}")
 
@@ -42,11 +43,12 @@ def main(args: "CliArgs"):
         structure_file_checksum=_get_checksum(structure_path),
         database_version=get_database_version(),
         grodecoder_version=get_version(),
-        input_settings = s,
+        input_settings=settings,
     )
 
     # Serialization.
-    serialization_mode = "compact" if args.no_atom_ids else "full"
+    logger.debug("Creating json output")
+    serialization_mode = "full" if settings.output.atom_ids else "compact"
 
     # Updates run time as late as possible.
     output_json = output.model_dump(context={"serialization_mode": serialization_mode})

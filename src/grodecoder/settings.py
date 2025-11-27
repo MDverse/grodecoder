@@ -155,9 +155,15 @@ class ResolutionDetectionSettings(BaseSettings):
     distance_cutoff: float = 1.6
 
 
+class OutputSettings(BaseSettings):
+    # should we output atom ids?
+    atom_ids: bool = True
+
+
 class Settings(BaseSettings):
     resolution_detection: ResolutionDetectionSettings = ResolutionDetectionSettings()
     chain_detection: ChainDetectionSettings = ChainDetectionSettings()
+    output: OutputSettings = OutputSettings()
 
     debug: bool = False
 
