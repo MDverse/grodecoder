@@ -85,8 +85,7 @@ def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int
     Example
     -------
 
-    >>> from grodecoder import read_structure
-    >>> universe = read_structure("3EAM.pdb")
+    >>> universe = MDAnalysis.Universe("path/to/structure_file.pdb")
     >>> protein = universe.select_atoms("protein")
     >>> chains = detect_chains(protein)
     >>> for start, end in chains:
