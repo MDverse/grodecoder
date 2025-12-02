@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 @dataclass(init=False)
 class DistanceCutoff:
     default_distance_cutoff_all_atom: ClassVar[float] = 5.0
-    default_distance_cutoff_coarse_grain: ClassVar[float] = 7.0
+    default_distance_cutoff_coarse_grain: ClassVar[float] = 6.0
     _user_distance_cutoff: float | None = None
     _guessed_distance_cutoff: float | None = None
 
