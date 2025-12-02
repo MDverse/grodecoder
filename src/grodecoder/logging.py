@@ -6,13 +6,22 @@ from pathlib import Path
 
 from loguru import logger
 
+from .settings import get_settings
 
-def setup_logging(logfile: Path, debug: bool = False):
+
+def setup_logging(logfile: Path):
     """Sets up logging configuration."""
+    debug = get_settings().debug
+
     fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> <level>{level}: {message}</level>"
     level = "DEBUG" if debug else "INFO"
+
     logger.remove()
+
+    # Screen logger.
     logger.add(sys.stderr, level=level, format=fmt, colorize=True)
+
+    # File logger
     logger.add(logfile, level=level, format=fmt, colorize=False, mode="w")
 
     # Sets up loguru to capture warnings (typically MDAnalysis warnings)
@@ -24,6 +33,7 @@ def setup_logging(logfile: Path, debug: bool = False):
 
 def is_logging_debug() -> bool:
     """Returns True if at least one logging handler is set to level DEBUG."""
+    print("COUCOU", get_logging_level())
     return "DEBUG" in get_logging_level()
 
 

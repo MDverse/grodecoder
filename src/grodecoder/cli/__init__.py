@@ -3,6 +3,7 @@ import click
 from ..main import main as grodecoder_main
 from .args import Arguments as CliArgs
 from .args import CoordinatesFile, StructureFile
+from ..settings import get_settings
 from ..logging import setup_logging
 
 
@@ -11,7 +12,6 @@ from ..logging import setup_logging
 @click.argument("coordinates_file", type=CoordinatesFile, required=False)
 @click.option(
     "--bond-threshold",
-    default=5.0,
     type=float,
     help="Threshold for interchain bond detection (default: 5 Å)",
 )
@@ -29,12 +29,15 @@ def cli(**kwargs):
     args = CliArgs(
         structure_file=kwargs["structure_file"],
         coordinates_file=kwargs["coordinates_file"],
+        bond_threshold=kwargs["bond_threshold"],
         no_atom_ids=kwargs["no_atom_ids"],
         print_to_stdout=kwargs["stdout"],
     )
 
+    get_settings().debug = kwargs["verbose"]
+
     logfile = args.get_log_filename()
-    setup_logging(logfile, kwargs["verbose"])
+    setup_logging(logfile)
     grodecoder_main(args)
 
 

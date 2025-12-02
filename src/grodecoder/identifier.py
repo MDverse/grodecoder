@@ -28,6 +28,9 @@ def identify_small_molecule(
         residue = SmallMolecule(
             atoms=selection, description=definition.description, molecular_type=molecular_type
         )
+        logger.debug(
+            f"identified small molecule {residue.description}: {len(selection.residues)} residues, {len(selection.atoms)} atoms"
+        )
         counts.append(residue)
     return counts
 
@@ -66,18 +69,25 @@ def _select_protein(universe: UniverseLike) -> AtomGroup:
     selection_str = f"resname {' '.join(protein_residue_names)}"
 
     # Exclude methanol residues from the selection.
+    logger.debug("excluding possible methanol residues (MET) from protein")
     methanol = _find_methanol(universe)
     if methanol:
         selection_str += f" and not index {' '.join(map(str, methanol))}"
 
-    return universe.select_atoms(selection_str)
+    logger.debug("selecting protein")
+    protein = universe.select_atoms(selection_str)
+    logger.debug("selecting protein - done")
+    return protein
 
 
 def _select_nucleic(universe: UniverseLike) -> AtomGroup:
     """Selects the nucleic acid atoms from the universe."""
     nucleic_acid_residue_names = DB.get_nucleotide_names()
     selection_str = f"resname {' '.join(nucleic_acid_residue_names)}"
-    return universe.select_atoms(selection_str)
+    logger.debug("selecting nucleic")
+    nucleic = universe.select_atoms(selection_str)
+    logger.debug("selecting nucleic - done")
+    return nucleic
 
 
 def _iter_chains(atoms: AtomGroup, bond_threshold: float = 5.0) -> Iterator[AtomGroup]:
@@ -87,8 +97,14 @@ def _iter_chains(atoms: AtomGroup, bond_threshold: float = 5.0) -> Iterator[Atom
     """
     if len(atoms) == 0:
         return
-    segments = toputils.detect_chains(atoms, cutoff=bond_threshold)
+    logger.debug(f"detecting segments using cutoff distance {bond_threshold:.2f}")
+    segments = toputils.detect_chains(atoms, cutoff_distance=bond_threshold)
+
+    n_seg_str = f"{len(segments)} segment" + "s" if len(segments) > 1 else ""
+    logger.debug(f"detecting segments - done: found {n_seg_str}")
+
     for start, end in segments:
+        logger.debug(f"yielding segment containing residues {start} to {end}")
         yield atoms.residues[start : end + 1].atoms
 
 
@@ -156,6 +172,7 @@ def _log_identified_molecules(molecules: list[SmallMolecule], label: str) -> Non
 
 def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
     """Identifies the molecules in the universe."""
+    logger.debug("Residu identification: start")
 
     # Ensure the universe is an AtomGroup.
     universe = universe.select_atoms("all")
@@ -211,8 +228,12 @@ def _identify(universe: UniverseLike, bond_threshold: float = 5.0) -> Inventory:
             )
             unknown_molecules.append(molecule)
 
-    return Inventory(
+    logger.debug("Creating inventory")
+    inventory = Inventory(
         segments=protein + nucleic,
         small_molecules=ions + solvents + lipids + others + unknown_molecules,
         total_number_of_atoms=total_number_of_atoms,
     )
+
+    logger.debug("Residu identification: end")
+    return inventory

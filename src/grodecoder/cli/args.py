@@ -59,14 +59,14 @@ class Arguments:
     Attrs:
         structure_file (Path): Path to the structure file.
         coordinates_file (Path): Path to the coordinates file.
-        bond_threshold (float): Threshold for interchain bond detection.
+        bond_threshold (float | None): Threshold for interchain bond detection.
         no_atom_ids (bool): If True, use compact serialization (no atom indices).
         print_to_stdout (bool): Whether to output results to stdout.
     """
 
     structure_file: StructureFile
     coordinates_file: CoordinatesFile | None = None
-    bond_threshold: float = 5.0
+    bond_threshold: float | None = None
     no_atom_ids: bool = True
     print_to_stdout: bool = False
 

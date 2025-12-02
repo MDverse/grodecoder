@@ -120,14 +120,14 @@ class TestHasBonds:
         mock_residue = Mock()
         mock_residue.atoms.positions = np.array([[0.0, 0.0, 0.0], [1.5, 0.0, 0.0]])
 
-        result = has_bonds(mock_residue, cutoff=2.0)
+        result = has_bonds(mock_residue, cutoff_distance=2.0)
         assert result is True
 
     def test_has_bonds_false(self):
         mock_residue = Mock()
         mock_residue.atoms.positions = np.array([[0.0, 0.0, 0.0], [5.0, 0.0, 0.0]])
 
-        result = has_bonds(mock_residue, cutoff=2.0)
+        result = has_bonds(mock_residue, cutoff_distance=2.0)
         assert result is False
 
     def test_has_bonds_single_atom(self):
@@ -135,7 +135,7 @@ class TestHasBonds:
         mock_residue = Mock()
         mock_residue.atoms.positions = np.array([[0.0, 0.0, 0.0]])
 
-        result = has_bonds(mock_residue, cutoff=2.0)
+        result = has_bonds(mock_residue, cutoff_distance=2.0)
         assert result is False
 
     def test_has_bonds_custom_cutoff(self):
@@ -144,11 +144,11 @@ class TestHasBonds:
         mock_residue.atoms.positions = np.array([[0.0, 0.0, 0.0], [3.0, 0.0, 0.0]])
 
         # Should be False with default cutoff
-        result1 = has_bonds(mock_residue, cutoff=2.0)
+        result1 = has_bonds(mock_residue, cutoff_distance=2.0)
         assert result1 is False
 
         # Should be True with larger cutoff
-        result2 = has_bonds(mock_residue, cutoff=4.0)
+        result2 = has_bonds(mock_residue, cutoff_distance=4.0)
         assert result2 is True
 
 
@@ -162,7 +162,7 @@ class TestHasBondsBetween:
         mock_residue2 = Mock()
         mock_residue2.atoms.positions = np.array([[2.0, 0.0, 0.0], [3.0, 0.0, 0.0]])
 
-        result = has_bonds_between(mock_residue1, mock_residue2, cutoff=5.0)
+        result = has_bonds_between(mock_residue1, mock_residue2, cutoff_distance=5.0)
         assert result is True
 
     def test_has_bonds_between_false(self):
@@ -172,7 +172,7 @@ class TestHasBondsBetween:
         mock_residue2 = Mock()
         mock_residue2.atoms.positions = np.array([[10.0, 0.0, 0.0]])
 
-        result = has_bonds_between(mock_residue1, mock_residue2, cutoff=5.0)
+        result = has_bonds_between(mock_residue1, mock_residue2, cutoff_distance=5.0)
         assert result is False
 
     def test_has_bonds_between_custom_cutoff(self):
@@ -184,11 +184,11 @@ class TestHasBondsBetween:
         mock_residue2.atoms.positions = np.array([[4.0, 0.0, 0.0]])
 
         # Should be False with small cutoff
-        result1 = has_bonds_between(mock_residue1, mock_residue2, cutoff=3.0)
+        result1 = has_bonds_between(mock_residue1, mock_residue2, cutoff_distance=3.0)
         assert result1 is False
 
         # Should be True with larger cutoff
-        result2 = has_bonds_between(mock_residue1, mock_residue2, cutoff=6.0)
+        result2 = has_bonds_between(mock_residue1, mock_residue2, cutoff_distance=6.0)
         assert result2 is True
 
 
@@ -205,7 +205,7 @@ class TestDetectChains:
         mock_universe = Mock()
         mock_universe.residues = [mock_residue1, mock_residue2, mock_residue3]
 
-        result = detect_chains(mock_universe, cutoff=5.0)
+        result = detect_chains(mock_universe, cutoff_distance=5.0)
         assert result == [(0, 2)]
 
     def test_detect_chains_multiple_chains(self, monkeypatch):
@@ -224,7 +224,7 @@ class TestDetectChains:
         mock_universe = Mock()
         mock_universe.residues = [mock_residue1, mock_residue2, mock_residue3]
 
-        result = detect_chains(mock_universe, cutoff=5.0)
+        result = detect_chains(mock_universe, cutoff_distance=5.0)
         # result: first chain is residue 0 and 1, second chain is residue 2 (starts at 2, ends at 2)
         assert result == [(0, 1), (2, 2)]
 
@@ -246,7 +246,7 @@ class TestGuessResolution:
         mock_universe = Mock()
         mock_universe.residues = [mock_residue]
 
-        result = guess_resolution(mock_universe)
+        result = guess_resolution(mock_universe, cutoff_distance=12)
         assert result == MolecularResolution.ALL_ATOM
 
     def test_guess_resolution_coarse_grained(self, monkeypatch):
@@ -261,7 +261,7 @@ class TestGuessResolution:
         mock_universe = Mock()
         mock_universe.residues = [mock_residue] * 5  # Ensure we have enough residues
 
-        result = guess_resolution(mock_universe)
+        result = guess_resolution(mock_universe, cutoff_distance=12)
         assert result == MolecularResolution.COARSE_GRAINED
 
     def test_guess_resolution_mixed_first_has_bonds(self, monkeypatch):
@@ -275,5 +275,5 @@ class TestGuessResolution:
         mock_universe = Mock()
         mock_universe.residues = [mock_residue] * 5
 
-        result = guess_resolution(mock_universe)
+        result = guess_resolution(mock_universe, cutoff_distance=12)
         assert result == MolecularResolution.ALL_ATOM

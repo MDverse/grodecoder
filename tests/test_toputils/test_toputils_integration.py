@@ -14,6 +14,7 @@ from grodecoder.toputils import (
     guess_resolution,
     MolecularResolution,
 )
+from grodecoder.settings import get_settings
 
 TEST_DATA_DIR = Path(__file__).parent.parent / "data"
 GRO_SMALL = TEST_DATA_DIR / "barstar_water_ions.gro"
@@ -49,7 +50,9 @@ class TestTopUtilsSmallUniverse:
         result = sequence(protein_atoms)
 
         # Uniprot p11540 (first residue is missing in the structure)
-        expected = "MKKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDCLTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGCDITIILS"[1:]
+        expected = (
+            "MKKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDCLTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGCDITIILS"[1:]
+        )
 
         assert isinstance(result, str)
         assert len(result) == len(protein_atoms.residues)
@@ -58,7 +61,7 @@ class TestTopUtilsSmallUniverse:
     def test_has_bonds(self, small_universe):
         """Test has_bonds function with real residue data."""
         first_residue = small_universe.residues[0]
-        result = has_bonds(first_residue, cutoff=2.0)
+        result = has_bonds(first_residue, cutoff_distance=2.0)
         assert result is True
 
     def test_has_bonds_between_residues(self, small_universe):
@@ -66,12 +69,12 @@ class TestTopUtilsSmallUniverse:
         residue1 = small_universe.residues[0]
         residue2 = small_universe.residues[1]
 
-        result = has_bonds_between(residue1, residue2, cutoff=2.0)
+        result = has_bonds_between(residue1, residue2, cutoff_distance=2.0)
         assert result is True
 
     def test_detect_chains(self, protein_atoms):
         """Test detect_chains function with real protein data."""
-        result = detect_chains(protein_atoms, cutoff=5.0)
+        result = detect_chains(protein_atoms, cutoff_distance=5.0)
 
         # Should return a list of tuples of (start, end) indices.
         assert isinstance(result, list)
@@ -82,17 +85,18 @@ class TestTopUtilsSmallUniverse:
         assert len(result) == 1
         assert result[0] == (0, len(protein_atoms.residues) - 1)
 
-
     def test_guess_resolution(self, small_universe):
         """Test guess_resolution function with real data."""
-        result = guess_resolution(small_universe)
+        result = guess_resolution(
+            small_universe, cutoff_distance=get_settings().resolution_detection.distance_cutoff
+        )
         assert result == MolecularResolution.ALL_ATOM
 
 
 def test_guess_resolution_cg():
     """Test guess_resolution with coarse-grained data."""
     universe = mda.Universe(GRO_CG)
-    result = guess_resolution(universe)
+    result = guess_resolution(universe, cutoff_distance=get_settings().resolution_detection.distance_cutoff)
     assert result == MolecularResolution.COARSE_GRAINED
 
 
@@ -100,7 +104,7 @@ def test_detect_chains_big():
     """Test detect_chains with a larger universe."""
     universe = mda.Universe(GRO_BIG)
     protein_atoms = universe.select_atoms("protein")
-    
+
     result = detect_chains(protein_atoms)
 
     # GRO_BIG (1BRS) is the complex barstar-barnase, 3 times, i.e. total of 6 chains.
