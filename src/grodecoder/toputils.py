@@ -45,9 +45,9 @@ def sequence(atoms: UniverseLike) -> str:
     return "".join(residue_names.get(residue.resname, "X") for residue in getattr(atoms, "residues", []))
 
 
-def has_bonds(residue: Residue, distance_cutoff: float = 2.0):
+def has_bonds(residue: Residue, cutoff_distance: float = 2.0):
     """Returns True if the residue has any bonds."""
-    return bool(np.any(get_bonds(residue, distance_cutoff)))
+    return bool(np.any(get_bonds(residue, cutoff_distance)))
 
 
 def get_bonds(residue: Residue, cutoff: float = 2.0):
@@ -63,9 +63,9 @@ def get_bonds(residue: Residue, cutoff: float = 2.0):
     return np.argwhere(distances_squared < cutoff_squared)
 
 
-def has_bonds_between(residue1: Residue, residue2: Residue, cutoff: float = 5.0):
+def has_bonds_between(residue1: Residue, residue2: Residue, cutoff_distance: float = 5.0):
     """Returns True if the two residues are bonded."""
-    cutoff_squared = cutoff**2
+    cutoff_squared = cutoff_distance**2
     distances_squared = (
         np.linalg.norm(residue1.atoms.positions[:, None] - residue2.atoms.positions, axis=-1) ** 2
     )
@@ -73,7 +73,7 @@ def has_bonds_between(residue1: Residue, residue2: Residue, cutoff: float = 5.0)
     return bool(np.any(bonded))
 
 
-def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int, int]]:
+def detect_chains(universe: UniverseLike, cutoff_distance: float = 5.0) -> list[tuple[int, int]]:
     """Detects chains in a set of atoms.
 
     Iterates over the residues as detected by MDAnalysis and calculates the bonds
@@ -85,7 +85,7 @@ def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int
     universe : AtomGroup
         The universe to analyze. Typically a protein or a set of residues.
 
-    cutoff : float, optional
+    cutoff_distance : float, optional
         The cutoff distance to determine if two residues are bonded. Default is 5.0.
 
     Returns
@@ -109,7 +109,7 @@ def detect_chains(universe: UniverseLike, cutoff: float = 5.0) -> list[tuple[int
 
     def end_of_chain():
         """The end of a chain is defined as the point where two consecutive residues are not bonded."""
-        return not has_bonds_between(current_residue, next_residue, cutoff)
+        return not has_bonds_between(current_residue, next_residue, cutoff_distance)
 
     segments = []
 
@@ -166,7 +166,10 @@ def guess_resolution(universe: UniverseLike, cutoff_distance: float) -> Molecula
     for residue in residues:
         if has_bonds(residue, cutoff_distance):
             if is_logging_debug():
-                print_bonds(residue)
+                try:
+                    print_bonds(residue)  # will not work during unit test as we use mocks
+                except Exception:
+                    pass
             debug("end: detected resolution: ALL_ATOM")
             return MolecularResolution.ALL_ATOM
     debug(

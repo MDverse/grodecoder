@@ -15,6 +15,7 @@ def setup_logging(logfile: Path):
 
     fmt = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> <level>{level}: {message}</level>"
     level = "DEBUG" if debug else "INFO"
+
     logger.remove()
 
     # Screen logger.
@@ -32,6 +33,7 @@ def setup_logging(logfile: Path):
 
 def is_logging_debug() -> bool:
     """Returns True if at least one logging handler is set to level DEBUG."""
+    print("COUCOU", get_logging_level())
     return "DEBUG" in get_logging_level()
 
 

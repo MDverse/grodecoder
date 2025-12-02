@@ -97,8 +97,8 @@ def _iter_chains(atoms: AtomGroup, bond_threshold: float = 5.0) -> Iterator[Atom
     """
     if len(atoms) == 0:
         return
-    logger.debug(f"detecting segments using distance cutoff {bond_threshold:.2f}")
-    segments = toputils.detect_chains(atoms, cutoff=bond_threshold)
+    logger.debug(f"detecting segments using cutoff distance {bond_threshold:.2f}")
+    segments = toputils.detect_chains(atoms, cutoff_distance=bond_threshold)
 
     n_seg_str = f"{len(segments)} segment" + "s" if len(segments) > 1 else ""
     logger.debug(f"detecting segments - done: found {n_seg_str}")
