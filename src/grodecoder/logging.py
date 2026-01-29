@@ -33,7 +33,6 @@ def setup_logging(logfile: Path):
 
 def is_logging_debug() -> bool:
     """Returns True if at least one logging handler is set to level DEBUG."""
-    print("COUCOU", get_logging_level())
     return "DEBUG" in get_logging_level()
 
 
