@@ -10,6 +10,7 @@ from .core import decode_structure
 from .databases import get_database_version
 from .models import GrodecoderRunOutput
 from .version import get_version
+from .settings import get_settings
 
 if TYPE_CHECKING:
     from .cli.args import Arguments as CliArgs
@@ -27,22 +28,27 @@ def main(args: "CliArgs"):
     structure_path = args.structure_file.path
     coordinates_path = args.coordinates_file.path if args.coordinates_file else None
 
+    # Storing cli arguments into settings.
+    settings = get_settings()
+    settings.chain_detection.distance_cutoff = args.bond_threshold
+    settings.output.atom_ids = not args.no_atom_ids
+
     logger.info(f"Processing structure file: {structure_path}")
 
     # Decoding.
-    decoded = decode_structure(
-        structure_path, coordinates_path=coordinates_path, bond_threshold=args.bond_threshold
-    )
+    decoded = decode_structure(structure_path, coordinates_path=coordinates_path)
 
     output = GrodecoderRunOutput(
         decoded=decoded,
         structure_file_checksum=_get_checksum(structure_path),
         database_version=get_database_version(),
         grodecoder_version=get_version(),
+        input_settings=settings,
     )
 
     # Serialization.
-    serialization_mode = "compact" if args.no_atom_ids else "full"
+    logger.debug("Creating json output")
+    serialization_mode = "full" if settings.output.atom_ids else "compact"
 
     # Updates run time as late as possible.
     output_json = output.model_dump(context={"serialization_mode": serialization_mode})

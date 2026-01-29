@@ -1,5 +1,4 @@
 from __future__ import annotations
-from pydantic import model_validator
 
 from enum import StrEnum
 from typing import Protocol
@@ -14,9 +13,11 @@ from pydantic import (
     computed_field,
     field_serializer,
     model_serializer,
+    model_validator,
 )
 
 from . import toputils
+from .settings import Settings
 
 
 class MolecularResolution(StrEnum):
@@ -194,6 +195,7 @@ class GrodecoderRunOutput(BaseModel):
     structure_file_checksum: str
     database_version: str
     grodecoder_version: str
+    input_settings: Settings
 
 
 # =========================================================================================================
