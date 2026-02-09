@@ -1,5 +1,5 @@
 import time
-from typing import Iterable, Iterator
+from typing import Iterable, Iterator, Sequence
 
 from loguru import logger
 from MDAnalysis import AtomGroup
@@ -136,7 +136,7 @@ def _unique_definitions(definitions: Iterable[DB.ResidueDefinition]) -> dict[str
     return unique_items
 
 
-def _remove_identified_atoms(universe: AtomGroup, molecules: list[HasAtoms]) -> AtomGroup:
+def _remove_identified_atoms(universe: AtomGroup, molecules: Sequence[HasAtoms]) -> AtomGroup:
     """Removes the atoms of the identified molecules from the universe."""
     for molecule in molecules:
         universe -= molecule.atoms
