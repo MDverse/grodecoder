@@ -30,7 +30,6 @@ dev = [
     "biopython>=1.85",
     "playwright>=1.51.0",
     "requests>=2.32.3",
-    "streamlit>=1.44.0",
     "watchdog>=6.0.0",
     "ty==0.0.1a26",
 ]
