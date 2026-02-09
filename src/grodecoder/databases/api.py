@@ -49,7 +49,7 @@ CSML_DB_PATH = DATABASES_DATA_PATH / "charmm_csml_database.json"
 assert_database_exists(CSML_DB_PATH)
 
 
-ModelType = TypeVar("ModelType", Ion, Solvent, Nucleotide, AminoAcid)
+ModelType = TypeVar("ModelType", Ion, Solvent, Nucleotide, AminoAcid, mad.Residue, csml.Residue)
 
 
 def _read_database(path: Path, model: type[ModelType]) -> list[ModelType]:

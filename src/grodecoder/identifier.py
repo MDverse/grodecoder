@@ -72,7 +72,8 @@ def _select_protein(universe: UniverseLike) -> AtomGroup:
     logger.debug("excluding possible methanol residues (MET) from protein")
     methanol = _find_methanol(universe)
     if methanol:
-        selection_str += f" and not index {' '.join(map(str, methanol))}"
+        indexes = " ".join(str(i) for i in methanol)  # ty complains when using map
+        selection_str += f" and not index {indexes}"
 
     logger.debug("selecting protein")
     protein = universe.select_atoms(selection_str)
