@@ -80,8 +80,8 @@
           80255,
           80256
         ],
-        "description": "chloride ion",
         "molecular_type": "ion",
+        "description": "chloride ion",
         "number_of_atoms": 76,
         "number_of_residues": 76,
         "name": "CL"
@@ -199,8 +199,8 @@
           80179,
           80180
         ],
-        "description": "potassium ion",
         "molecular_type": "ion",
+        "description": "potassium ion",
         "number_of_atoms": 110,
         "number_of_residues": 110,
         "name": "K"
@@ -79111,8 +79111,8 @@
           80069,
           80070
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 78903,
         "number_of_residues": 26301,
         "name": "SOL"
@@ -80290,13 +80290,16 @@
           1166,
           1167
         ],
-        "sequence": "GCGGGGGGGGGGGGGGGCGCCCCCCCCCCCCCCCGC",
         "molecular_type": "nucleic_acid",
         "number_of_atoms": 1168,
-        "number_of_residues": 36
+        "number_of_residues": 36,
+        "sequence": "GCGGGGGGGGGGGGGGGCGCCCCCCCCCCCCCCCGC"
       }
     ],
     "total_number_of_atoms": 80257
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "has_hydrogens"
+  }
 }

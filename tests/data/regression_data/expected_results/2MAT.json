@@ -604,8 +604,8 @@
           7189,
           7190
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 600,
         "number_of_residues": 200,
         "name": "SOL"
@@ -2213,8 +2213,8 @@
           3589,
           3590
         ],
-        "description": "urea solvant",
         "molecular_type": "solvent",
+        "description": "urea solvant",
         "number_of_atoms": 1600,
         "number_of_residues": 200,
         "name": "URE"
@@ -3422,8 +3422,8 @@
           4789,
           4790
         ],
-        "description": "organic solvant methanol/OPLS",
         "molecular_type": "solvent",
+        "description": "organic solvant methanol/OPLS",
         "number_of_atoms": 1200,
         "number_of_residues": 200,
         "name": "MET"
@@ -5231,8 +5231,8 @@
           6589,
           6590
         ],
-        "description": "organic solvant ethanol/OPLS",
         "molecular_type": "solvent",
+        "description": "organic solvant ethanol/OPLS",
         "number_of_atoms": 1800,
         "number_of_residues": 200,
         "name": "ETH"
@@ -7233,13 +7233,16 @@
           1989,
           1990
         ],
-        "sequence": "AISIKTPEDIEKMRVAGRLAAEVLEMIEPYVKPGVSTGELDRICNDYIVNEQHAVSACLGYHGYPKSVCISINEVVCHGIPDDAKLLKDGDIVNIDVTVIKDGFHGDTSKMFIVGKPTIMGERLCRITQESLYLALRMVKPGINLREIGAAIQKFVEAEGFSVVREYCGHGIGQGFHEEPQVLHYDSRETNVVLKPGMTFTIEPMVNAGKKEIRTMKDGWTVKTKDRSLSAQYEHTIVVTDNGCEILTLRKDDTIPAIISHD",
         "molecular_type": "protein",
         "number_of_atoms": 1991,
-        "number_of_residues": 262
+        "number_of_residues": 262,
+        "sequence": "AISIKTPEDIEKMRVAGRLAAEVLEMIEPYVKPGVSTGELDRICNDYIVNEQHAVSACLGYHGYPKSVCISINEVVCHGIPDDAKLLKDGDIVNIDVTVIKDGFHGDTSKMFIVGKPTIMGERLCRITQESLYLALRMVKPGINLREIGAAIQKFVEAEGFSVVREYCGHGIGQGFHEEPQVLHYDSRETNVVLKPGMTFTIEPMVNAGKKEIRTMKDGWTVKTKDRSLSAQYEHTIVVTDNGCEILTLRKDDTIPAIISHD"
       }
     ],
     "total_number_of_atoms": 7191
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "residues_have_bonds_within_cutoff"
+  }
 }

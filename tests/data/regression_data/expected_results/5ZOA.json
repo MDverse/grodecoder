@@ -53,8 +53,8 @@
           40826,
           40827
         ],
-        "description": "calcium ion",
         "molecular_type": "ion",
+        "description": "calcium ion",
         "number_of_atoms": 49,
         "number_of_residues": 49,
         "name": "CAL"
@@ -258,8 +258,8 @@
           41022,
           41023
         ],
-        "description": "chloride ion",
         "molecular_type": "ion",
+        "description": "chloride ion",
         "number_of_atoms": 196,
         "number_of_residues": 196,
         "name": "CLA"
@@ -623,8 +623,8 @@
           40728,
           40729
         ],
-        "description": "potassium ion",
         "molecular_type": "ion",
+        "description": "potassium ion",
         "number_of_atoms": 356,
         "number_of_residues": 356,
         "name": "POT"
@@ -681,8 +681,8 @@
           40777,
           40778
         ],
-        "description": "sodium ion",
         "molecular_type": "ion",
+        "description": "sodium ion",
         "number_of_atoms": 49,
         "number_of_residues": 49,
         "name": "SOD"
@@ -54507,8 +54507,8 @@
           94839,
           94840
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 53817,
         "number_of_residues": 17939,
         "name": "TIP3"
@@ -59169,8 +59169,8 @@
           21292,
           21293
         ],
-        "description": "2,3 DILAUROYL-D-GLYCERO-1-PHOSPHATIDYLGLYCEROL",
         "molecular_type": "lipid",
+        "description": "2,3 DILAUROYL-D-GLYCERO-1-PHOSPHATIDYLGLYCEROL",
         "number_of_atoms": 4653,
         "number_of_residues": 47,
         "name": "DLPG"
@@ -63434,8 +63434,8 @@
           16639,
           16640
         ],
-        "description": "2,3 DIPALMITOYL-D-GLYCERO-1-PHOSPHATIDYLCHOLINE",
         "molecular_type": "lipid",
+        "description": "2,3 DIPALMITOYL-D-GLYCERO-1-PHOSPHATIDYLCHOLINE",
         "number_of_atoms": 4256,
         "number_of_residues": 32,
         "name": "DPPI"
@@ -67507,8 +67507,8 @@
           25356,
           25357
         ],
-        "description": "PG-1819Z/160",
         "molecular_type": "lipid",
+        "description": "PG-1819Z/160",
         "number_of_atoms": 4064,
         "number_of_residues": 32,
         "name": "OPPG"
@@ -75196,8 +75196,8 @@
           33036,
           33037
         ],
-        "description": "TETRALINOLEOYL CARDIOLIPIN WITH HEAD GROUP CHARGE = -2",
         "molecular_type": "lipid",
+        "description": "TETRALINOLEOYL CARDIOLIPIN WITH HEAD GROUP CHARGE = -2",
         "number_of_atoms": 7680,
         "number_of_residues": 32,
         "name": "TLCL2"
@@ -78683,8 +78683,8 @@
           7408,
           7409
         ],
-        "description": "CHOLESTEROL NAME TO AVOID CONFLICT WITH CHOLINE",
         "molecular_type": "lipid",
+        "description": "CHOLESTEROL NAME TO AVOID CONFLICT WITH CHOLINE",
         "number_of_atoms": 3478,
         "number_of_residues": 47,
         "name": "CHL1"
@@ -81548,8 +81548,8 @@
           40372,
           40373
         ],
-        "description": "CHOLESTERYL HEMISUCCINATE DEPROTONATED Y01",
         "molecular_type": "lipid",
+        "description": "CHOLESTERYL HEMISUCCINATE DEPROTONATED Y01",
         "number_of_atoms": 2856,
         "number_of_residues": 34,
         "name": "CHSD"
@@ -84117,8 +84117,8 @@
           11213,
           11214
         ],
-        "description": "BETA-SITOSTEROL",
         "molecular_type": "lipid",
+        "description": "BETA-SITOSTEROL",
         "number_of_atoms": 2560,
         "number_of_residues": 32,
         "name": "SITO"
@@ -85296,8 +85296,8 @@
           12383,
           12384
         ],
-        "description": "STIGMASTEROL",
         "molecular_type": "lipid",
+        "description": "STIGMASTEROL",
         "number_of_atoms": 1170,
         "number_of_residues": 15,
         "name": "STIG"
@@ -86550,8 +86550,8 @@
           8653,
           8654
         ],
-        "description": "Unknown small molecule",
         "molecular_type": "unknown",
+        "description": "Unknown small molecule",
         "number_of_atoms": 1245,
         "number_of_residues": 15,
         "name": "DPOP"
@@ -91039,8 +91039,8 @@
           37516,
           37517
         ],
-        "description": "Unknown small molecule",
         "molecular_type": "unknown",
+        "description": "Unknown small molecule",
         "number_of_atoms": 4480,
         "number_of_residues": 32,
         "name": "POPI1"
@@ -94982,13 +94982,16 @@
           3930,
           3931
         ],
-        "sequence": "ANPYERGPNPTDALLEASSGPFSVSEENVSRLSASGFGGGTIYYPRENNTYGAVAISPGYTGTEASIAWLGERIASHGFVVITIDTITTLDQPDSRAEQLNAALNHMINRASSTVRSRIDSSRLAVMGHSMGGGGTLRLASQRPDLKAAIPLTPWHLNKNWSSVTVPTLIIGADLDTIAPVATHAKPFYNSLPSSISKAYLELDGATHFAPNIPNKIIGKYSVAWLKRFVDNDTRYTQFLCPGPRDGLFGEVEEYRSTCPF",
         "molecular_type": "protein",
         "number_of_atoms": 3932,
-        "number_of_residues": 261
+        "number_of_residues": 261,
+        "sequence": "ANPYERGPNPTDALLEASSGPFSVSEENVSRLSASGFGGGTIYYPRENNTYGAVAISPGYTGTEASIAWLGERIASHGFVVITIDTITTLDQPDSRAEQLNAALNHMINRASSTVRSRIDSSRLAVMGHSMGGGGTLRLASQRPDLKAAIPLTPWHLNKNWSSVTVPTLIIGADLDTIAPVATHAKPFYNSLPSSISKAYLELDGATHFAPNIPNKIIGKYSVAWLKRFVDNDTRYTQFLCPGPRDGLFGEVEEYRSTCPF"
       }
     ],
     "total_number_of_atoms": 94841
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "has_hydrogens"
+  }
 }

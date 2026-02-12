@@ -145,8 +145,8 @@
           10540,
           10541
         ],
-        "description": "calcium ion",
         "molecular_type": "ion",
+        "description": "calcium ion",
         "number_of_atoms": 141,
         "number_of_residues": 141,
         "name": "CAL"
@@ -1000,8 +1000,8 @@
           11527,
           11528
         ],
-        "description": "chloride ion",
         "molecular_type": "ion",
+        "description": "chloride ion",
         "number_of_atoms": 846,
         "number_of_residues": 846,
         "name": "CLA"
@@ -1150,8 +1150,8 @@
           10681,
           10682
         ],
-        "description": "magnesium ion",
         "molecular_type": "ion",
+        "description": "magnesium ion",
         "number_of_atoms": 141,
         "number_of_residues": 141,
         "name": "MG"
@@ -1723,8 +1723,8 @@
           10104,
           10105
         ],
-        "description": "hydroxide ion",
         "molecular_type": "ion",
+        "description": "hydroxide ion",
         "number_of_atoms": 564,
         "number_of_residues": 282,
         "name": "OH"
@@ -1886,8 +1886,8 @@
           10258,
           10259
         ],
-        "description": "potassium ion",
         "molecular_type": "ion",
+        "description": "potassium ion",
         "number_of_atoms": 154,
         "number_of_residues": 154,
         "name": "POT"
@@ -2036,8 +2036,8 @@
           10399,
           10400
         ],
-        "description": "sodium ion",
         "molecular_type": "ion",
+        "description": "sodium ion",
         "number_of_atoms": 141,
         "number_of_residues": 141,
         "name": "SOD"
@@ -2186,8 +2186,8 @@
           9540,
           9541
         ],
-        "description": "zinc ion",
         "molecular_type": "ion",
+        "description": "zinc ion",
         "number_of_atoms": 141,
         "number_of_residues": 141,
         "name": "ZN2"
@@ -137576,8 +137576,8 @@
           146908,
           146909
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 135381,
         "number_of_residues": 45127,
         "name": "TIP3"
@@ -139287,10 +139287,10 @@
           1698,
           1699
         ],
-        "sequence": "VINTFDGVADYLQTYHKLPDNYITKSEAQALGWVASKGNLADVAPGKSIGGDIFSNREGKLPGKSGRTWREADINYTSGFRNSDRILYSSDWLIYKTTDHYQTFTKIR",
         "molecular_type": "protein",
         "number_of_atoms": 1700,
-        "number_of_residues": 108
+        "number_of_residues": 108,
+        "sequence": "VINTFDGVADYLQTYHKLPDNYITKSEAQALGWVASKGNLADVAPGKSIGGDIFSNREGKLPGKSGRTWREADINYTSGFRNSDRILYSSDWLIYKTTDHYQTFTKIR"
       },
       {
         "atoms": [
@@ -141022,10 +141022,10 @@
           3425,
           3426
         ],
-        "sequence": "AQVINTFDGVADYLQTYHKLPDNYITKSEAQALGWVASKGNLADVAPGKSIGGDIFSNREGKLPGKSGRTWREADINYTSGFRNSDRILYSSDWLIYKTTDHYQTFTKIR",
         "molecular_type": "protein",
         "number_of_atoms": 1727,
-        "number_of_residues": 110
+        "number_of_residues": 110,
+        "sequence": "AQVINTFDGVADYLQTYHKLPDNYITKSEAQALGWVASKGNLADVAPGKSIGGDIFSNREGKLPGKSGRTWREADINYTSGFRNSDRILYSSDWLIYKTTDHYQTFTKIR"
       },
       {
         "atoms": [
@@ -142730,10 +142730,10 @@
           5125,
           5126
         ],
-        "sequence": "VINTFDGVADYLQTYHKLPDNYITKSEAQALGWVASKGNLADVAPGKSIGGDIFSNREGKLPGKSGRTWREADINYTSGFRNSDRILYSSDWLIYKTTDHYQTFTKIR",
         "molecular_type": "protein",
         "number_of_atoms": 1700,
-        "number_of_residues": 108
+        "number_of_residues": 108,
+        "sequence": "VINTFDGVADYLQTYHKLPDNYITKSEAQALGWVASKGNLADVAPGKSIGGDIFSNREGKLPGKSGRTWREADINYTSGFRNSDRILYSSDWLIYKTTDHYQTFTKIR"
       },
       {
         "atoms": [
@@ -144170,10 +144170,10 @@
           6557,
           6558
         ],
-        "sequence": "KKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDALTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGADITIILS",
         "molecular_type": "protein",
         "number_of_atoms": 1432,
-        "number_of_residues": 89
+        "number_of_residues": 89,
+        "sequence": "KKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDALTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGADITIILS"
       },
       {
         "atoms": [
@@ -145588,10 +145588,10 @@
           7967,
           7968
         ],
-        "sequence": "KAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDALTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGADITIILS",
         "molecular_type": "protein",
         "number_of_atoms": 1410,
-        "number_of_residues": 88
+        "number_of_residues": 88,
+        "sequence": "KAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDALTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGADITIILS"
       },
       {
         "atoms": [
@@ -147028,13 +147028,16 @@
           9399,
           9400
         ],
-        "sequence": "KKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDALTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGADITIILS",
         "molecular_type": "protein",
         "number_of_atoms": 1432,
-        "number_of_residues": 89
+        "number_of_residues": 89,
+        "sequence": "KKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDALTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGADITIILS"
       }
     ],
     "total_number_of_atoms": 146910
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "has_hydrogens"
+  }
 }

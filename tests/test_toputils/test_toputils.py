@@ -10,8 +10,6 @@ from grodecoder.toputils import (
     has_bonds,
     has_bonds_between,
     detect_chains,
-    guess_resolution,
-    MolecularResolution,
 )
 
 
@@ -227,53 +225,3 @@ class TestDetectChains:
         result = detect_chains(mock_universe, cutoff_distance=5.0)
         # result: first chain is residue 0 and 1, second chain is residue 2 (starts at 2, ends at 2)
         assert result == [(0, 1), (2, 2)]
-
-
-class TestGuessResolution:
-    """Test cases for the guess_resolution function."""
-
-    def test_guess_resolution_all_atom(self, monkeypatch):
-        """Test guess_resolution returns ALL_ATOM when bonds are found."""
-
-        def mock_has_bonds(residue, cutoff):
-            return True
-
-        monkeypatch.setattr("grodecoder.toputils.has_bonds", mock_has_bonds)
-
-        mock_residue = Mock()
-        mock_residue.atoms = [Mock(), Mock()]
-
-        mock_universe = Mock()
-        mock_universe.residues = [mock_residue]
-
-        result = guess_resolution(mock_universe, cutoff_distance=12)
-        assert result == MolecularResolution.ALL_ATOM
-
-    def test_guess_resolution_coarse_grained(self, monkeypatch):
-        def mock_has_bonds(residue, cutoff):
-            return False  # simulates no bonds found in any residue
-
-        monkeypatch.setattr("grodecoder.toputils.has_bonds", mock_has_bonds)
-
-        mock_residue = Mock()
-        mock_residue.atoms = [Mock(), Mock()]
-
-        mock_universe = Mock()
-        mock_universe.residues = [mock_residue] * 5  # Ensure we have enough residues
-
-        result = guess_resolution(mock_universe, cutoff_distance=12)
-        assert result == MolecularResolution.COARSE_GRAINED
-
-    def test_guess_resolution_mixed_first_has_bonds(self, monkeypatch):
-        """Test guess_resolution when at least one residue has bonds."""
-        mock_has_bonds = Mock(side_effect=[False, False, True, False, False])
-        monkeypatch.setattr("grodecoder.toputils.has_bonds", mock_has_bonds)
-
-        mock_residue = Mock()
-        mock_residue.atoms = [Mock(), Mock()]
-
-        mock_universe = Mock()
-        mock_universe.residues = [mock_residue] * 5
-
-        result = guess_resolution(mock_universe, cutoff_distance=12)
-        assert result == MolecularResolution.ALL_ATOM
