@@ -44,7 +44,7 @@ def create_mock_coarse_grain(n_residues: int = 10, n_atoms_per_residue: int = 3)
 class TestGuessResolutionAllAtom:
     """Test cases for the guess_resolution function.
 
-    All test cases in this ensures that all-atom resolution is detected.
+    All test cases in this class ensure that all-atom resolution is detected.
     """
 
     def test_defaulting_to_aa_when_only_one_particle_in_the_system(self):
