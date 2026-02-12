@@ -26,7 +26,7 @@ class DistanceCutoff:
 
     def is_defined(self) -> bool:
         """Returns True if the distance cutoff has been set or guessed."""
-        return any((self._user_cutoff_distance, self._guessed_cutoff_distance))
+        return self._user_cutoff_distance is not None or self._guessed_cutoff_distance is not None
 
     def is_set(self) -> bool:
         """Returns True if the distance cutoff has been set."""

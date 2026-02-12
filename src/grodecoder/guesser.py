@@ -44,13 +44,13 @@ class MolecularResolution(BaseModel):
     def check_reason(self) -> Self:
         """Validate that reason is compatible with value."""
         if self.value == ResolutionValue.ALL_ATOM:
-            if not isinstance(self.reason, AllAtomResolutionReason):
+            if self.reason is not None and not isinstance(self.reason, AllAtomResolutionReason):
                 raise ValueError(
                     f"reason must be AllAtomResolutionReason when value is 'all-atom', "
                     f"got {type(self.reason).__name__}"
                 )
         elif self.value == ResolutionValue.COARSE_GRAIN:
-            if not isinstance(self.reason, CoarseGrainResolutionReason):
+            if self.reason is not None and not isinstance(self.reason, CoarseGrainResolutionReason):
                 raise ValueError(
                     f"reason must be CoarseGrainResolutionReason when value is 'coarse-grain', "
                     f"got {type(self.reason).__name__}"
@@ -83,10 +83,11 @@ class MolecularResolution(BaseModel):
 
     @classmethod
     def CoarseGrainOther(cls) -> Self:
-        """Other coarse grain systems, typically with bond length between particle greater that standard
+        """Other coarse grain systems, typically with bond length between particle greater than standard
         all-atom models."""
         return cls(
-            value=ResolutionValue.COARSE_GRAIN, reason=CoarseGrainResolutionReason.HAS_NO_BOND_WITHIN_ALL_ATOM_CUTOFF
+            value=ResolutionValue.COARSE_GRAIN,
+            reason=CoarseGrainResolutionReason.HAS_NO_BOND_WITHIN_ALL_ATOM_CUTOFF,
         )
 
     @classmethod
@@ -153,7 +154,7 @@ def guess_resolution(universe, all_atom_cutoff_distance: float = 1.6) -> Molecul
         return MolecularResolution.CoarseGrainMartini()
 
     if _has_protein(universe) and not _protein_has_hydrogen(universe):
-        logger.debug("Found protein with hydrogen: resolution is coarse grain")
+        logger.debug("Found protein without hydrogen: resolution is coarse grain")
         return MolecularResolution.CoarseGrainProteinHasNoHydrogen()
 
     # Last chance: if we find any bond within a given distance, it's all-atom.
