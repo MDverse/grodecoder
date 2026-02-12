@@ -107,9 +107,9 @@ def _is_martini(model: MDA.AtomGroup) -> bool:
     return bool(np.any(np.char.startswith(model.atoms.names.astype("U"), "BB")))
 
 
-def _has_bonds_within_all_atom_cutoff(model: MDA.AtomGroup, distance_cutoff: float) -> bool:
+def _has_bonds_within_all_atom_cutoff(model: MDA.AtomGroup, cutoff_distance: float) -> bool:
     for residue in model.residues:
-        if has_bonds(residue, distance_cutoff):
+        if has_bonds(residue, cutoff_distance):
             return True
     return False
 

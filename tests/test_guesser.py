@@ -85,7 +85,7 @@ class TestGuessResolutionAllAtom:
             coordinates[i] = np.array((5 * i, 0.0, 0.0))
         universe.atoms.positions = coordinates
 
-        result = guess_resolution(universe, all_atom_distance_cutoff=2)
+        result = guess_resolution(universe, all_atom_cutoff_distance=2)
         assert result.value == ResolutionValue.COARSE_GRAIN
         assert result.reason == CoarseGrainResolutionReason.HAS_NO_BOND_WITHIN_ALL_ATOM_CUTOFF
 
@@ -136,7 +136,7 @@ class TestGuessResolutionCoarseGrain:
             coordinates[i] = np.array((5 * i, 0.0, 0.0))
         universe.atoms.positions = coordinates
 
-        result = guess_resolution(universe, all_atom_distance_cutoff=2)
+        result = guess_resolution(universe, all_atom_cutoff_distance=2)
 
         assert result.value == ResolutionValue.COARSE_GRAIN
         assert result.reason == CoarseGrainResolutionReason.HAS_NO_BOND_WITHIN_ALL_ATOM_CUTOFF

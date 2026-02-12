@@ -30,7 +30,7 @@ def main(args: "CliArgs"):
 
     # Storing cli arguments into settings.
     settings = get_settings()
-    settings.chain_detection.distance_cutoff = args.bond_threshold
+    settings.chain_detection.cutoff_distance = args.bond_threshold
     settings.output.atom_ids = not args.no_atom_ids
 
     logger.info(f"Processing structure file: {structure_path}")

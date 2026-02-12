@@ -20,23 +20,23 @@ def decode(universe: UniverseLike) -> Decoded:
 
     settings = get_settings()
 
-    resolution = guess_resolution(universe, settings.resolution_detection.distance_cutoff)
+    resolution = guess_resolution(universe, settings.resolution_detection.cutoff_distance)
     logger.info(f"Guessed resolution: {resolution}")
 
     # Guesses the chain dection distance cutoff if not provided by the user.
     chain_detection_settings = get_settings().chain_detection
 
-    if chain_detection_settings.distance_cutoff.is_set():
-        value = chain_detection_settings.distance_cutoff.get()
+    if chain_detection_settings.cutoff_distance.is_set():
+        value = chain_detection_settings.cutoff_distance.get()
         logger.debug(f"chain detection: using user-defined value: {value:.2f}")
     else:
         logger.debug("chain detection: guessing distance cutoff based on resolution")
-        chain_detection_settings.distance_cutoff.guess(resolution)
+        chain_detection_settings.cutoff_distance.guess(resolution)
 
-    distance_cutoff = chain_detection_settings.distance_cutoff.get()
+    cutoff_distance = chain_detection_settings.cutoff_distance.get()
 
     return Decoded(
-        inventory=identify(universe, bond_threshold=distance_cutoff),
+        inventory=identify(universe, bond_threshold=cutoff_distance),
         resolution=resolution,
     )
 
