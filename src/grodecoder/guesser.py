@@ -44,13 +44,13 @@ class MolecularResolution(BaseModel):
     def check_reason(self) -> Self:
         """Validate that reason is compatible with value."""
         if self.value == ResolutionValue.ALL_ATOM:
-            if not isinstance(self.reason, AllAtomResolutionReason):
+            if self.reason is not None and not isinstance(self.reason, AllAtomResolutionReason):
                 raise ValueError(
                     f"reason must be AllAtomResolutionReason when value is 'all-atom', "
                     f"got {type(self.reason).__name__}"
                 )
         elif self.value == ResolutionValue.COARSE_GRAIN:
-            if not isinstance(self.reason, CoarseGrainResolutionReason):
+            if self.reason is not None and not isinstance(self.reason, CoarseGrainResolutionReason):
                 raise ValueError(
                     f"reason must be CoarseGrainResolutionReason when value is 'coarse-grain', "
                     f"got {type(self.reason).__name__}"
@@ -83,10 +83,11 @@ class MolecularResolution(BaseModel):
 
     @classmethod
     def CoarseGrainOther(cls) -> Self:
-        """Other coarse grain systems, typically with bond length between particle greater that standard
+        """Other coarse grain systems, typically with bond length between particle greater than standard
         all-atom models."""
         return cls(
-            value=ResolutionValue.COARSE_GRAIN, reason=CoarseGrainResolutionReason.HAS_NO_BOND_WITHIN_ALL_ATOM_CUTOFF
+            value=ResolutionValue.COARSE_GRAIN,
+            reason=CoarseGrainResolutionReason.HAS_NO_BOND_WITHIN_ALL_ATOM_CUTOFF,
         )
 
     @classmethod
@@ -107,8 +108,7 @@ def _is_martini(model: MDA.AtomGroup) -> bool:
     return bool(np.any(np.char.startswith(model.atoms.names.astype("U"), "BB")))
 
 
-def _has_bonds_within_all_atom_cutoff(model: MDA.AtomGroup) -> bool:
-    cutoff_distance = 1.6
+def _has_bonds_within_all_atom_cutoff(model: MDA.AtomGroup, cutoff_distance: float) -> bool:
     for residue in model.residues:
         if has_bonds(residue, cutoff_distance):
             return True
@@ -124,7 +124,7 @@ def _protein_has_hydrogen(model: MDA.AtomGroup) -> bool:
     return _has_hydrogen(model.select_atoms("protein"))
 
 
-def guess_resolution(universe) -> MolecularResolution:
+def guess_resolution(universe, all_atom_cutoff_distance: float = 1.6) -> MolecularResolution:
     """Guesses a system resolution (all-atom or coarse-grain)."""
     # Only one atom in the system: defaulting to all-atom.
     if len(universe.atoms) == 1:
@@ -154,12 +154,12 @@ def guess_resolution(universe) -> MolecularResolution:
         return MolecularResolution.CoarseGrainMartini()
 
     if _has_protein(universe) and not _protein_has_hydrogen(universe):
-        logger.debug("Found protein with hydrogen: resolution is coarse grain")
+        logger.debug("Found protein without hydrogen: resolution is coarse grain")
         return MolecularResolution.CoarseGrainProteinHasNoHydrogen()
 
     # Last chance: if we find any bond within a given distance, it's all-atom.
     # If we reach this point, it means that, for some reason, no hydrogen atom was detected before.
-    if _has_bonds_within_all_atom_cutoff(small_u):
+    if _has_bonds_within_all_atom_cutoff(small_u, all_atom_cutoff_distance):
         logger.debug("Found bonds within all-atom distance cutoff: resolution is all-atom")
         return MolecularResolution.AllAtomWithStandardBonds()
 
