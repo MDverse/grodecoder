@@ -6,7 +6,7 @@ from ._typing import PathLike, UniverseLike
 from .identifier import identify
 from .io import read_universe
 from .models import Decoded
-from .toputils import guess_resolution
+from .guesser import guess_resolution
 from .settings import get_settings
 
 
@@ -20,7 +20,7 @@ def decode(universe: UniverseLike) -> Decoded:
 
     settings = get_settings()
 
-    resolution = guess_resolution(universe, cutoff_distance=settings.resolution_detection.distance_cutoff)
+    resolution = guess_resolution(universe)
     logger.info(f"Guessed resolution: {resolution}")
 
     # Guesses the chain dection distance cutoff if not provided by the user.

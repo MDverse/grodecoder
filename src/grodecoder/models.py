@@ -20,11 +20,6 @@ from . import toputils
 from .settings import Settings
 
 
-class MolecularResolution(StrEnum):
-    COARSE_GRAINED = "coarse-grained"
-    ALL_ATOM = "all-atom"
-
-
 class MolecularType(StrEnum):
     PROTEIN = "protein"
     NUCLEIC = "nucleic_acid"
