@@ -145,8 +145,8 @@
           45359,
           45360
         ],
-        "description": "calcium ion",
         "molecular_type": "ion",
+        "description": "calcium ion",
         "number_of_atoms": 141,
         "number_of_residues": 141,
         "name": "CAL"
@@ -1000,8 +1000,8 @@
           46346,
           46347
         ],
-        "description": "chloride ion",
         "molecular_type": "ion",
+        "description": "chloride ion",
         "number_of_atoms": 846,
         "number_of_residues": 846,
         "name": "CLA"
@@ -1150,8 +1150,8 @@
           45500,
           45501
         ],
-        "description": "magnesium ion",
         "molecular_type": "ion",
+        "description": "magnesium ion",
         "number_of_atoms": 141,
         "number_of_residues": 141,
         "name": "MG"
@@ -1382,8 +1382,8 @@
           45077,
           45078
         ],
-        "description": "potassium ion",
         "molecular_type": "ion",
+        "description": "potassium ion",
         "number_of_atoms": 223,
         "number_of_residues": 223,
         "name": "POT"
@@ -1532,8 +1532,8 @@
           45218,
           45219
         ],
-        "description": "sodium ion",
         "molecular_type": "ion",
+        "description": "sodium ion",
         "number_of_atoms": 141,
         "number_of_residues": 141,
         "name": "SOD"
@@ -155849,8 +155849,8 @@
           200654,
           200655
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 154308,
         "number_of_residues": 51436,
         "name": "TIP3"
@@ -159292,8 +159292,8 @@
           6910,
           6911
         ],
-        "description": "SITOSTERYL GLUCOSIDE",
         "molecular_type": "lipid",
+        "description": "SITOSTERYL GLUCOSIDE",
         "number_of_atoms": 3434,
         "number_of_residues": 34,
         "name": "GSITO"
@@ -163755,8 +163755,8 @@
           40502,
           40503
         ],
-        "description": "181 BIS MONOOLEOYLGLYCEROL PHOSPHATE",
         "molecular_type": "lipid",
+        "description": "181 BIS MONOOLEOYLGLYCEROL PHOSPHATE",
         "number_of_atoms": 4454,
         "number_of_residues": 34,
         "name": "BMGP"
@@ -169034,8 +169034,8 @@
           19932,
           19933
         ],
-        "description": "",
         "molecular_type": "lipid",
+        "description": "",
         "number_of_atoms": 5270,
         "number_of_residues": 34,
         "name": "DEPS"
@@ -173769,8 +173769,8 @@
           33838,
           33839
         ],
-        "description": "PALMITOYL-ERUCIC-PHOSPHATIDYLSERINE PS160_221",
         "molecular_type": "lipid",
+        "description": "PALMITOYL-ERUCIC-PHOSPHATIDYLSERINE PS160_221",
         "number_of_atoms": 4726,
         "number_of_residues": 34,
         "name": "PEPS"
@@ -175988,8 +175988,8 @@
           36048,
           36049
         ],
-        "description": "MONOLEIN-1",
         "molecular_type": "lipid",
+        "description": "MONOLEIN-1",
         "number_of_atoms": 2210,
         "number_of_residues": 34,
         "name": "MLN1"
@@ -180451,8 +180451,8 @@
           29112,
           29113
         ],
-        "description": "2,3-DIOLEOYL-D-GLYCERO-1-PHOSPHATIDYLETHANOLAMINE",
         "molecular_type": "lipid",
+        "description": "2,3-DIOLEOYL-D-GLYCERO-1-PHOSPHATIDYLETHANOLAMINE",
         "number_of_atoms": 4454,
         "number_of_residues": 34,
         "name": "DOPEE"
@@ -185186,8 +185186,8 @@
           24658,
           24659
         ],
-        "description": "PLASMALOGEN PHOSPHATIDYLCHOLINE 18/204",
         "molecular_type": "lipid",
+        "description": "PLASMALOGEN PHOSPHATIDYLCHOLINE 18/204",
         "number_of_atoms": 4726,
         "number_of_residues": 34,
         "name": "PLC20"
@@ -187031,8 +187031,8 @@
           12384,
           12385
         ],
-        "description": "DECYL-ALPHA-D-GLUCOSIDE",
         "molecular_type": "lipid",
+        "description": "DECYL-ALPHA-D-GLUCOSIDE",
         "number_of_atoms": 1836,
         "number_of_residues": 34,
         "name": "ADG"
@@ -188468,8 +188468,8 @@
           8338,
           8339
         ],
-        "description": "N-DECYL-N,N-DIMETHYLAMINE-N-OXIDE PROTONATED",
         "molecular_type": "unknown",
+        "description": "N-DECYL-N,N-DIMETHYLAMINE-N-OXIDE PROTONATED",
         "number_of_atoms": 1428,
         "number_of_residues": 34,
         "name": "DDAOP"
@@ -190755,8 +190755,8 @@
           14662,
           14663
         ],
-        "description": "N-TRIDECYLPHOSPHOCHOLINE, TPC",
         "molecular_type": "unknown",
+        "description": "N-TRIDECYLPHOSPHOCHOLINE, TPC",
         "number_of_atoms": 2278,
         "number_of_residues": 34,
         "name": "FOS14"
@@ -195116,8 +195116,8 @@
           44854,
           44855
         ],
-        "description": "Unknown small molecule",
         "molecular_type": "unknown",
+        "description": "Unknown small molecule",
         "number_of_atoms": 4352,
         "number_of_residues": 34,
         "name": "PLESE"
@@ -197335,8 +197335,8 @@
           10548,
           10549
         ],
-        "description": "Unknown small molecule",
         "molecular_type": "unknown",
+        "description": "Unknown small molecule",
         "number_of_atoms": 2210,
         "number_of_residues": 34,
         "name": "SB3-1"
@@ -199127,10 +199127,10 @@
           1779,
           1780
         ],
-        "sequence": "LTTEIDNNIEQISSYKSEITELRRNVQALEIELQSQLALKQSLEASLAETEGRYCVQLSQIQAQISALEEQLQQIRAETECQNTEYQQLLDIKIRLENEIQTYRSLLEGE",
         "molecular_type": "protein",
         "number_of_atoms": 1781,
-        "number_of_residues": 110
+        "number_of_residues": 110,
+        "sequence": "LTTEIDNNIEQISSYKSEITELRRNVQALEIELQSQLALKQSLEASLAETEGRYCVQLSQIQAQISALEEQLQQIRAETECQNTEYQQLLDIKIRLENEIQTYRSLLEGE"
       },
       {
         "atoms": [
@@ -200832,13 +200832,16 @@
           3476,
           3477
         ],
-        "sequence": "RHGDSVRNSKIEISELNRVIQRLRSEIDNVKKQISNLQQSISDAEQRGENALKDAKNKLNDLEDALQQAKEDLARLLRDYQELMNTKLALDLEIATYRTLLEGE",
         "molecular_type": "protein",
         "number_of_atoms": 1697,
-        "number_of_residues": 104
+        "number_of_residues": 104,
+        "sequence": "RHGDSVRNSKIEISELNRVIQRLRSEIDNVKKQISNLQQSISDAEQRGENALKDAKNKLNDLEDALQQAKEDLARLLRDYQELMNTKLALDLEIATYRTLLEGE"
       }
     ],
     "total_number_of_atoms": 200656
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "has_hydrogens"
+  }
 }

@@ -604,8 +604,8 @@
           6956,
           6957
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 600,
         "number_of_residues": 200,
         "name": "SOL"
@@ -2213,8 +2213,8 @@
           2756,
           2757
         ],
-        "description": "urea solvant",
         "molecular_type": "solvent",
+        "description": "urea solvant",
         "number_of_atoms": 1600,
         "number_of_residues": 200,
         "name": "URE"
@@ -3422,8 +3422,8 @@
           3956,
           3957
         ],
-        "description": "organic solvant methanol/OPLS",
         "molecular_type": "solvent",
+        "description": "organic solvant methanol/OPLS",
         "number_of_atoms": 1200,
         "number_of_residues": 200,
         "name": "MET"
@@ -5231,8 +5231,8 @@
           6356,
           6357
         ],
-        "description": "organic solvant ethanol/OPLS",
         "molecular_type": "solvent",
+        "description": "organic solvant ethanol/OPLS",
         "number_of_atoms": 1800,
         "number_of_residues": 200,
         "name": "ETH"
@@ -5840,8 +5840,8 @@
           4556,
           4557
         ],
-        "description": "acetonitrile",
         "molecular_type": "solvent",
+        "description": "acetonitrile",
         "number_of_atoms": 600,
         "number_of_residues": 200,
         "name": "ACN"
@@ -7009,13 +7009,16 @@
           1156,
           1157
         ],
-        "sequence": "ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKNQYYGITAGPAYRINDWASIYGVVGVGYGKFQTTEYPTYKNDTSDYGFSYGAGLQFNPMENVALDFSYEQSRIRSVDVGTWIAGVGYRF",
         "molecular_type": "protein",
         "number_of_atoms": 1158,
-        "number_of_residues": 148
+        "number_of_residues": 148,
+        "sequence": "ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKNQYYGITAGPAYRINDWASIYGVVGVGYGKFQTTEYPTYKNDTSDYGFSYGAGLQFNPMENVALDFSYEQSRIRSVDVGTWIAGVGYRF"
       }
     ],
     "total_number_of_atoms": 6958
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "residues_have_bonds_within_cutoff"
+  }
 }

@@ -25,8 +25,8 @@
           14068,
           14069
         ],
-        "description": "chloride ion",
         "molecular_type": "ion",
+        "description": "chloride ion",
         "number_of_atoms": 21,
         "number_of_residues": 21,
         "name": "CLA"
@@ -57,8 +57,8 @@
           14047,
           14048
         ],
-        "description": "sodium ion",
         "molecular_type": "ion",
+        "description": "sodium ion",
         "number_of_atoms": 23,
         "number_of_residues": 23,
         "name": "SOD"
@@ -24306,8 +24306,8 @@
           38308,
           38309
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 24240,
         "number_of_residues": 8080,
         "name": "TIP3"
@@ -36115,8 +36115,8 @@
           14024,
           14025
         ],
-        "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLCHOLINE",
         "molecular_type": "lipid",
+        "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLCHOLINE",
         "number_of_atoms": 11800,
         "number_of_residues": 100,
         "name": "DMPC"
@@ -38352,13 +38352,16 @@
           2224,
           2225
         ],
-        "sequence": "ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKNQYYGITAGPAYRINDWASIYGVVGVGYGKFQTTEYPTYKNDTSDYGFSYGAGLQFNPMENVALDFSYEQSRIRSVDVGTWIAGVGYRF",
         "molecular_type": "protein",
         "number_of_atoms": 2226,
-        "number_of_residues": 148
+        "number_of_residues": 148,
+        "sequence": "ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKNQYYGITAGPAYRINDWASIYGVVGVGYGKFQTTEYPTYKNDTSDYGFSYGAGLQFNPMENVALDFSYEQSRIRSVDVGTWIAGVGYRF"
       }
     ],
     "total_number_of_atoms": 38310
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "has_hydrogens"
+  }
 }

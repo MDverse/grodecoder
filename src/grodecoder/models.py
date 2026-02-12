@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .guesser import MolecularResolution
 
 from enum import StrEnum
 from typing import Protocol

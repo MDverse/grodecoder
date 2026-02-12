@@ -214,8 +214,8 @@
           39038,
           39039
         ],
-        "description": "chloride ion",
         "molecular_type": "ion",
+        "description": "chloride ion",
         "number_of_atoms": 210,
         "number_of_residues": 210,
         "name": "CLA"
@@ -265,8 +265,8 @@
           38828,
           38829
         ],
-        "description": "magnesium ion",
         "molecular_type": "ion",
+        "description": "magnesium ion",
         "number_of_atoms": 42,
         "number_of_residues": 42,
         "name": "MG"
@@ -484,8 +484,8 @@
           38583,
           38584
         ],
-        "description": "ammonium",
         "molecular_type": "ion",
+        "description": "ammonium",
         "number_of_atoms": 210,
         "number_of_residues": 42,
         "name": "NH4"
@@ -654,8 +654,8 @@
           38744,
           38745
         ],
-        "description": "potassium ion",
         "molecular_type": "ion",
+        "description": "potassium ion",
         "number_of_atoms": 161,
         "number_of_residues": 161,
         "name": "POT"
@@ -705,8 +705,8 @@
           38786,
           38787
         ],
-        "description": "sodium ion",
         "molecular_type": "ion",
+        "description": "sodium ion",
         "number_of_atoms": 42,
         "number_of_residues": 42,
         "name": "SOD"
@@ -47538,8 +47538,8 @@
           85862,
           85863
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 46824,
         "number_of_residues": 15608,
         "name": "TIP3"
@@ -50211,8 +50211,8 @@
           7197,
           7198
         ],
-        "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLSERINE",
         "molecular_type": "lipid",
+        "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLSERINE",
         "number_of_atoms": 2664,
         "number_of_residues": 24,
         "name": "DMPS"
@@ -52884,8 +52884,8 @@
           30021,
           30022
         ],
-        "description": "CERAMIDE T162/181",
         "molecular_type": "lipid",
+        "description": "CERAMIDE T162/181",
         "number_of_atoms": 2664,
         "number_of_residues": 24,
         "name": "CER3E"
@@ -56565,8 +56565,8 @@
           33693,
           33694
         ],
-        "description": "SPHINGOMYELIN D180/240",
         "molecular_type": "lipid",
+        "description": "SPHINGOMYELIN D180/240",
         "number_of_atoms": 3672,
         "number_of_residues": 24,
         "name": "DSM"
@@ -60150,8 +60150,8 @@
           18765,
           18766
         ],
-        "description": "PHOSPHOGLYCERO-ARCHAEOL PHOSPHOGLYCERO-DI-O-PHYTANYLGLYCEROL",
         "molecular_type": "lipid",
+        "description": "PHOSPHOGLYCERO-ARCHAEOL PHOSPHOGLYCERO-DI-O-PHYTANYLGLYCEROL",
         "number_of_atoms": 3576,
         "number_of_residues": 24,
         "name": "PGAR"
@@ -61383,8 +61383,8 @@
           11181,
           11182
         ],
-        "description": "UBIQUINOL-2",
         "molecular_type": "lipid",
+        "description": "UBIQUINOL-2",
         "number_of_atoms": 1224,
         "number_of_residues": 24,
         "name": "UQOL2"
@@ -64176,8 +64176,8 @@
           21549,
           21550
         ],
-        "description": "UBIQUINOL-7",
         "molecular_type": "lipid",
+        "description": "UBIQUINOL-7",
         "number_of_atoms": 2784,
         "number_of_residues": 24,
         "name": "UQOL7"
@@ -66561,8 +66561,8 @@
           4533,
           4534
         ],
-        "description": "STIGMASTERYL GLUCOSIDE",
         "molecular_type": "lipid",
+        "description": "STIGMASTERYL GLUCOSIDE",
         "number_of_atoms": 2376,
         "number_of_residues": 24,
         "name": "GSTIG"
@@ -68826,8 +68826,8 @@
           38373,
           38374
         ],
-        "description": "Unknown small molecule",
         "molecular_type": "unknown",
+        "description": "Unknown small molecule",
         "number_of_atoms": 2256,
         "number_of_residues": 24,
         "name": "CPS04"
@@ -71595,8 +71595,8 @@
           9957,
           9958
         ],
-        "description": "Unknown small molecule",
         "molecular_type": "unknown",
+        "description": "Unknown small molecule",
         "number_of_atoms": 2760,
         "number_of_residues": 24,
         "name": "CPU12"
@@ -74028,8 +74028,8 @@
           36117,
           36118
         ],
-        "description": "Unknown small molecule",
         "molecular_type": "unknown",
+        "description": "Unknown small molecule",
         "number_of_atoms": 2424,
         "number_of_residues": 24,
         "name": "ESU08"
@@ -79845,8 +79845,8 @@
           27357,
           27358
         ],
-        "description": "Unknown small molecule",
         "molecular_type": "unknown",
+        "description": "Unknown small molecule",
         "number_of_atoms": 5808,
         "number_of_residues": 24,
         "name": "LOACL"
@@ -83862,8 +83862,8 @@
           15189,
           15190
         ],
-        "description": "Unknown small molecule",
         "molecular_type": "unknown",
+        "description": "Unknown small molecule",
         "number_of_atoms": 4008,
         "number_of_residues": 24,
         "name": "PHPGP"
@@ -86032,13 +86032,16 @@
           2157,
           2158
         ],
-        "sequence": "SLSAAEADLAGKSWAPVFANKNANGLDFLVALFEKFPDSANFFADFKGKSVADIKASPKLRDVSSRIFTRLNEFVNNAANAGKMSAMLSQFAKEHVGFGVGSAQFENVRSMFPGFVASVAAPPAGADAAWTKLFGLIIDALKAAGA",
         "molecular_type": "protein",
         "number_of_atoms": 2159,
-        "number_of_residues": 146
+        "number_of_residues": 146,
+        "sequence": "SLSAAEADLAGKSWAPVFANKNANGLDFLVALFEKFPDSANFFADFKGKSVADIKASPKLRDVSSRIFTRLNEFVNNAANAGKMSAMLSQFAKEHVGFGVGSAQFENVRSMFPGFVASVAAPPAGADAAWTKLFGLIIDALKAAGA"
       }
     ],
     "total_number_of_atoms": 85864
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "has_hydrogens"
+  }
 }
