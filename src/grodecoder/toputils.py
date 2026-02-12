@@ -1,16 +1,12 @@
 """Defines utility functions for working with molecular structures."""
 
 import collections
-from itertools import islice
 from typing import Iterable
 
 import numpy as np
-from loguru import logger
 
 from ._typing import Residue, UniverseLike
-from .logging import is_logging_debug
 from .databases import get_amino_acid_name_map, get_nucleotide_name_map
-from .models import MolecularResolution
 
 
 def _first_alpha(s: str) -> str:
@@ -124,56 +120,3 @@ def detect_chains(universe: UniverseLike, cutoff_distance: float = 5.0) -> list[
     segments.append((start_current_chain, len(residues) - 1))
 
     return segments
-
-
-def guess_resolution(universe: UniverseLike, cutoff_distance: float) -> MolecularResolution:
-    """Guesses the resolution (i.e. all-atom or coarse grain) of the universe.
-
-    The resolution is considered coarse-grained if a residue has at least two atoms within a distance of 
-    `cutoff_distance` Å.
-
-    Finds the first five residues with at least two atoms and checks if they have bonds.
-    If any of them have bonds, the resolution is considered all-atom.
-    If none of the first five residues have bonds, the resolution is considered coarse-grained.
-    """
-
-    def debug(msg):
-        where = f"{__name__}.guess_resolution"
-        logger.debug(f"{where}: {msg}")
-
-    def print_bonds(residue):
-        """Print bonds between atoms inside a residue. Used for debug purposes."""
-
-        def distance(atom1, atom2):
-            return (np.linalg.norm(atom1.position - atom2.position) ** 2.0) ** 0.5
-
-        bonds = get_bonds(residue, cutoff_distance)
-        for bond in bonds:
-            left, right = residue.atoms[bond]
-            bond_str = f"residue {left.resname}:{left.resid}, atoms {left.name}-{right.name}"
-            debug(f"guess_resolution: Found bond: {bond_str} (distance={distance(left, right):.2f})")
-        pair_str = f"pair{'s' if len(bonds) > 1 else ''}"
-        debug(f"guess_resolution: detected {len(bonds)} {pair_str} with distance < {cutoff_distance=:.2f}")
-
-    debug(f"start ; {cutoff_distance=:.2f}")
-
-    # Makes ty happy.
-    assert (residues := getattr(universe, "residues", [])) and len(residues) > 0
-
-    # Selects the first five residues with at least two atoms.
-    residues = list(islice((residue for residue in residues if len(residue.atoms) > 1), 10))
-
-    for residue in residues:
-        if has_bonds(residue, cutoff_distance):
-            if is_logging_debug():
-                try:
-                    print_bonds(residue)  # will not work during unit test as we use mocks
-                except Exception:
-                    pass
-            debug("end: detected resolution: ALL_ATOM")
-            return MolecularResolution.ALL_ATOM
-    debug(
-        f"No intra-atomic distance within {cutoff_distance:.2f} Å found in the first {len(residues)} residues"
-    )
-    debug("end: detected resolution: COARSE_GRAINED")
-    return MolecularResolution.COARSE_GRAINED

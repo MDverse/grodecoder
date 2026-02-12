@@ -10,8 +10,8 @@
           18697,
           18698
         ],
-        "description": "sodium ion",
         "molecular_type": "ion",
+        "description": "sodium ion",
         "number_of_atoms": 6,
         "number_of_residues": 6,
         "name": "NA+"
@@ -17278,8 +17278,8 @@
           18691,
           18692
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 17259,
         "number_of_residues": 5753,
         "name": "SOL"
@@ -18723,13 +18723,16 @@
           1432,
           1433
         ],
-        "sequence": "KKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDCLTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGCDITIILS",
         "molecular_type": "protein",
         "number_of_atoms": 1434,
-        "number_of_residues": 89
+        "number_of_residues": 89,
+        "sequence": "KKAVINGEQIRSISDLHQTLKKELALPEYYGENLDALWDCLTGWVEYPLVLEWRQFEQSKQLTENGAESVLQVFREAKAEGCDITIILS"
       }
     ],
     "total_number_of_atoms": 18699
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "has_hydrogens"
+  }
 }

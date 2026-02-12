@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .guesser import MolecularResolution
 
 from enum import StrEnum
 from typing import Protocol
@@ -18,11 +19,6 @@ from pydantic import (
 
 from . import toputils
 from .settings import Settings
-
-
-class MolecularResolution(StrEnum):
-    COARSE_GRAINED = "coarse-grained"
-    ALL_ATOM = "all-atom"
 
 
 class MolecularType(StrEnum):

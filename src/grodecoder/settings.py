@@ -15,10 +15,10 @@ if TYPE_CHECKING:
 
 @dataclass(init=False)
 class DistanceCutoff:
-    default_distance_cutoff_all_atom: ClassVar[float] = 5.0
-    default_distance_cutoff_coarse_grain: ClassVar[float] = 6.0
-    _user_distance_cutoff: float | None = None
-    _guessed_distance_cutoff: float | None = None
+    default_cutoff_distance_all_atom: ClassVar[float] = 5.0
+    default_cutoff_distance_coarse_grain: ClassVar[float] = 6.0
+    _user_cutoff_distance: float | None = None
+    _guessed_cutoff_distance: float | None = None
 
     def __init__(self, user_value: float | None = None):
         if user_value is not None:
@@ -26,38 +26,38 @@ class DistanceCutoff:
 
     def is_defined(self) -> bool:
         """Returns True if the distance cutoff has been set or guessed."""
-        return any((self._user_distance_cutoff, self._guessed_distance_cutoff))
+        return self._user_cutoff_distance is not None or self._guessed_cutoff_distance is not None
 
     def is_set(self) -> bool:
         """Returns True if the distance cutoff has been set."""
-        return self._user_distance_cutoff is not None
+        return self._user_cutoff_distance is not None
 
     def is_guessed(self) -> bool:
         """Returns True if the distance cutoff has been guessed."""
-        return self._guessed_distance_cutoff is not None
+        return self._guessed_cutoff_distance is not None
 
     def get(self) -> float:
         if not self.is_defined():
-            raise ValueError("`distance_cutoff` must be set or guessed before it is used.")
-        return self._user_distance_cutoff or self._guessed_distance_cutoff  # ty: ignore[invalid-return-type]
+            raise ValueError("`cutoff_distance` must be set or guessed before it is used.")
+        return self._user_cutoff_distance or self._guessed_cutoff_distance  # ty: ignore[invalid-return-type]
 
     def set(self, value: float):
         if self.is_guessed():
-            self._guessed_distance_cutoff = None
-        self._user_distance_cutoff = value
+            self._guessed_cutoff_distance = None
+        self._user_cutoff_distance = value
 
     def guess(self, resolution: "MolecularResolution"):
-        if resolution == "ALL_ATOM":
-            distance_cutoff = self.default_distance_cutoff_all_atom
+        if resolution.is_all_atom():
+            cutoff_distance = self.default_cutoff_distance_all_atom
             logger.debug(
-                f"chain detection: using default distance cutoff for all atom structures: {distance_cutoff:.2f}"
+                f"chain detection: using default distance cutoff for all atom structures: {cutoff_distance:.2f}"
             )
         else:
-            distance_cutoff = self.default_distance_cutoff_coarse_grain
+            cutoff_distance = self.default_cutoff_distance_coarse_grain
             logger.debug(
-                f"chain detection: using default distance cutoff for coarse grain structures: {distance_cutoff:.2f}"
+                f"chain detection: using default distance cutoff for coarse grain structures: {cutoff_distance:.2f}"
             )
-        self._guessed_distance_cutoff = distance_cutoff
+        self._guessed_cutoff_distance = cutoff_distance
 
 
 class _DistanceCutoffPydanticAnnotation:
@@ -67,28 +67,28 @@ class _DistanceCutoffPydanticAnnotation:
     Examples:
     >>> from grodecoder.settings import ChainDetectionSettings
     >>> cds = ChainDetectionSettings()
-    >>> cds.distance_cutoff
-    DistanceCutoff(_user_distance_cutoff=None, _guessed_distance_cutoff=None)
+    >>> cds.cutoff_distance
+    DistanceCutoff(_user_cutoff_distance=None, _guessed_cutoff_distance=None)
 
     >>> # Float assignement
-    >>> cds.distance_cutoff = 12
-    >>> cds.distance_cutoff
-    DistanceCutoff(_user_distance_cutoff=12.0, _guessed_distance_cutoff=None)
+    >>> cds.cutoff_distance = 12
+    >>> cds.cutoff_distance
+    DistanceCutoff(_user_cutoff_distance=12.0, _guessed_cutoff_distance=None)
 
     >>> # None assignment
-    >>> cds.distance_cutoff = None
-    >>> cds.distance_cutoff
-    DistanceCutoff(_user_distance_cutoff=None, _guessed_distance_cutoff=None)
+    >>> cds.cutoff_distance = None
+    >>> cds.cutoff_distance
+    DistanceCutoff(_user_cutoff_distance=None, _guessed_cutoff_distance=None)
 
     >>> # Serialization
-    >>> cds.distance_cutoff = 12
+    >>> cds.cutoff_distance = 12
     >>> cds.model_dump()
-    {'distance_cutoff': 12.0}
+    {'cutoff_distance': 12.0}
 
     >>> # Validation
     >>> as_json = cds.model_dump()
     >>> ChainDetectionSettings.model_validate(as_json)
-    ChainDetectionSettings(distance_cutoff=DistanceCutoff(_user_distance_cutoff=12.0, _guessed_distance_cutoff=None))
+    ChainDetectionSettings(cutoff_distance=DistanceCutoff(_user_cutoff_distance=12.0, _guessed_cutoff_distance=None))
     """
 
     @classmethod
@@ -96,7 +96,7 @@ class _DistanceCutoffPydanticAnnotation:
         """
         We return a pydantic_core.CoreSchema that behaves in the following ways:
 
-        * floats will be parsed as `DistanceCutoff` instances with the float as the `_user_distance_cutoff` attribute
+        * floats will be parsed as `DistanceCutoff` instances with the float as the `_user_cutoff_distance` attribute
         * `DistanceCutoff` instances will be parsed as `DistanceCutoff` instances without any changes
         * Nothing else will pass validation
         * Serialization will always return just a float
@@ -148,11 +148,11 @@ PydanticDistanceCutoff = Annotated[DistanceCutoff, _DistanceCutoffPydanticAnnota
 
 class ChainDetectionSettings(BaseSettings):
     model_config = ConfigDict(validate_assignment=True)
-    distance_cutoff: PydanticDistanceCutoff = Field(default_factory=DistanceCutoff)
+    cutoff_distance: PydanticDistanceCutoff = Field(default_factory=DistanceCutoff)
 
 
 class ResolutionDetectionSettings(BaseSettings):
-    distance_cutoff: float = 1.6
+    cutoff_distance: float = 1.6
 
 
 class OutputSettings(BaseSettings):

@@ -7,8 +7,8 @@
           2069,
           2070
         ],
-        "description": "calcium ion",
         "molecular_type": "ion",
+        "description": "calcium ion",
         "number_of_atoms": 3,
         "number_of_residues": 3,
         "name": "CAL"
@@ -35,8 +35,8 @@
           2088,
           2089
         ],
-        "description": "chloride ion",
         "molecular_type": "ion",
+        "description": "chloride ion",
         "number_of_atoms": 19,
         "number_of_residues": 19,
         "name": "CLA"
@@ -63,8 +63,8 @@
           2066,
           2067
         ],
-        "description": "sodium ion",
         "molecular_type": "ion",
+        "description": "sodium ion",
         "number_of_atoms": 19,
         "number_of_residues": 19,
         "name": "SOD"
@@ -21279,8 +21279,8 @@
           23295,
           23296
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 21207,
         "number_of_residues": 7069,
         "name": "TIP3"
@@ -23339,13 +23339,16 @@
           2047,
           2048
         ],
-        "sequence": "CCPLNWEYFQSSCYFFSTDTKSWALSLKNCSAMGAHLVVINSQEEQEFLSYKKPKMREFFIGLSDQVVEGQWQWVDGTPLTKSLSFWDVGEPNNIATLEDCATMRDSSNPRQNWNDVTCFLNYFRICEMV",
         "molecular_type": "protein",
         "number_of_atoms": 2049,
-        "number_of_residues": 130
+        "number_of_residues": 130,
+        "sequence": "CCPLNWEYFQSSCYFFSTDTKSWALSLKNCSAMGAHLVVINSQEEQEFLSYKKPKMREFFIGLSDQVVEGQWQWVDGTPLTKSLSFWDVGEPNNIATLEDCATMRDSSNPRQNWNDVTCFLNYFRICEMV"
       }
     ],
     "total_number_of_atoms": 23297
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "has_hydrogens"
+  }
 }

@@ -32,8 +32,8 @@
           32114,
           32115
         ],
-        "description": "chloride ion",
         "molecular_type": "ion",
+        "description": "chloride ion",
         "number_of_atoms": 28,
         "number_of_residues": 28,
         "name": "CLA"
@@ -145,8 +145,8 @@
           32086,
           32087
         ],
-        "description": "sodium ion",
         "molecular_type": "ion",
+        "description": "sodium ion",
         "number_of_atoms": 104,
         "number_of_residues": 104,
         "name": "SOD"
@@ -38554,8 +38554,8 @@
           70514,
           70515
         ],
-        "description": "water TIP3P solvant",
         "molecular_type": "solvent",
+        "description": "water TIP3P solvant",
         "number_of_atoms": 38400,
         "number_of_residues": 12800,
         "name": "TIP3"
@@ -40755,8 +40755,8 @@
           23430,
           23431
         ],
-        "description": "1-PALMITOYL-2-OLEOYL-INOSITOL",
         "molecular_type": "lipid",
+        "description": "1-PALMITOYL-2-OLEOYL-INOSITOL",
         "number_of_atoms": 2192,
         "number_of_residues": 16,
         "name": "POPI"
@@ -62004,8 +62004,8 @@
           21238,
           21239
         ],
-        "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLCHOLINE",
         "molecular_type": "lipid",
+        "description": "2,3 DIMYRISTOYL-D-GLYCERO-1-PHOSPHATIDYLCHOLINE",
         "number_of_atoms": 21240,
         "number_of_residues": 180,
         "name": "DMPC"
@@ -68591,8 +68591,8 @@
           30008,
           30009
         ],
-        "description": "PHOSPHATIDYLINOSITOL",
         "molecular_type": "lipid",
+        "description": "PHOSPHATIDYLINOSITOL",
         "number_of_atoms": 6578,
         "number_of_residues": 46,
         "name": "SAPI"
@@ -70574,8 +70574,8 @@
           31982,
           31983
         ],
-        "description": "1-STEAROYL-2-LINOLEOYL-PHOSPHATIDYLCHOLINE",
         "molecular_type": "lipid",
+        "description": "1-STEAROYL-2-LINOLEOYL-PHOSPHATIDYLCHOLINE",
         "number_of_atoms": 1974,
         "number_of_residues": 14,
         "name": "SLPI"
@@ -70584,5 +70584,8 @@
     "segments": [],
     "total_number_of_atoms": 70516
   },
-  "resolution": "all-atom"
+  "resolution": {
+    "value": "all_atom",
+    "reason": "has_hydrogens"
+  }
 }

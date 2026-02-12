@@ -11,10 +11,7 @@ from grodecoder.toputils import (
     has_bonds,
     has_bonds_between,
     detect_chains,
-    guess_resolution,
-    MolecularResolution,
 )
-from grodecoder.settings import get_settings
 
 TEST_DATA_DIR = Path(__file__).parent.parent / "data"
 GRO_SMALL = TEST_DATA_DIR / "barstar_water_ions.gro"
@@ -84,20 +81,6 @@ class TestTopUtilsSmallUniverse:
         # PDB_small has 1 chain
         assert len(result) == 1
         assert result[0] == (0, len(protein_atoms.residues) - 1)
-
-    def test_guess_resolution(self, small_universe):
-        """Test guess_resolution function with real data."""
-        result = guess_resolution(
-            small_universe, cutoff_distance=get_settings().resolution_detection.distance_cutoff
-        )
-        assert result == MolecularResolution.ALL_ATOM
-
-
-def test_guess_resolution_cg():
-    """Test guess_resolution with coarse-grained data."""
-    universe = mda.Universe(GRO_CG)
-    result = guess_resolution(universe, cutoff_distance=get_settings().resolution_detection.distance_cutoff)
-    assert result == MolecularResolution.COARSE_GRAINED
 
 
 def test_detect_chains_big():
