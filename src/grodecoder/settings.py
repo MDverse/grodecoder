@@ -47,7 +47,7 @@ class DistanceCutoff:
         self._user_cutoff_distance = value
 
     def guess(self, resolution: "MolecularResolution"):
-        if resolution == "ALL_ATOM":
+        if resolution.is_all_atom():
             cutoff_distance = self.default_cutoff_distance_all_atom
             logger.debug(
                 f"chain detection: using default distance cutoff for all atom structures: {cutoff_distance:.2f}"
