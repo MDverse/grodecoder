@@ -75,17 +75,17 @@ class TestGuessResolutionAllAtom:
         # Sets distances between atoms to 0.0
         universe.atoms.positions = np.zeros((n_atoms, 3))
 
-        result = guess_resolution(universe)
+        result = guess_resolution(universe, all_atom_cutoff_distance=2)
         assert result.value == ResolutionValue.ALL_ATOM
         assert result.reason == AllAtomResolutionReason.RESIDUES_HAVE_BONDS_WITHIN_CUTOFF
 
-        # Sets distances between atoms to 5.0 (distance > all-atom cutoff)
+        # Sets distances between atoms to 5.0
         coordinates = np.zeros((n_atoms, 3))
         for i in range(n_atoms):
             coordinates[i] = np.array((5 * i, 0.0, 0.0))
         universe.atoms.positions = coordinates
 
-        result = guess_resolution(universe)
+        result = guess_resolution(universe, all_atom_distance_cutoff=2)
         assert result.value == ResolutionValue.COARSE_GRAIN
         assert result.reason == CoarseGrainResolutionReason.HAS_NO_BOND_WITHIN_ALL_ATOM_CUTOFF
 
@@ -129,14 +129,14 @@ class TestGuessResolutionCoarseGrain:
         """Ensures models where no bond are found within typical all-atom distance are detected as coarse-grain."""
         universe = create_mock_coarse_grain()
 
-        # Sets distances between atoms to 5.0 (distance > all-atom cutoff)
+        # Sets distances between atoms to 5.0
         n_atoms = len(universe.atoms)
         coordinates = np.zeros((len(universe.atoms), 3))
         for i in range(n_atoms):
             coordinates[i] = np.array((5 * i, 0.0, 0.0))
         universe.atoms.positions = coordinates
 
-        result = guess_resolution(universe)
+        result = guess_resolution(universe, all_atom_distance_cutoff=2)
 
         assert result.value == ResolutionValue.COARSE_GRAIN
         assert result.reason == CoarseGrainResolutionReason.HAS_NO_BOND_WITHIN_ALL_ATOM_CUTOFF

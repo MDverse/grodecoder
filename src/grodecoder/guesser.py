@@ -107,10 +107,9 @@ def _is_martini(model: MDA.AtomGroup) -> bool:
     return bool(np.any(np.char.startswith(model.atoms.names.astype("U"), "BB")))
 
 
-def _has_bonds_within_all_atom_cutoff(model: MDA.AtomGroup) -> bool:
-    cutoff_distance = 1.6
+def _has_bonds_within_all_atom_cutoff(model: MDA.AtomGroup, distance_cutoff: float) -> bool:
     for residue in model.residues:
-        if has_bonds(residue, cutoff_distance):
+        if has_bonds(residue, distance_cutoff):
             return True
     return False
 
@@ -124,7 +123,7 @@ def _protein_has_hydrogen(model: MDA.AtomGroup) -> bool:
     return _has_hydrogen(model.select_atoms("protein"))
 
 
-def guess_resolution(universe) -> MolecularResolution:
+def guess_resolution(universe, all_atom_cutoff_distance: float = 1.6) -> MolecularResolution:
     """Guesses a system resolution (all-atom or coarse-grain)."""
     # Only one atom in the system: defaulting to all-atom.
     if len(universe.atoms) == 1:
@@ -159,7 +158,7 @@ def guess_resolution(universe) -> MolecularResolution:
 
     # Last chance: if we find any bond within a given distance, it's all-atom.
     # If we reach this point, it means that, for some reason, no hydrogen atom was detected before.
-    if _has_bonds_within_all_atom_cutoff(small_u):
+    if _has_bonds_within_all_atom_cutoff(small_u, all_atom_cutoff_distance):
         logger.debug("Found bonds within all-atom distance cutoff: resolution is all-atom")
         return MolecularResolution.AllAtomWithStandardBonds()
 
